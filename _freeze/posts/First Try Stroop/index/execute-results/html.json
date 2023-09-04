@@ -1,0 +1,14 @@
+{
+  "hash": "eb33bad91cc81ca51b2aff4c5209c4a8",
+  "result": {
+    "markdown": "---\ntitle: \"A Stroop Test in JsPsych\"\nauthor: \"Harlow Malloc\"\ndate: \"2023-09-03\"\ncategories: [JsPsych, code, psychology]\nimage: \"Stroop_comparison.png\"\n---\n\n\nIt is my first try in JsPsych.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\n<a>stroop.html</a>\n\n[Go to the Stroop Test](stroop.html)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

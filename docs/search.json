@@ -9,22 +9,36 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "psy2001",
+    "title": "Psy 2001 Journal - Hao Zhu",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nAug 31, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "A Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "posts/First Try Stroop/index.html",
+    "href": "posts/First Try Stroop/index.html",
+    "title": "A Stroop Test in JsPsych",
     "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2\n\n\nTest\n\ntable\n\n\nCol1\nCol2\nCol3\n\n\n\n\ndd\ncc\n\n\n\n\n2\n\n\n\n\n\n3"
+    "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/Topics for PSY345W/index.html",
+    "href": "posts/Topics for PSY345W/index.html",
+    "title": "Topics for the Final Project of PSY345W Experimental Psychology",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Here are some ideas for the Experimental Psychology final project.\nI am taking PSY345W Experimental Psychology, taught by Professor Curtis D. Hardin. He asks students to conduct an experiment before the end of the semester, which requires two variables. The blog is to record my potential topics for the final project. I would have more than ten ideas if I generated one per week."
+  },
+  {
+    "objectID": "posts/Topics for PSY345W/index.html#section",
+    "href": "posts/Topics for PSY345W/index.html#section",
+    "title": "Topics for the Final Project of PSY345W Experimental Psychology",
+    "section": "8-27-2023",
+    "text": "8-27-2023\nPedestrians in New York often walk across the street, ignoring a red signal. Under which conditions does this kind of behavior happen more? The uncontrolled variables can be days vs. nights, genders, one-direction road vs. two, and Manhattan vs. Brooklyn :). The controlled variable may be whether or not some people are moving across the street."
+  },
+  {
+    "objectID": "posts/Topics for PSY345W/index.html#section-1",
+    "href": "posts/Topics for PSY345W/index.html#section-1",
+    "title": "Topics for the Final Project of PSY345W Experimental Psychology",
+    "section": "9-3-2023",
+    "text": "9-3-2023\nStroop Test demonstrates a way to distract people. Under which conditions does this effect will be reduced? Potential answer can be changing the text size, upside down the text, adding hints, etc."
   }
 ]

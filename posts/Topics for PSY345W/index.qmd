@@ -1,0 +1,20 @@
+---
+title: "Topics for the Final Project of PSY345W Experimental Psychology"
+author: "Hao Zhu"
+date: "2023-09-03"
+categories: [idea, experiement, psychology]
+image: "final-project.png"
+---
+
+Here are some ideas for the Experimental Psychology final project.
+
+I am taking PSY345W Experimental Psychology, taught by Professor Curtis D. Hardin. He asks students to conduct an experiment before the end of the semester, which requires two variables. The blog is to record my potential topics for the final project. I would have more than ten ideas if I generated one per week.
+
+## 8-27-2023 
+
+Pedestrians in New York often walk across the street, ignoring a red signal. Under which conditions does this kind of behavior happen more? The uncontrolled variables can be days vs. nights, genders, one-direction road vs. two, and Manhattan vs. Brooklyn :). The controlled variable may be whether or not some people are moving across the street. 
+
+
+## 9-3-2023
+
+Stroop Test demonstrates a way to distract people. Under which conditions does this effect will be reduced? Potential answer can be changing the text size, upside down the text, adding hints, etc.

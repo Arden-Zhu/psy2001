@@ -1,8 +1,10 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - "*.html"
 website:
-  title: "psy2001"
+  title: "Psy2001 Journal - Hao Zhu"
   navbar:
     right:
       - about.qmd

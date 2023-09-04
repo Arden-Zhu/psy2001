@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Stroop Test</title>
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script>
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body></body>
+  <script>
+
+    /* initialize jsPsych */
+    var jsPsych = initJsPsych({
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+
+    /* create timeline */
+    var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<span style="font-size:x-large">Welcome to Interactive Stroop Test. Press any key to begin.</span>`
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+		<div style="width:800px">
+			<p>In this experiment, you will see text in four colors, <span style="color:blue">Blue</span>, <span style="color:red">Red</span>, <span style="color:green">Green</span>, <span style="color:brown">brown</span>, and press a key related to each color as soon as possible.
+			For example, you will press key D whenever you see a word in color <span style="color:blue">Blue</span>, even if the word is <span style="color:blue">Red</span> or <span style="color:blue">Green</span>.
+			Here is the Color and Key map.</p>
+			<ul style="list-style-type:none">
+				<li style="color:blue">Blue - key D</li>
+				<li style="color:red">Red - key F</li>
+				<li style="color:green">Green - key J</li>
+				<li style="color:brown">Brown - key K</li>
+			</ul>
+			<p>The experiment will start with a practice for you to be familiar with the key mapping. Then a test will start.</p>
+			</p></p>	  
+			<p>Press any key to begin the practice.</p>
+		</div>
+      `
+    };
+    timeline.push(instructions);
+
+	/* define practice */
+	var colors = [
+		{ color: "Blue", key: "D" },
+		{ color: "Red", key: "F" },
+		{ color: "Green", key: "J" },
+		{ color: "Brown", key: "K" },
+	];
+
+	var practice_stimuli = [];
+	for (let i = 0; i < colors.length; i++) {
+		let color = colors[i];
+		let nextColor = colors[(i+1) % 4];
+
+		practice_stimuli.push({
+			text: color.color,
+			color: color.color,
+			key: color.key,
+		});
+		practice_stimuli.push({
+			text: nextColor.color,
+			color: color.color,
+			key: color.key,
+		});
+	}
+	
+    var practice = {
+      type: jsPsychHtmlKeyboardResponse,
+	  choices: [jsPsych.timelineVariable('key'),],
+      stimulus: function() {
+		  return `
+			<div style="width:800px">
+				<p style="color:${jsPsych.timelineVariable('color')};font-size:xxx-large">
+					${jsPsych.timelineVariable('text')}
+				</p>
+				<p> Press the key ${jsPsych.timelineVariable('key')}, please.</p>
+			</div>
+		  `
+	  }
+    };
+	
+	var practice_procedure = {
+		timeline: [practice],
+		timeline_variables: practice_stimuli
+	};
+    timeline.push(practice_procedure);
+	
+	/* define reminder */
+    var reminder = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+		<div style="width:800px">
+			<p>The test will start. Remember to press the key according to the color rather than the word.</p>
+			<p>Press any key to begin.</p>
+		</div>
+		`
+    };
+    timeline.push(reminder);
+	
+	/* define test */
+	var test_stimuli = [];
+	
+	var sample = jsPsych.randomization.sampleWithReplacement(colors, 10);
+	for (let instance of sample) {
+		test_stimuli.push({
+			text: instance.color,
+			color: instance.color,
+			key: instance.key,
+			is_congruent: true,
+			});
+	}
+	
+	var uncongruent = []
+	for (let i = 0; i < colors.length; i++) {
+		for (let j = 0; j < colors.length; j++) {
+			if (i != j) {
+				uncongruent.push({
+					text: colors[i].color,
+					color: colors[j].color,
+					key: colors[j].key,
+					is_congruent: false,
+				});				
+			}
+		}
+	}
+	sample = jsPsych.randomization.sampleWithoutReplacement(uncongruent, 10);
+	test_stimuli = test_stimuli.concat(sample);
+	
+    var test = {
+      type: jsPsychHtmlKeyboardResponse,
+	  choices: ["D","F","J","K"],
+      stimulus: function() {
+		  return `
+			<div style="width:800px">
+				<p style="color:${jsPsych.timelineVariable('color')};font-size:xxx-large">
+					${jsPsych.timelineVariable('text')}
+				</p>
+			</div>
+		  `
+	  },
+      data: {
+        task: 'response',
+		//the_color: jsPsych.timelineVariable('color'),
+		//the_text: jsPsych.timelineVariable('text'),
+		// is_congruent: jsPsych.timelineVariable('color').toString().localeCompare(jsPsych.timelineVariable('text').toString()),
+		is_congruent: jsPsych.timelineVariable('is_congruent'),
+        correct_response: jsPsych.timelineVariable('key')
+      },
+      on_finish: function(data){
+        data.is_correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+      }
+    };
+	
+	var test_procedure = {
+		timeline: [test],
+		timeline_variables: test_stimuli,
+		randomize_order: true,
+	};
+    timeline.push(test_procedure);
+
+    /* define debrief */
+    var debrief_block = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function() {
+        var trials = jsPsych.data.get().filter({task: 'response'});
+		console.log(trials);
+		var congruents = trials.filter({is_congruent: true});
+		console.log(congruents);
+        var correct_congruents = congruents.filter({is_correct: true});
+        var accuracy_congruents = Math.round(correct_congruents.count() / congruents.count() * 100);
+        var rt_congruents = Math.round(congruents.select('rt').mean());
+
+		var uncongruents = trials.filter({is_congruent: false});
+		console.log(uncongruents);
+        var correct_uncongruents = uncongruents.filter({is_correct: true});
+        var accuracy_uncongruents = Math.round(correct_uncongruents.count() / uncongruents.count() * 100);
+        var rt_uncongruents = Math.round(uncongruents.select('rt').mean());
+
+        return `
+			<div style="width:800px">
+				<p>You responded correctly on ${accuracy_congruents}% of the congruential trials with an average response time of ${rt_congruents}ms..</p>
+				<p>On the contrast, you responded correctly on ${accuracy_uncongruents}% of the uncongruential trials with an average response time of ${rt_uncongruents}ms..</p>
+				<p></p>
+				<p>Press any key to complete the experiment. Thank you!</p>
+			</div>
+		`;
+      }
+    };
+    timeline.push(debrief_block);
+
+    /* start the experiment */
+    jsPsych.run(timeline);
+
+  </script>
+</html>
