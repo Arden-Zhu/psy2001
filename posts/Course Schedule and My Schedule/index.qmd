@@ -1,0 +1,27 @@
+---
+title: "Course Schedule and My Goal"
+author: "Hao Zhu"
+date: "2023-09-04"
+categories: [plan, psychology]
+image: "schedule.jpg"
+---
+
+This is a course schedule copied from Professor Matthew plus my goals.
+
+| Week | Activity/Goal                                          |My Goal                                        |
+|------|--------------------------------------------------------|-----------------------------------------------|
+| 1    | Orientation/Set-up Quarto blogs                        |Set-up Quarto blogs/Document my Stroop Test    |
+| 2    | Basic HTML and Javascript coding                       |Learn Jatos/datapipe                           |
+| 3    | JsPsych overview and Simple Reaction time task demo    |Incorporate Jatos/datapipe into the Stroop Test|
+| 4    | Programming a Stroop Experiment in JsPsych             |                                               |
+| 5    | Analyzing data from a Stroop Experiment in R           |Practice data analysis in R                    |
+| 6    | Programming a Recognition Memory Experiment in JsPsych |Code the Memory Test in JsPsych and R          |
+| 7    | Analyzing data from a Memory experiment in R           |                                               |
+| 8    | Replicating a classic cognitive experiment in Jspsych  |Replicate the test                             |
+| 9    | Choosing your own experiment to replicate              |                                               |
+| 10   | Independent Replication Implementation                 |                                               |
+| 11   | Independent Replication Implementation                 |                                               |
+| 12   | Pilot Data collection                                  |                                               |
+| 13   | Independent Replication analysis                       |                                               |
+| 14   | Advanced topics/Presentations                          |                                               |
+| 15   | Advanced topics/Presentations                          |                                               |

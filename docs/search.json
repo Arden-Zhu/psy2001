@@ -11,7 +11,14 @@
     "href": "index.html",
     "title": "Psy 2001 Journal - Hao Zhu",
     "section": "",
-    "text": "A Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "Course Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Course Schedule and My Schedule/index.html",
+    "href": "posts/Course Schedule and My Schedule/index.html",
+    "title": "Course Schedule and My Goal",
+    "section": "",
+    "text": "This is a course schedule copied from Professor Matthew plus my goals.\n\n\n\n\n\n\n\n\nWeek\nActivity/Goal\nMy Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\nSet-up Quarto blogs/Document my Stroop Test\n\n\n2\nBasic HTML and Javascript coding\nLearn Jatos/datapipe\n\n\n3\nJsPsych overview and Simple Reaction time task demo\nIncorporate Jatos/datapipe into the Stroop Test\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n\n5\nAnalyzing data from a Stroop Experiment in R\nPractice data analysis in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\nCode the Memory Test in JsPsych and R\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\nReplicate the test\n\n\n9\nChoosing your own experiment to replicate\n\n\n\n10\nIndependent Replication Implementation\n\n\n\n11\nIndependent Replication Implementation\n\n\n\n12\nPilot Data collection\n\n\n\n13\nIndependent Replication analysis\n\n\n\n14\nAdvanced topics/Presentations\n\n\n\n15\nAdvanced topics/Presentations"
   },
   {
     "objectID": "posts/First Try Stroop/index.html",
