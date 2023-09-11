@@ -3,7 +3,7 @@ title: "Use Jatos to Deploy my Stroop Test"
 author: "Hao Zhu"
 date: "2023-09-10"
 categories: [JsPsych, code, psychology]
-image: "Stroop_comparison.png"
+image: "jatos_logo_color.svg"
 ---
 
 Study Jatos and deploy my Stroop test to a server.

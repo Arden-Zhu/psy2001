@@ -5,6 +5,7 @@
     <script src="https://unpkg.com/jspsych@7.3.3"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
     <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
     <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
   </head>
   <body></body>
@@ -168,6 +169,19 @@
 	};
     timeline.push(test_procedure);
 
+    /* save data with DataPipe */
+    const subject_id = jsPsych.randomization.randomID(10);
+    const filename = `${subject_id}.csv`;
+
+    const save_data = {
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "478JTfm2S8zr",
+      filename: filename,
+      data_string: ()=>jsPsych.data.get().csv()
+    };            
+    
+    timeline.push(save_data);
     /* define debrief */
     var debrief_block = {
       type: jsPsychHtmlKeyboardResponse,
@@ -197,7 +211,7 @@
       }
     };
     timeline.push(debrief_block);
-
+    
     /* start the experiment */
     jsPsych.run(timeline);
 

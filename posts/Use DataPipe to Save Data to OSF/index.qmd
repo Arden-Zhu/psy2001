@@ -1,0 +1,37 @@
+---
+title: "Use DataPipe to Save Data to OSF"
+author: "Hao Zhu"
+date: "2023-09-10"
+categories: [JsPsych, code, psychology]
+image: "data-pipe.png"
+---
+
+Study [DataPipe](https://pipe.jspsych.org/) and update my Stroop test to save result data to OSF.
+
+1. Follow the [instructions](https://pipe.jspsych.org/getting-started) and do these.
+- Create an OSF account and a new project on it
+- Create a DataPipe account and link it to my OSF account by using an OSF token
+- Create a new experiment on DataPipe and configurate it
+
+2. Update my stroop.html to send data
+```javascript
+    /* save data with DataPipe */
+    const subject_id = jsPsych.randomization.randomID(10);
+    const filename = `${subject_id}.csv`;
+
+    const save_data = {
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "478JTfm2S8zr",
+      filename: filename,
+      data_string: ()=>jsPsych.data.get().csv()
+    };            
+    
+    timeline.push(save_data);
+```
+
+The [Stroop Test](../First Try Stroop/stroop.html) is ready for sending data to my OSF project.
+
+
+
+
