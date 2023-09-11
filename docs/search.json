@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Psy 2001 Journal - Hao Zhu",
     "section": "",
-    "text": "Course Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "Use Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Course Schedule and My Schedule/index.html",
@@ -47,5 +47,12 @@
     "title": "Topics for the Final Project of PSY345W Experimental Psychology",
     "section": "9-3-2023",
     "text": "9-3-2023\nStroop Test demonstrates a way to distract people. Under which conditions does this effect will be reduced? Potential answer can be changing the text size, upside down the text, adding hints, etc."
+  },
+  {
+    "objectID": "posts/Use Jatos to Deploy My Stroop Test/index.html",
+    "href": "posts/Use Jatos to Deploy My Stroop Test/index.html",
+    "title": "Use Jatos to Deploy my Stroop Test",
+    "section": "",
+    "text": "Study Jatos and deploy my Stroop test to a server.\n\nRun on local\n\nFollow the instruction to install Jatos on my local computer.\nClick “New Study” to an item and set these properties:\n\n\nTitle: Hao Zhu’ Stroop\nStudy assets’ directory name: hao_zhu_stroop\n\n\nClick “New Component” under the newly created study and set the properties:\n\n\nTitle: Experiment\nHTML file path: stroop.html\n\n\nCopy my stroop html under folder hao_zhu_stroop and update it.\n\n\nAdd script link\n\n&lt;script src=\"jatos.js\"&gt;&lt;/script&gt;\n\nInitialize jsPsych\n\n    var jsPsych = initJsPsych({\n      on_trial_start: jatos.addAbortButton,\n      on_finish: () =&gt; jatos.endStudy(jsPsych.data.get().json())\n    });\n\nStart the experiment\n\n    jatos.onLoad(() =&gt; {\n      jsPsych.run(timeline);\n    });\nNow, the experiment is ready to run on the local.\n\n\nRun on a server\n\nClick “Export” to generate a jzip file.\nOpen Jatos Tryout Server and login with my google account.\nImport the exported file.\nRequest an account from MindProbe"
   }
 ]
