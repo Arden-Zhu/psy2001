@@ -8,43 +8,53 @@ image: "jatos_logo_color.svg"
 
 Study Jatos and deploy my Stroop test to a server.
 
-
 # Run on local
-1. Follow [the instruction](https://www.jatos.org/Installation.html) to install Jatos on my local computer.
 
-2. Click "New Study" to an item and set these properties:
+1.  Follow [the instruction](https://www.jatos.org/Installation.html) to install Jatos on my local computer.
 
-- Title: Hao Zhu' Stroop
+2.  Click "New Study" to an item and set these properties:
 
-- Study assets' directory name: hao_zhu_stroop
+-   Title: Hao Zhu' Stroop
 
-3. Click "New Component" under the newly created study and set the properties:
-- Title: Experiment
-- HTML file path: stroop.html
+-   Study assets' directory name: hao_zhu_stroop
 
-4. Copy my stroop html under folder hao_zhu_stroop and update it.
-- Add script link
-```html
+3.  Click "New Component" under the newly created study and set the properties:
+
+-   Title: Experiment
+-   HTML file path: stroop.html
+
+4.  Copy my stroop html under folder hao_zhu_stroop and update it.
+
+-   Add script link
+
+``` html
 <script src="jatos.js"></script>
 ```
-- Initialize jsPsych
-```javascript
+
+-   Initialize jsPsych
+
+``` javascript
     var jsPsych = initJsPsych({
       on_trial_start: jatos.addAbortButton,
       on_finish: () => jatos.endStudy(jsPsych.data.get().json())
     });
 ```
-- Start the experiment
-```javascript
+
+-   Start the experiment
+
+``` javascript
     jatos.onLoad(() => {
       jsPsych.run(timeline);
     });
 ```
+
 Now, the experiment is ready to run on the local.
 
 # Run on a server
-1. Click "Export" to generate a jzip file.
-2. Open [Jatos Tryout Server](https://cortex.jatos.org) and login with my google account.
-3. Import the exported file.
-4. Request an account from [MindProbe](https://mindprobe.eu/#request-account)
 
+1.  Click "Export" to generate a jzip file.
+2.  Open [Jatos Tryout Server](https://cortex.jatos.org) and login with my google account.
+3.  Import the exported file.
+4.  Request an account from [MindProbe](https://mindprobe.eu/#request-account)
+5.  After getting an account, import the exported file to the MindProbe to create a study on it.
+6.  A Study Link can be shared with participants. A Single Study Link can use once, yet a Multiple Study Link can use many times. Here is a [Multiple Study Link](https://jatos.mindprobe.eu/publix/jHxUPEgpawV) of the study.
