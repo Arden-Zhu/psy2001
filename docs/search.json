@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Psy 2001 Journal - Hao Zhu",
     "section": "",
-    "text": "Use DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Course Schedule and My Schedule/index.html",
     "href": "posts/Course Schedule and My Schedule/index.html",
     "title": "Course Schedule and My Goal",
     "section": "",
-    "text": "This is a course schedule copied from Professor Matthew plus my goals.\n\n\n\n\n\n\n\n\nWeek\nActivity/Goal\nMy Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\nSet-up Quarto blogs/Document my Stroop Test\n\n\n2\nBasic HTML and Javascript coding\nLearn Jatos/datapipe\n\n\n3\nJsPsych overview and Simple Reaction time task demo\nIncorporate Jatos/datapipe into the Stroop Test\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n\n5\nAnalyzing data from a Stroop Experiment in R\nPractice data analysis in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\nCode the Memory Test in JsPsych and R\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\nReplicate the test\n\n\n9\nChoosing your own experiment to replicate\n\n\n\n10\nIndependent Replication Implementation\n\n\n\n11\nIndependent Replication Implementation\n\n\n\n12\nPilot Data collection\n\n\n\n13\nIndependent Replication analysis\n\n\n\n14\nAdvanced topics/Presentations\n\n\n\n15\nAdvanced topics/Presentations"
+    "text": "This is a course schedule copied from Professor Matthew plus my goals.\n\n\n\n\n\n\n\n\nWeek\nActivity/Goal\nMy Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\nSet-up Quarto blogs/Document my Stroop Test\n\n\n2\nBasic HTML and Javascript coding\nIncorporate Jatos/datapipe into the Stroop Test\n\n\n3\nJsPsych overview and Simple Reaction time task demo\nRead Moving Experimental Psychology Online\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n\n5\nAnalyzing data from a Stroop Experiment in R\nPractice data analysis in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\nCode the Memory Test in JsPsych and R\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\nReplicate the test\n\n\n9\nChoosing your own experiment to replicate\n\n\n\n10\nIndependent Replication Implementation\n\n\n\n11\nIndependent Replication Implementation\n\n\n\n12\nPilot Data collection\n\n\n\n13\nIndependent Replication analysis\n\n\n\n14\nAdvanced topics/Presentations\n\n\n\n15\nAdvanced topics/Presentations\n\n\n\n\nTodos:\n\nAdd a survey before the test\nTry Mturk or Academic Prolific\nRead Evaluating Amazon’s Mechanical Turk as a Tool"
   },
   {
     "objectID": "posts/First Try Stroop/index.html",
@@ -26,6 +26,132 @@
     "title": "A Stroop Test in JsPsych",
     "section": "",
     "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "",
+    "text": "This is a note of reading Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants written by Jennifer M. Rodd."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#why-would-we-want-to-do-our-experiements-online",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#why-would-we-want-to-do-our-experiements-online",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Why would we want to do our experiements online?",
+    "text": "Why would we want to do our experiements online?\n\nout of necessity\nsave time and cost\nnew opportunities for behavioral research\nimproved efficiency"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#can-we-trust-the-data-from-online-experiments",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#can-we-trust-the-data-from-online-experiments",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Can we trust the data from online experiments?",
+    "text": "Can we trust the data from online experiments?\nBroadly speaking, preserving high data quality during online testing requires us to carefully consider three key issues that are inevitably affected by this shift away from the lab: technology, recruitment and participant performance."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliance-on-web-based-communication",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliance-on-web-based-communication",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Reliance on Web-Based Communication",
+    "text": "Reliance on Web-Based Communication\noptions on the customization-flexibility spectrum\nInternet speed, preloading, timeout setting, saving data in the background\nall experiments should be routinely piloted on a slow connection to better understand any consequences that connectivity issues may have for participants’ experience of the task.\nit is useful to monitor how a particular experiment runs in practice by including questions in the debrief that would reveal any issues that might arise due to connectivity issues, e.g., slow loading times, unexpected delays between trials"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliance-on-participants-hardware-and-software",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliance-on-participants-hardware-and-software",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Reliance on Participants’ Hardware and Software",
+    "text": "Reliance on Participants’ Hardware and Software\na large variation of hardware and software"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#recommendations-minimum-tech-requirement",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#recommendations-minimum-tech-requirement",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Recommendations: Minimum Tech Requirement",
+    "text": "Recommendations: Minimum Tech Requirement\nThe precision and reliability of time information with respect to both stimulus presentation and repseonse measurement\nauditory and visual devices\nwe would always exclude participants with unsuitable tech before the start of the experiment by indicating our requirements at sign up.\nIn such cases, where exclusion criteria are not clear cut, the best approach may be to record all potentially relevant information about a participants’ tech setup and then explore the impact of these differences in the analysis stage."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-considerations-the-tricky-cases",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-considerations-the-tricky-cases",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "General Considerations: The Tricky Cases",
+    "text": "General Considerations: The Tricky Cases\na confound between socioeconomic status and responses in experiments\nthe precision of stimulus presentation duration may be a problem."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#recruitment-approaches",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#recruitment-approaches",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Recruitment Approaches",
+    "text": "Recruitment Approaches\n\nIndirect Recruitment via Crowdsourcing platforms\nhttps://www.mturk.com\nProlific Academic\nTestable Minds\nCloud Research\nCrowdworks\nproviders corated samples with specific geographic characteristics\n\n\nDirect Recruitment via social media or existing networks\n‘word of mouth’ sharing via social media was responsible for the majority of their recruitment success\nSea Hero Quest"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-motivation",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-motivation",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Participant Motivation",
+    "text": "Participant Motivation\nThese usually tap into one (or more) of the following sources of motivation: financial reward, altruism, knowledge seeking, and entertainment"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-naivetry-and-the-superworker-problem",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-naivetry-and-the-superworker-problem",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Participant Naivetry and the Superworker problem",
+    "text": "Participant Naivetry and the Superworker problem"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliability-of-participant-demographics",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#reliability-of-participant-demographics",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Reliability of Participant Demographics",
+    "text": "Reliability of Participant Demographics\nrecommend additional within-experiment recording of participants’ demographic information, especially when this information is key to the aims of the research\nit is important to consider why this information may be inaccurate."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#selective-attrition",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#selective-attrition",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Selective Attrition",
+    "text": "Selective Attrition\nthe dropout rate is higher than laboratory experiments\nFirst they should ensure that the experimental software is recording all partial data. Second, researchers should ensure that details of any dropout is reported clearly, broken down by experimental condition so that readers can consider any potential impact of selective attrition."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-considerations",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-considerations",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "General Considerations",
+    "text": "General Considerations"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#misunderstanding-of-task-instructions",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#misunderstanding-of-task-instructions",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "(Mis)understanding of task instructions",
+    "text": "(Mis)understanding of task instructions\nThe primary challenge when optimising task instructions is to overcome our familiarity with the tasks and ensure that they are completely clear to participants with no previous knowledge of our paradigm.\nincluding a short questionnaire at the end of the instruction phase which tests knowledge of the task, and which requires participants who answer any of these questions incorrectly to read the instruction again before starting the task.\nit can be useful, after data collection to check the time taken by participants to read instructions in order to identify any participants who skimmed (or did not read) this information\nsome researchers have found it useful to ask participants at the end of the experiment to describe in their own words what they ‘understood their task to be’.\nIn such cases it is important to tell participants that we don’t expect perfect performance in order to alleviate any potential stress and to avoid participants giving up (or looking things up online) when things get unexpectedly difficult\nexperiments that use the staircase method to adjust item difficulty to be close to a given participant’s performance threshold"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-attentiveness",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#participant-attentiveness",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Participant Attentiveness",
+    "text": "Participant Attentiveness\nThere are several reasons to assume that participant attentiveness may be lower for online experiments compared with lab-based tasks.\nThere are some very general safeguards that we can (and should) employ.\n\nIncluding questions in the set-up stage of the experiment where participants are asked to explicitly confirm that they are in a suitable, quiet environment where distractions are unlikely\nit can be beneficial to ask participants to report at the end of the task if their performance was adversely affected by any interruptions.\nMy preference, for many experiment types, is instead to include occasional very easy trials on which we can confidently expect near-ceiling performance in our target population, such that we can exclude any participants who fail on these trials."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#explicit-cheating",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#explicit-cheating",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "Explicit cheating",
+    "text": "Explicit cheating\n\nOptions include honesty checks that the end of the experiment, making clear that participants’ payment will not be adversely effected,\nchecks of participants’ data for well-established patterns that might be absent if participants have not relied on their own memory"
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-advice",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#general-advice",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "General Advice",
+    "text": "General Advice\n\nFirst I strongly advocate that all online tasks be set up to collect data about how long participants take to complete all its constituent elements. (i) read your instructions and (ii) respond to each item\nSecond, the inclusion of open ended questions at the end of the experiment can be highly beneficial and give important insights into participant behaviour.\n\nSpecifically I recommend routinely asking participants whether anything unexpected happened during the experiments, or to report any issues that they think may have impacted their performance.\nAdditional helpful information can be obtained by indicating to participants that you plan to conduct similar experiments in the future and to ask for their suggestions for improvements."
+  },
+  {
+    "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#a-general-systematic-approach",
+    "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html#a-general-systematic-approach",
+    "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
+    "section": "A general, systematic approach",
+    "text": "A general, systematic approach\n\nStage 1: specify experiment-specific data quality concerns\nStage 2: design study-specific exclusion criteria\nStage 3: Piloting of exclusion criteria\nStage 4: preresiger study-specific exclusion criteria\nStage 5: review exclusion criteria after data collection"
   },
   {
     "objectID": "posts/Topics for PSY345W/index.html",

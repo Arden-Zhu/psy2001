@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Hao Zhu">
-<meta name="dcterms.date" content="2023-09-04">
+<meta name="dcterms.date" content="2023-09-17">
 
-<title>Psy2001 Journal - Hao Zhu - Course Schedule and My Goal</title>
+<title>Psy2001 Journal - Hao Zhu - Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Course Schedule and My Goal</h1>
+      <h1 class="title">Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">plan</div>
+                <div class="quarto-category">note</div>
                 <div class="quarto-category">psychology</div>
               </div>
                   </div>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 4, 2023</p>
+        <p class="date">September 17, 2023</p>
       </div>
     </div>
     
@@ -152,106 +152,173 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a course schedule copied from Professor Matthew plus my goals.</p>
-<table class="table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 40%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Activity/Goal</th>
-<th>My Goal</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Orientation/Set-up Quarto blogs</td>
-<td>Set-up Quarto blogs/Document my Stroop Test</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Basic HTML and Javascript coding</td>
-<td>Incorporate Jatos/datapipe into the Stroop Test</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>JsPsych overview and Simple Reaction time task demo</td>
-<td>Read <em>Moving Experimental Psychology Online</em></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Programming a Stroop Experiment in JsPsych</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Analyzing data from a Stroop Experiment in R</td>
-<td>Practice data analysis in R</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Programming a Recognition Memory Experiment in JsPsych</td>
-<td>Code the Memory Test in JsPsych and R</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>Analyzing data from a Memory experiment in R</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Replicating a classic cognitive experiment in Jspsych</td>
-<td>Replicate the test</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>Choosing your own experiment to replicate</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>Independent Replication Implementation</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>Independent Replication Implementation</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>Pilot Data collection</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>Independent Replication analysis</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>Advanced topics/Presentations</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td>Advanced topics/Presentations</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Todos:</p>
+<p>This is a note of reading <em>Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants</em> written by Jennifer M. Rodd.</p>
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>presenting three key aspects of online data collection: technology, recruitment, and participant performance</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Many researchers have well-founded concerns about the lack of experimental control that arises when research moves out of laboratory conditions.</p>
+<section id="why-would-we-want-to-do-our-experiements-online" class="level2">
+<h2 class="anchored" data-anchor-id="why-would-we-want-to-do-our-experiements-online">Why would we want to do our experiements online?</h2>
 <ul>
-<li>Add a survey before the test</li>
-<li>Try Mturk or Academic Prolific</li>
-<li>Read Evaluating Amazon’s Mechanical Turk as a Tool</li>
+<li>out of necessity</li>
+<li>save time and cost</li>
+<li>new opportunities for behavioral research</li>
+<li>improved efficiency</li>
 </ul>
+</section>
+<section id="can-we-trust-the-data-from-online-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="can-we-trust-the-data-from-online-experiments">Can we trust the data from online experiments?</h2>
+<p>Broadly speaking, preserving high data quality during online testing requires us to carefully consider three key issues that are inevitably affected by this shift away from the lab: technology, recruitment and participant performance.</p>
+</section>
+</section>
+<section id="technology" class="level1">
+<h1>Technology</h1>
+<section id="reliance-on-web-based-communication" class="level2">
+<h2 class="anchored" data-anchor-id="reliance-on-web-based-communication">Reliance on Web-Based Communication</h2>
+<p>options on the customization-flexibility spectrum</p>
+<p>Internet speed, preloading, timeout setting, saving data in the background</p>
+<p>all experiments should be routinely piloted on a slow connection to better understand any consequences that connectivity issues may have for participants’ experience of the task.</p>
+<p>it is useful to monitor how a particular experiment runs in practice by including questions in the debrief that would reveal any issues that might arise due to connectivity issues, e.g., slow loading times, unexpected delays between trials</p>
+</section>
+<section id="reliance-on-participants-hardware-and-software" class="level2">
+<h2 class="anchored" data-anchor-id="reliance-on-participants-hardware-and-software">Reliance on Participants’ Hardware and Software</h2>
+<p>a large variation of hardware and software</p>
+</section>
+<section id="recommendations-minimum-tech-requirement" class="level2">
+<h2 class="anchored" data-anchor-id="recommendations-minimum-tech-requirement">Recommendations: Minimum Tech Requirement</h2>
+<p>The precision and reliability of time information with respect to both stimulus presentation and repseonse measurement</p>
+<p>auditory and visual devices</p>
+<p>we would always exclude participants with unsuitable tech before the start of the experiment by indicating our requirements at sign up.</p>
+<p>In such cases, where exclusion criteria are not clear cut, the best approach may be to record all potentially relevant information about a participants’ tech setup and then explore the impact of these differences in the analysis stage.</p>
+</section>
+<section id="general-considerations-the-tricky-cases" class="level2">
+<h2 class="anchored" data-anchor-id="general-considerations-the-tricky-cases">General Considerations: The Tricky Cases</h2>
+<p>a confound between socioeconomic status and responses in experiments</p>
+<p>the precision of stimulus presentation duration may be a problem.</p>
+</section>
+</section>
+<section id="recruitment" class="level1">
+<h1>Recruitment</h1>
+<section id="recruitment-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="recruitment-approaches">Recruitment Approaches</h2>
+<section id="indirect-recruitment-via-crowdsourcing-platforms" class="level3">
+<h3 class="anchored" data-anchor-id="indirect-recruitment-via-crowdsourcing-platforms">Indirect Recruitment via Crowdsourcing platforms</h3>
+<p><a href="https://www.mturk.com" class="uri">https://www.mturk.com</a><br>
+<a href="https://www.prolific.co">Prolific Academic</a><br>
+<a href="https://www.testable.org/minds">Testable Minds</a><br>
+<a href="https://www.cloudresearch.com/">Cloud Research</a><br>
+<a href="https://crowdworks.jp/">Crowdworks</a></p>
+<p>providers corated samples with specific geographic characteristics</p>
+</section>
+<section id="direct-recruitment-via-social-media-or-existing-networks" class="level3">
+<h3 class="anchored" data-anchor-id="direct-recruitment-via-social-media-or-existing-networks">Direct Recruitment via social media or existing networks</h3>
+<p>‘word of mouth’ sharing via social media was responsible for the majority of their recruitment success</p>
+<p><a href="https://glitchers.com/project/sea-hero-quest">Sea Hero Quest</a></p>
+</section>
+</section>
+<section id="participant-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="participant-motivation">Participant Motivation</h2>
+<p>These usually tap into one (or more) of the following sources of motivation: financial reward, altruism, knowledge seeking, and entertainment</p>
+</section>
+<section id="participant-naivetry-and-the-superworker-problem" class="level2">
+<h2 class="anchored" data-anchor-id="participant-naivetry-and-the-superworker-problem">Participant Naivetry and the Superworker problem</h2>
+</section>
+<section id="reliability-of-participant-demographics" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-of-participant-demographics">Reliability of Participant Demographics</h2>
+<p>recommend additional within-experiment recording of participants’ demographic information, especially when this information is key to the aims of the research</p>
+<p>it is important to consider why this information may be inaccurate.</p>
+</section>
+<section id="selective-attrition" class="level2">
+<h2 class="anchored" data-anchor-id="selective-attrition">Selective Attrition</h2>
+<p>the dropout rate is higher than laboratory experiments</p>
+<p>First they should ensure that the experimental software is recording all partial data. Second, researchers should ensure that details of any dropout is reported clearly, broken down by experimental condition so that readers can consider any potential impact of selective attrition.</p>
+</section>
+<section id="general-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="general-considerations">General Considerations</h2>
+</section>
+</section>
+<section id="participant-performance" class="level1">
+<h1>Participant Performance</h1>
+<p>review a number of (related) issues that can arise during the experiment, such that participants fail to perform your task(s) in the way you had intended and thereby reduce (or even destroy) your data quality.</p>
+<section id="misunderstanding-of-task-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="misunderstanding-of-task-instructions">(Mis)understanding of task instructions</h2>
+<p>The primary challenge when optimising task instructions is to overcome our familiarity with the tasks and ensure that they are completely clear to participants with no previous knowledge of our paradigm.</p>
+<p>including a short questionnaire at the end of the instruction phase which tests knowledge of the task, and which requires participants who answer any of these questions incorrectly to read the instruction again before starting the task.</p>
+<p>it can be useful, after data collection to check the time taken by participants to read instructions in order to identify any participants who skimmed (or did not read) this information</p>
+<p>some researchers have found it useful to ask participants at the end of the experiment to describe in their own words what they ‘understood their task to be’.</p>
+<p>In such cases it is important to tell participants that we don’t expect perfect performance in order to alleviate any potential stress and to avoid participants giving up (or looking things up online) when things get unexpectedly difficult</p>
+<p>experiments that use the staircase method to adjust item difficulty to be close to a given participant’s performance threshold</p>
+</section>
+<section id="participant-attentiveness" class="level2">
+<h2 class="anchored" data-anchor-id="participant-attentiveness">Participant Attentiveness</h2>
+<p>There are several reasons to assume that participant attentiveness may be lower for online experiments compared with lab-based tasks.</p>
+<p>There are some very general safeguards that we can (and should) employ.</p>
+<ul>
+<li><p>Including questions in the set-up stage of the experiment where participants are asked to explicitly confirm that they are in a suitable, quiet environment where distractions are unlikely</p></li>
+<li><p>it can be beneficial to ask participants to report at the end of the task if their performance was adversely affected by any interruptions.</p></li>
+<li><p>My preference, for many experiment types, is instead to include occasional very easy trials on which we can confidently expect near-ceiling performance in our target population, such that we can exclude any participants who fail on these trials.</p></li>
+</ul>
+</section>
+<section id="explicit-cheating" class="level2">
+<h2 class="anchored" data-anchor-id="explicit-cheating">Explicit cheating</h2>
+<ul>
+<li><p>Options include honesty checks that the end of the experiment, making clear that participants’ payment will not be adversely effected,</p></li>
+<li><p>checks of participants’ data for well-established patterns that might be absent if participants have not relied on their own memory</p></li>
+</ul>
+</section>
+<section id="general-advice" class="level2">
+<h2 class="anchored" data-anchor-id="general-advice">General Advice</h2>
+<ul>
+<li><p>First I strongly advocate that all online tasks be set up to collect data about how long participants take to complete all its constituent elements. (i) read your instructions and (ii) respond to each item</p></li>
+<li><p>Second, the inclusion of open ended questions at the end of the experiment can be highly beneficial and give important insights into participant behaviour.</p>
+<ul>
+<li>Specifically I recommend routinely asking participants whether anything unexpected happened during the experiments, or to report any issues that they think may have impacted their performance.</li>
+<li>Additional helpful information can be obtained by indicating to participants that you plan to conduct similar experiments in the future and to ask for their suggestions for improvements.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="preregistering-exclusion-criteria" class="level1">
+<h1>Preregistering Exclusion Criteria</h1>
+<ul>
+<li><p>Data should not be excluded because it is in some general sense ‘low quality’ but because it has some very specific characteristic that makes it inappropriate with respect to our specific research question.</p></li>
+<li><p>In general, the reasons for excluding data map onto the three areas of concern described above: we typically exclude participants if</p></li>
+</ul>
+<ol type="i">
+<li>the technology used does not meet our baseline requirements,</li>
+<li>they do not meet our demographic requirements or</li>
+<li>they performed the task in a way that inappropriate</li>
+</ol>
+<ul>
+<li><p>Decisions about exactly what data will be excluded from our analyses should be made in advance of data collection.</p></li>
+<li><p>any decisions about whether data from individual participants should be included in an analysis should be completely separate from decisions about whether these participants should be paid.</p></li>
+</ul>
+<section id="a-general-systematic-approach" class="level2">
+<h2 class="anchored" data-anchor-id="a-general-systematic-approach">A general, systematic approach</h2>
+<ol type="1">
+<li>Stage 1: specify experiment-specific data quality concerns</li>
+<li>Stage 2: design study-specific exclusion criteria</li>
+<li>Stage 3: Piloting of exclusion criteria</li>
+<li>Stage 4: preresiger study-specific exclusion criteria</li>
+<li>Stage 5: review exclusion criteria after data collection</li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+</section>
+<section id="question" class="level1">
+<h1>Question?</h1>
+<ol type="1">
+<li><p>What safeguards for data collection can/should be created?</p></li>
+<li><p>How to make sure participants understand the instruction?</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

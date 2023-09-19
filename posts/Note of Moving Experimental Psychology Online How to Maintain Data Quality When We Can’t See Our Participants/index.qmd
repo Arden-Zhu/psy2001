@@ -1,0 +1,176 @@
+---
+title: "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants"
+author: "Hao Zhu"
+date: "2023-09-17"
+date-modified: last-modified
+categories: [note, psychology]
+image: "note.jpg"
+---
+
+This is a note of reading *Moving Experimental Psychology Online: How to Maintain Data Quality When We Can't See Our Participants* written by Jennifer M. Rodd.
+
+# Abstract
+
+presenting three key aspects of online data collection: technology, recruitment, and participant performance
+
+# Introduction
+
+Many researchers have well-founded concerns about the lack of experimental control that arises when research moves out of laboratory conditions.
+
+## Why would we want to do our experiements online?
+
+-   out of necessity
+-   save time and cost
+-   new opportunities for behavioral research
+-   improved efficiency
+
+## Can we trust the data from online experiments?
+
+Broadly speaking, preserving high data quality during online testing requires us to carefully consider three key issues that are inevitably affected by this shift away from the lab: technology, recruitment and participant performance.
+
+# Technology
+
+## Reliance on Web-Based Communication
+
+options on the customization-flexibility spectrum
+
+Internet speed, preloading, timeout setting, saving data in the background
+
+all experiments should be routinely piloted on a slow connection to better understand any consequences that connectivity issues may have for participants' experience of the task.
+
+it is useful to monitor how a particular experiment runs in practice by including questions in the debrief that would reveal any issues that might arise due to connectivity issues, e.g., slow loading times, unexpected delays between trials
+
+## Reliance on Participants' Hardware and Software
+
+a large variation of hardware and software
+
+## Recommendations: Minimum Tech Requirement
+
+The precision and reliability of time information with respect to both stimulus presentation and repseonse measurement
+
+auditory and visual devices
+
+we would always exclude participants with unsuitable tech before the start of the experiment by indicating our requirements at sign up.
+
+In such cases, where exclusion criteria are not clear cut, the best approach may be to record all potentially relevant information about a participants' tech setup and then explore the impact of these differences in the analysis stage.
+
+## General Considerations: The Tricky Cases
+
+a confound between socioeconomic status and responses in experiments
+
+the precision of stimulus presentation duration may be a problem.
+
+# Recruitment
+
+## Recruitment Approaches
+
+### Indirect Recruitment via Crowdsourcing platforms
+
+<https://www.mturk.com>\
+[Prolific Academic](https://www.prolific.co)\
+[Testable Minds](https://www.testable.org/minds)\
+[Cloud Research](https://www.cloudresearch.com/)\
+[Crowdworks](https://crowdworks.jp/)
+
+providers corated samples with specific geographic characteristics
+
+### Direct Recruitment via social media or existing networks
+
+'word of mouth' sharing via social media was responsible for the majority of their recruitment success
+
+[Sea Hero Quest](https://glitchers.com/project/sea-hero-quest)
+
+## Participant Motivation
+
+These usually tap into one (or more) of the following sources of motivation: financial reward, altruism, knowledge seeking, and entertainment
+
+## Participant Naivetry and the Superworker problem
+
+## Reliability of Participant Demographics
+
+recommend additional within-experiment recording of participants' demographic information, especially when this information is key to the aims of the research
+
+it is important to consider why this information may be inaccurate.
+
+## Selective Attrition
+
+the dropout rate is higher than laboratory experiments
+
+First they should ensure that the experimental software is recording all partial data. Second, researchers should ensure that details of any dropout is reported clearly, broken down by experimental condition so that readers can consider any potential impact of selective attrition.
+
+## General Considerations
+
+# Participant Performance
+
+review a number of (related) issues that can arise during the experiment, such that participants fail to perform your task(s) in the way you had intended and thereby reduce (or even destroy) your data quality.
+
+## (Mis)understanding of task instructions
+
+The primary challenge when optimising task instructions is to overcome our familiarity with the tasks and ensure that they are completely clear to participants with no previous knowledge of our paradigm.
+
+including a short questionnaire at the end of the instruction phase which tests knowledge of the task, and which requires participants who answer any of these questions incorrectly to read the instruction again before starting the task.
+
+it can be useful, after data collection to check the time taken by participants to read instructions in order to identify any participants who skimmed (or did not read) this information
+
+some researchers have found it useful to ask participants at the end of the experiment to describe in their own words what they 'understood their task to be'.
+
+In such cases it is important to tell participants that we don't expect perfect performance in order to alleviate any potential stress and to avoid participants giving up (or looking things up online) when things get unexpectedly difficult
+
+experiments that use the staircase method to adjust item difficulty to be close to a given participant's performance threshold
+
+## Participant Attentiveness
+
+There are several reasons to assume that participant attentiveness may be lower for online experiments compared with lab-based tasks.
+
+There are some very general safeguards that we can (and should) employ.
+
+-   Including questions in the set-up stage of the experiment where participants are asked to explicitly confirm that they are in a suitable, quiet environment where distractions are unlikely
+
+-   it can be beneficial to ask participants to report at the end of the task if their performance was adversely affected by any interruptions.
+
+-   My preference, for many experiment types, is instead to include occasional very easy trials on which we can confidently expect near-ceiling performance in our target population, such that we can exclude any participants who fail on these trials.
+
+## Explicit cheating
+
+-   Options include honesty checks that the end of the experiment, making clear that participants' payment will not be adversely effected,
+
+-   checks of participants' data for well-established patterns that might be absent if participants have not relied on their own memory
+
+## General Advice
+
+-   First I strongly advocate that all online tasks be set up to collect data about how long participants take to complete all its constituent elements. (i) read your instructions and (ii) respond to each item
+
+-   Second, the inclusion of open ended questions at the end of the experiment can be highly beneficial and give important insights into participant behaviour.
+
+    -   Specifically I recommend routinely asking participants whether anything unexpected happened during the experiments, or to report any issues that they think may have impacted their performance.
+    -   Additional helpful information can be obtained by indicating to participants that you plan to conduct similar experiments in the future and to ask for their suggestions for improvements.
+
+# Preregistering Exclusion Criteria
+
+-   Data should not be excluded because it is in some general sense 'low quality' but because it has some very specific characteristic that makes it inappropriate with respect to our specific research question.
+
+-   In general, the reasons for excluding data map onto the three areas of concern described above: we typically exclude participants if
+
+(i) the technology used does not meet our baseline requirements,
+(ii) they do not meet our demographic requirements or
+(iii) they performed the task in a way that inappropriate
+
+-   Decisions about exactly what data will be excluded from our analyses should be made in advance of data collection.
+
+-   any decisions about whether data from individual participants should be included in an analysis should be completely separate from decisions about whether these participants should be paid.
+
+## A general, systematic approach
+
+1.  Stage 1: specify experiment-specific data quality concerns
+2.  Stage 2: design study-specific exclusion criteria
+3.  Stage 3: Piloting of exclusion criteria
+4.  Stage 4: preresiger study-specific exclusion criteria
+5.  Stage 5: review exclusion criteria after data collection
+
+# Conclusion
+
+# Question?
+
+1.  What safeguards for data collection can/should be created?
+
+2.  How to make sure participants understand the instruction?
