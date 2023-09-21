@@ -6,7 +6,10 @@
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
     <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script>
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey@0.2.1"></script>
+
     <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@0.2.1/css/survey.css">
   </head>
   <body></body>
   <script>
@@ -27,6 +30,36 @@
       stimulus: `<span style="font-size:x-large">Welcome to Interactive Stroop Test. Press any key to begin.</span>`
     };
     timeline.push(welcome);
+    
+    /* A brief survey */
+    var survey = {
+      type: jsPsychSurvey,
+      pages: [
+        [
+          {
+            type: 'html',
+            prompt: 'Please answer the following questions:',
+          },
+          {
+            type: 'multi-choice',
+            prompt: "Have you ever heard Stroop Effect?", 
+            name: 'heard-stroop-effect', 
+            options: ['Yes', 'No'], 
+            required: true
+          }, 
+          {
+            type: 'multi-choice',
+            prompt: "What's your gender?", 
+            name: 'gerder', 
+            options: ['Female', 'Male', 'Others', 'Perfer not to provide'], 
+            required: false,
+          }
+        ]
+      ],
+    };
+    
+    timeline.push(survey);
+
 
     /* define instructions trial */
     var instructions = {

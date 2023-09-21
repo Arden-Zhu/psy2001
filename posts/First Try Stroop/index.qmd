@@ -2,24 +2,29 @@
 title: "A Stroop Test in JsPsych"
 author: "Hao Zhu"
 date: "2023-09-03"
+date-modified: last-modified
 categories: [JsPsych, code, psychology]
 image: "Stroop_comparison.png"
 ---
 
 The Interactive Stroop Test is my first try in JsPsych. [The Stroop Test](stroop.html)
 
-In the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text.
-Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.
+In the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.
 
 There are some questions left:
 
-1. It is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?
+1.  It is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?
 
-2. How to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?
+2.  How to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?
 
 Todo:
 
-* Save trail results on a server
+-   ~~Save trail results on a server. Done~~
 
-[Go to the Stroop Test.](stroop.html)
-It is a single html file, and you can review the code by clicking "view page source" in the browser's popup menu.
+[Go to the Stroop Test.](stroop.html) It is a single html file, and you can review the code by clicking "view page source" in the browser's popup menu.
+
+9/20/2023
+
+It is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.
+
+Adding a survey is rather straightfoward by using a JsPsych plugin [Survey](https://www.jspsych.org/7.3/plugins/survey). I added a survey in which I asked two questions.
