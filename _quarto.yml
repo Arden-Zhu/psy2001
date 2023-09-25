@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - "*.html"
+    - "dist/"
 website:
   title: "Psy2001 Journal - Hao Zhu"
   navbar:

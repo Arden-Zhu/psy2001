@@ -1,0 +1,93 @@
+---
+title: "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research"
+author: "Hao Zhu"
+date: "2023-09-20"
+date-modified: last-modified
+categories: [note, psychology]
+image: "note.jpg"
+---
+
+This is a note written while reading *Evaluating Amazon’s Mechanical Turk a sa Tool for  Experimental Behavioral 2Research* written by Matthew J. C. Crump et al.
+
+# Abstract
+
+We replicate a diverse body of tasks from experimental psychology including the Stroop, Switching, Flanker, Simon, Posner Cuing, attentional blink, subliminal priming, and category learning tasks using participants recruited using AMT.
+
+A number of important lessons were encountered in the process of conducting these replications that should be of value to other researchers.
+
+# Introduction
+
+## AMT Basics
+
+## Potential Advantages and disadvatages of collecting data online
+
+## Empirical Validation through Replication
+
+The purpose of the present experiments is to validate AMT as a tool for running multi-trial designs that are common in behavioral cognitive research.
+
+Three series of experiments were run
+1. The first to validate multi-trial designs requiring millisecond control over response collection; 
+2. the second to validate multi-trial designs requiring millisecond control over stimulus presentation; 
+3. and the third to validate other aspects of multi-trial designs, with a focus on experiments where instructional manipulations are important.
+
+## Ethics Statement
+
+# Section 1: Reaction Time Experiments
+
+## Experiement 1: Stroop
+
+## Experiment 2: Task-Switching Costs
+
+## Experiment 3: Flanker
+
+## Experiment 4: Simon
+
+# Section 2: Rapid Stimuls Presentation
+
+## Experiment 5: Visual Cuing & Inhibition of Return 
+
+1. when a detection task is used, RTs tend to be much faster
+2. when there is short delay between cue and the target (e.g. * ; 300 ms) RTs are faster for valid (target appears in cued location) than invalidly cued (target appears in uncued location).
+3. Third, when the cue-target interval is longer (e.g. * >400 ms) the cuing effect reverses with RTs faster for invalid than valid trials (reflecting inhibition of return for attention)
+2
+## Experiment 6: Attentional Blink
+
+Visual target detection can be impaired for a second target item that appears within 100–500 ms of the first target
+
+## Experiment 7: Masked Priming
+
+The notable finding was that compatibility effects were negative (incompatible RTs faster than compatible RTs) for the 16, 32, and 48 ms durations, but positive (compatible RTs faster than incompatible RTs) for the longer 64, 80, and 96 durations.
+
+# Section 3: Learning Studies
+
+<http://github.com/NYUCCL/PsiTurk>
+
+## Experiment 8: Category Learning 
+
+## Experiment 9: Category Learning and the Effect of Payment Magnitude 
+
+This result aligns well with Mason and Watts [7], who report that the magnitude of payment does not have a strong effect on the quality of data obtained from online, crowd-sourced systems.
+
+However, the incentive variable did influence the rate of signups. In addition, it strongly influenced the dropout rate.
+
+## Experiment 10: An Instructional Manipulation Check 
+
+## Summary
+
+# General discussion
+
+## suggestions and advice
+
+1. On the ethical side, we echo the point made by Mason and Suri [2] that researchers should pay AMT users something close to what is offered to someone to perform the task in the lab. While our analysis suggests that lower pay doesn’t necessarily affect the quality of the data, we have found that we can recruit participant faster and have fewer dropouts by making the study financially appealing.
+
+2. experiments that are at least somewhat fun and engaging are likely to be better received
+
+3. As with all empirical studies, restrictions should be decided before data collection and clearly reported in papers to avoid excess experimenter degrees of freedom. Additionally, reporting the time of day and date of data collection may be important as the AMT population may evolve over time.
+
+4. Most importantly, we found that testing participants’ comprehension of the instructions was critical.
+
+5. Finally, it is important to monitor and record the rate at which people begin an experiment but do not finish. We recommend that, perhaps unlike a typical laboratory study, all Internet experiments report dropout rates as a function of condition
+
+
+
+

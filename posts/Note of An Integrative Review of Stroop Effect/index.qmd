@@ -1,0 +1,95 @@
+---
+title: "Note of Half a Century of Research on the Stroop Effect: An Integrative Review"
+author: "Hao Zhu"
+date: "2023-09-23"
+date-modified: last-modified
+categories: [note, psychology]
+image: "note.jpg"
+---
+
+This is a note written while reading *Half a Century of Research on the Stroop Effect: An Integrative Review* written by Colin M. MacLeod.
+
+# Abstract
+
+# Colors, Words, and Interference: Research From 1886 to 1935
+
+## the half century before stroop
+
+## Stroop's Classic Article
+
+# Investigating the Stroop Effect: Research From 1935 to 1989
+
+## Variations on the Stroop Procedure
+
+### The Stroop Color-Word Interference Test
+
+### The Individual Stimulus Version of the Color-Word Task
+
+### Sorting and Matching versions of the color-word task
+
+### The picture-word interference task
+
+### Auditory Analogs of the stroop task
+
+### Other analogs of the stroop task
+
+## Manipulations of Information on Critical Trials
+
+### Hue variation
+
+### Acoustic Variation
+
+### Semantic Variation
+
+### Congruency effects
+
+### Integration of the Two Dimensions
+
+## Experiment-wide manipulations of information
+
+### probability of various trial types
+
+### Stimulus Set Size
+
+### Trial Sequence
+
+### Pretrial Cues
+
+### Stimulus Onset Asynchrony (SOA)  - 17
+
+### The reverse stroop effect
+
+### Practice
+
+## Reponse-related manipuations
+
+### order of response
+
+### Response modality: oral versus manual
+
+### Response set size and composition
+
+## Individual Differences
+
+### sex differences
+
+### Age differences
+
+### Hemispherice differences
+
+### language differences: the case of the bilingual
+
+## theoretical accounts of the stroop effect - 25
+
+### relative speed of processing
+
+### automaticicty
+
+### perceptual encoding
+
+### parallel models: accruing evidence toward a decision
+
+### A paralle distributed processing model
+
+# The final word
+

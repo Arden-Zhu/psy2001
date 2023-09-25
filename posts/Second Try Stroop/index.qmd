@@ -1,0 +1,23 @@
+---
+title: "Stroop Test with Stimulus Duration"
+author: "Hao Zhu"
+date: "2023-09-24"
+date-modified: last-modified
+categories: [JsPsych, code, psychology]
+image: "Stroop_comparison.png"
+---
+
+Add a variation of stimulus duration into the tradictional Stroop. [The Stroop Test with stimuls duration](stroop.html)
+
+todo:
+
+1.  Small changes
+
+-   Change Brown to Yellow;
+-   change keys to the first letter of the color;
+-   update the instruction, specifically, conduct how to place four figures on each keys
+
+2.  Add a new variable of stimulus duration [25, 100, 250, infinite]. As the result, congruent stimulus with each stimulus duration has 5 trials; incongruent stimulus with each stimulus duration has 5 trials, too. 5 is defined as a code variable
+
+
+

@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Psy 2001 Journal - Hao Zhu",
     "section": "",
-    "text": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "Stroop Test with Stimulus Duration\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Half a Century of Research on the Stroop Effect: An Integrative Review\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 23, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 20, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Course Schedule and My Schedule/index.html",
@@ -25,7 +25,182 @@
     "href": "posts/First Try Stroop/index.html",
     "title": "A Stroop Test in JsPsych",
     "section": "",
-    "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server. Done\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu.\n9/20/2023\nIt is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.\nAdding a survey is rather straightfoward by using a JsPsych plugin Survey. I added a survey in which I asked two questions."
+    "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server. Done\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu.\n\n9/20/2023\nIt is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, to screen the participants, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.\nAdding a survey is rather straightfoward by using a JsPsych plugin Survey. I added a survey in which I asked two questions.\n\n\n9/24/2023\n\nadd a fixation of 500ms and a blank after fixation of 500ms\nadd a feedback after each trial which shows whether the input is correct or wrong"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "",
+    "text": "This is a note written while reading Half a Century of Research on the Stroop Effect: An Integrative Review written by Colin M. MacLeod."
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "the half century before stroop",
+    "text": "the half century before stroop"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Stroop’s Classic Article",
+    "text": "Stroop’s Classic Article"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Variations on the Stroop Procedure",
+    "text": "Variations on the Stroop Procedure\n\nThe Stroop Color-Word Interference Test\n\n\nThe Individual Stimulus Version of the Color-Word Task\n\n\nSorting and Matching versions of the color-word task\n\n\nThe picture-word interference task\n\n\nAuditory Analogs of the stroop task\n\n\nOther analogs of the stroop task"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Manipulations of Information on Critical Trials",
+    "text": "Manipulations of Information on Critical Trials\n\nHue variation\n\n\nAcoustic Variation\n\n\nSemantic Variation\n\n\nCongruency effects\n\n\nIntegration of the Two Dimensions"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Experiment-wide manipulations of information",
+    "text": "Experiment-wide manipulations of information\n\nprobability of various trial types\n\n\nStimulus Set Size\n\n\nTrial Sequence\n\n\nPretrial Cues\n\n\nStimulus Onset Asynchrony (SOA) - 17\n\n\nThe reverse stroop effect\n\n\nPractice"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Reponse-related manipuations",
+    "text": "Reponse-related manipuations\n\norder of response\n\n\nResponse modality: oral versus manual\n\n\nResponse set size and composition"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Individual Differences",
+    "text": "Individual Differences\n\nsex differences\n\n\nAge differences\n\n\nHemispherice differences\n\n\nlanguage differences: the case of the bilingual"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "theoretical accounts of the stroop effect - 25",
+    "text": "theoretical accounts of the stroop effect - 25\n\nrelative speed of processing\n\n\nautomaticicty\n\n\nperceptual encoding\n\n\nparallel models: accruing evidence toward a decision\n\n\nA paralle distributed processing model"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html",
+    "href": "posts/Note of Evaluating MTurk/index.html",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "",
+    "text": "This is a note written while reading Evaluating Amazon’s Mechanical Turk a sa Tool for Experimental Behavioral 2Research written by Matthew J. C. Crump et al."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#amt-basics",
+    "href": "posts/Note of Evaluating MTurk/index.html#amt-basics",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "AMT Basics",
+    "text": "AMT Basics"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
+    "href": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Potential Advantages and disadvatages of collecting data online",
+    "text": "Potential Advantages and disadvatages of collecting data online"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
+    "href": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Empirical Validation through Replication",
+    "text": "Empirical Validation through Replication\nThe purpose of the present experiments is to validate AMT as a tool for running multi-trial designs that are common in behavioral cognitive research.\nThree series of experiments were run 1. The first to validate multi-trial designs requiring millisecond control over response collection; 2. the second to validate multi-trial designs requiring millisecond control over stimulus presentation; 3. and the third to validate other aspects of multi-trial designs, with a focus on experiments where instructional manipulations are important."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
+    "href": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Ethics Statement",
+    "text": "Ethics Statement"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiement 1: Stroop",
+    "text": "Experiement 1: Stroop"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 2: Task-Switching Costs",
+    "text": "Experiment 2: Task-Switching Costs"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 3: Flanker",
+    "text": "Experiment 3: Flanker"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 4: Simon",
+    "text": "Experiment 4: Simon"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 5: Visual Cuing & Inhibition of Return",
+    "text": "Experiment 5: Visual Cuing & Inhibition of Return\n\nwhen a detection task is used, RTs tend to be much faster\nwhen there is short delay between cue and the target (e.g. * ; 300 ms) RTs are faster for valid (target appears in cued location) than invalidly cued (target appears in uncued location).\nThird, when the cue-target interval is longer (e.g. * &gt;400 ms) the cuing effect reverses with RTs faster for invalid than valid trials (reflecting inhibition of return for attention) 2 ## Experiment 6: Attentional Blink\n\nVisual target detection can be impaired for a second target item that appears within 100–500 ms of the first target"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 7: Masked Priming",
+    "text": "Experiment 7: Masked Priming\nThe notable finding was that compatibility effects were negative (incompatible RTs faster than compatible RTs) for the 16, 32, and 48 ms durations, but positive (compatible RTs faster than incompatible RTs) for the longer 64, 80, and 96 durations."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 8: Category Learning",
+    "text": "Experiment 8: Category Learning"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 9: Category Learning and the Effect of Payment Magnitude",
+    "text": "Experiment 9: Category Learning and the Effect of Payment Magnitude\nThis result aligns well with Mason and Watts [7], who report that the magnitude of payment does not have a strong effect on the quality of data obtained from online, crowd-sourced systems.\nHowever, the incentive variable did influence the rate of signups. In addition, it strongly influenced the dropout rate."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 10: An Instructional Manipulation Check",
+    "text": "Experiment 10: An Instructional Manipulation Check"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#summary",
+    "href": "posts/Note of Evaluating MTurk/index.html#summary",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
+    "href": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "suggestions and advice",
+    "text": "suggestions and advice\n\nOn the ethical side, we echo the point made by Mason and Suri [2] that researchers should pay AMT users something close to what is offered to someone to perform the task in the lab. While our analysis suggests that lower pay doesn’t necessarily affect the quality of the data, we have found that we can recruit participant faster and have fewer dropouts by making the study financially appealing.\nexperiments that are at least somewhat fun and engaging are likely to be better received\nAs with all empirical studies, restrictions should be decided before data collection and clearly reported in papers to avoid excess experimenter degrees of freedom. Additionally, reporting the time of day and date of data collection may be important as the AMT population may evolve over time.\nMost importantly, we found that testing participants’ comprehension of the instructions was critical.\nFinally, it is important to monitor and record the rate at which people begin an experiment but do not finish. We recommend that, perhaps unlike a typical laboratory study, all Internet experiments report dropout rates as a function of condition"
   },
   {
     "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html",
@@ -152,6 +327,13 @@
     "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
     "section": "A general, systematic approach",
     "text": "A general, systematic approach\n\nStage 1: specify experiment-specific data quality concerns\nStage 2: design study-specific exclusion criteria\nStage 3: Piloting of exclusion criteria\nStage 4: preresiger study-specific exclusion criteria\nStage 5: review exclusion criteria after data collection"
+  },
+  {
+    "objectID": "posts/Second Try Stroop/index.html",
+    "href": "posts/Second Try Stroop/index.html",
+    "title": "Stroop Test with Stimulus Duration",
+    "section": "",
+    "text": "Add a variation of stimulus duration into the tradictional Stroop. The Stroop Test with stimuls duration\ntodo:\n\nSmall changes\n\n\nChange Brown to Yellow;\nchange keys to the first letter of the color;\nupdate the instruction, specifically, conduct how to place four figures on each keys\n\n\nAdd a new variable of stimulus duration [25, 100, 250, infinite]. As the result, congruent stimulus with each stimulus duration has 5 trials; incongruent stimulus with each stimulus duration has 5 trials, too. 5 is defined as a code variable"
   },
   {
     "objectID": "posts/Topics for PSY345W/index.html",

@@ -23,8 +23,14 @@ Todo:
 
 [Go to the Stroop Test.](stroop.html) It is a single html file, and you can review the code by clicking "view page source" in the browser's popup menu.
 
-9/20/2023
+# 9/20/2023
 
-It is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.
+It is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, to screen the participants, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.
 
 Adding a survey is rather straightfoward by using a JsPsych plugin [Survey](https://www.jspsych.org/7.3/plugins/survey). I added a survey in which I asked two questions.
+
+# 9/24/2023
+
+1. add a fixation of 500ms and a blank after fixation of 500ms
+2. add a feedback after each trial which shows whether the input is correct or wrong
+
