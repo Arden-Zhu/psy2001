@@ -333,7 +333,7 @@
     "href": "posts/Second Try Stroop/index.html",
     "title": "Stroop Test with Stimulus Duration",
     "section": "",
-    "text": "Add a variation of stimulus duration into the tradictional Stroop. The Stroop Test with stimuls duration\ntodo:\n\nSmall changes\n\n\nChange Brown to Yellow;\nchange keys to the first letter of the color;\nupdate the instruction, specifically, conduct how to place four figures on each keys\n\n\nAdd a new variable of stimulus duration [25, 100, 250, infinite]. As the result, congruent stimulus with each stimulus duration has 5 trials; incongruent stimulus with each stimulus duration has 5 trials, too. 5 is defined as a code variable"
+    "text": "Add a variation of stimulus duration into the tradictional Stroop. The Stroop Test with stimuls duration\n\nSmall changes\n\n\nChange Brown to Yellow;\nchange keys to the first letter of the color;\nupdate the instruction, specifically, conduct how to place four figures on each keys\n\n\nAdd a new variable of stimulus duration [25, 100, 250, infinite]. As the result, congruent stimulus with each stimulus duration has 5 trials; incongruent stimulus with each stimulus duration has 5 trials, too. 5 is defined as a code variable\nSome code refactors."
   },
   {
     "objectID": "posts/Topics for PSY345W/index.html",

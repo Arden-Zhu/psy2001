@@ -9,7 +9,6 @@ image: "Stroop_comparison.png"
 
 Add a variation of stimulus duration into the tradictional Stroop. [The Stroop Test with stimuls duration](stroop.html)
 
-todo:
 
 1.  Small changes
 
@@ -19,5 +18,6 @@ todo:
 
 2.  Add a new variable of stimulus duration [25, 100, 250, infinite]. As the result, congruent stimulus with each stimulus duration has 5 trials; incongruent stimulus with each stimulus duration has 5 trials, too. 5 is defined as a code variable
 
+3.  Some code refactors.
 
 
