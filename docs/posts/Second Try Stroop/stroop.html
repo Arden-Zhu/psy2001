@@ -15,14 +15,16 @@
   <body></body>
   <script>
     /* parameters */
-    var trials_per_group = 10;
+    var trials_per_group = 5;
   	var colors = [
   		{ color: "Blue", key: "B" },
   		{ color: "Red", key: "R" },
   		{ color: "Green", key: "G" },
   		{ color: "Yellow", key: "Y" },
   	];
-  	var stimulus_duration = [25, 100, 250, 99999]
+  	var stimulus_duration = [25, 100, 250, 999999];
+  	var data_pipe_experiement_id = '478JTfm2S8zr';
+  	var font = "bold 100pt Arial";
 
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
@@ -34,7 +36,8 @@
     /* define welcome message trial */
     var welcome = {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `<p style="font-size:x-large">Welcome to Interactive Stroop Test with Stimulus Duration.</p><p>Press any key to begin.</p>`
+      stimulus: `<p style="font:bold 20pt Arial">Welcome to Interactive Stroop Test with Stimulus Duration.</p>
+      <p style="margin:50px">Press any key to begin.</p>`
     };
     
     /* A brief survey */
@@ -66,22 +69,29 @@
     };
     
     /* define instructions trial */
+    var colorSpan = "";
+    var colorLi = "";
+    for (let c of colors) {
+      colorSpan += ` <span style="color:${c.color}">${c.color}</span>,`;
+      colorSpan = colorSpan.substring(0, colorSpan.length -1 );
+      colorLi += `<li style="color:${c.color}">${c.color} - key ${c.key}</li>`;
+    }
+    const tips = `<p>Here is a tip, you can place your figures on the keys to have a better performance.</p>
+			<p>For instance, left middle figure on R; left index figure on B; right index figure on G; and right middle figure on Y</p>`
+
     var instructions = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
 		<div style="width:800px">
-			<p>In this experiment, you will see text in four colors, <span style="color:blue">Blue</span>, <span style="color:red">Red</span>, <span style="color:green">Green</span>, <span style="color:brown">brown</span>, and press a key related to each color as soon as possible, not the word.
-			For example, you should press B key whenever you see a word in color <span style="color:blue">Blue</span>, even if the word is <span style="color:blue">Red</span> or <span style="color:blue">Green</span>.
-			Here is the Color and Key map.</p>
+			<p>You will see text in ${colors.length} colors which are individually assigned to a key.</p>
 			<ul style="list-style-type:none">
-				<li style="color:blue">Blue - key B</li>
-				<li style="color:red">Red - key R</li>
-				<li style="color:green">Green - key G</li>
-				<li style="color:brown">Yellow - key Y</li>
+			  ${colorLi}
 			</ul>
-			<p>Here is a tip, you can place your figures to have a better performance.</p>
-			<p>For example, left middle figure on R; left index figure on B; right index figure on G; and right middle figure on Y</p>
-			<p>The experiment will start with a practice for you to be familiar with the key mapping. Then a test will start.</p>
+			<p>Your task is to press the key as soon as possible when you see a color.</p>
+			<p>For example, you should press ${colors[0].key} key when seeing a word in color <span style="color:${colors[0].color}">${colors[0].color}</span>, even if the word is <span style="color:${colors[0].color}">${colors[1].color}</span>.</p>
+			${tips}
+			<p>The experiment will start with a practice for you to be familiar with the task.</p>
+			<p>Then a test will start.</p>
 			</p></p>	  
 			<p>Press any key to begin the practice.</p>
 		</div>
@@ -89,10 +99,34 @@
     };
     
 	/* define practice */
+	const fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div style="font-size:60px;">+</div>',
+    choices: "NO_KEYS",
+    trial_duration: 500,
+    post_trial_gap: 500,
+    data: {
+      task: 'fixation'
+    }
+  };
+  
+  const trial_feedback = {
+    type: jsPsychHtmlKeyboardResponse,
+    trial_duration: 500,
+    stimulus: function(){
+      var last_trial_correct = jsPsych.data.get().last(1).values()[0].is_correct;
+      if(last_trial_correct){
+        return `<p style="font-size:60pt">Correct</p>`; 
+      } else {
+        return `<p style="font-size:60pt">Wrong</p>`; 
+      }
+    }
+  }
+
 	var practice_stimuli = [];
 	for (let i = 0; i < colors.length; i++) {
 		let color = colors[i];
-		let nextColor = colors[(i+1) % 4];
+		let nextColor = colors[(i+1) % colors.length];
 
 		practice_stimuli.push({
 			text: color.color,
@@ -112,17 +146,23 @@
     stimulus: function() {
 	  return `
 		<div style="width:800px">
-			<p style="color:${jsPsych.timelineVariable('color')};font-size:60pt">
+			<p style="color:${jsPsych.timelineVariable('color')};font:${font}">
 				${jsPsych.timelineVariable('text')}
 			</p>
 			<p>The correct response is ${jsPsych.timelineVariable('key')}.</p>
 		</div>
 	  `
+    },
+    data: {
+      correct_response: jsPsych.timelineVariable('key')
+    },
+    on_finish: function(data){
+      data.is_correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
     }
   };
 	
 	var practice_procedure = {
-		timeline: [practice],
+		timeline: [fixation, practice, trial_feedback],
 		timeline_variables: practice_stimuli,
 		randomize_order: true,
 	};
@@ -133,7 +173,7 @@
     stimulus: `
   	<div style="width:800px">
   		<p>The test will start. Remember to press the key according to the color rather than the word.</p>
-  		<p>You can press S if you do not catch the presented color.</p>
+  		<p>You can press S if you do not catch the blink color.</p>
   		<p>Press any key to begin.</p>
   	</div>
   	`
@@ -182,21 +222,10 @@
   	}
 	}
 
-  var fixation = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<div style="font-size:60px;">+</div>',
-    choices: "NO_KEYS",
-    trial_duration: 500,
-    post_trial_gap: 500,
-    data: {
-      task: 'fixation'
-    }
-  };
-  
   const stimulus_text = {
     obj_type: 'text', 
     content: jsPsych.timelineVariable('text'),
-    font: "60pt Arial",
+    font: font,
     text_color: jsPsych.timelineVariable('color'),
     origin_center : true,
     startX: 0, 
@@ -228,10 +257,15 @@
     show_start_time: jsPsych.timelineVariable('stimulus_duration'),
   }
 
+  let choices = ['S'];
+  for (let c of colors) {
+    choices.push(c.key);
+  }
+  
   const trial = {
     type: jsPsychPsychophysics,
     stimuli: [stimulus_text, notice_text, stimulus_cover],
-    choices: ["B","R","Y","G", "S"],
+    choices: choices,
     canvas_width: 1000,
     canvas_height: 800,
     background_color: 'white', 
@@ -247,21 +281,8 @@
     }
   }
 
-  var feedback = {
-    type: jsPsychHtmlKeyboardResponse,
-    trial_duration: 500,
-    stimulus: function(){
-      var last_trial_correct = jsPsych.data.get().last(1).values()[0].is_correct;
-      if(last_trial_correct){
-        return `<p style="font-size:60pt">Correct</p>`; 
-      } else {
-        return `<p style="font-size:60pt">Wrong</p>`; 
-      }
-    }
-  }
-
 	var trial_procedure = {
-		timeline: [fixation, trial, feedback],
+		timeline: [fixation, trial, trial_feedback],
 		timeline_variables: test_stimuli,
 		randomize_order: true,
 	};
@@ -294,12 +315,12 @@
 
   /* save data with DataPipe */
   const subject_id = jsPsych.randomization.randomID(10);
-  const filename = `${subject_id}.csv`;
+  const filename = `d_${(new Date().toJSON().slice(0,10))}_${subject_id}.csv`;
 
   const save_data = {
     type: jsPsychPipe,
     action: "save",
-    experiment_id: "478JTfm2S8zr",
+    experiment_id: data_pipe_experiement_id,
     filename: filename,
     data_string: ()=>jsPsych.data.get().csv()
   };            
