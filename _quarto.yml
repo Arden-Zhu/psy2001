@@ -2,8 +2,8 @@ project:
   type: website
   output-dir: docs
   resources:
-    - "*.html"
     - "dist/"
+    - "experiments/"
 website:
   title: "Psy2001 Journal - Hao Zhu"
   navbar:

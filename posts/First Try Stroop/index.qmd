@@ -7,7 +7,7 @@ categories: [JsPsych, code, psychology]
 image: "Stroop_comparison.png"
 ---
 
-The Interactive Stroop Test is my first try in JsPsych. [The Stroop Test](stroop.html)
+The Interactive Stroop Test is my first try in JsPsych. [The Stroop Test](../../experiments/stroop/stroop-basic.html)
 
 In the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.
 
@@ -21,7 +21,7 @@ Todo:
 
 -   ~~Save trail results on a server. Done~~
 
-[Go to the Stroop Test.](stroop.html) It is a single html file, and you can review the code by clicking "view page source" in the browser's popup menu.
+[Go to the Stroop Test.](../../experiments/stroop/stroop-basic.html) It is a single html file, and you can review the code by clicking "view page source" in the browser's popup menu.
 
 # 9/20/2023
 
@@ -31,6 +31,5 @@ Adding a survey is rather straightfoward by using a JsPsych plugin [Survey](http
 
 # 9/24/2023
 
-1. add a fixation of 500ms and a blank after fixation of 500ms
-2. add a feedback after each trial which shows whether the input is correct or wrong
-
+1.  add a fixation of 500ms and a blank after fixation of 500ms
+2.  add a feedback after each trial which shows whether the input is correct or wrong
