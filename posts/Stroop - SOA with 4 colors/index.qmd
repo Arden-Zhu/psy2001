@@ -13,7 +13,7 @@ Analyze the data of [Stroop - SOA with 4 Colors](../../experiments/stroop/stroop
 ### Define parameters
 
 ```{r, echo=TRUE}
-data_folder <- "../../experiments/Stroop/soa-4colors/20231002"
+data_folder <- "../../experiments/stroop/soa-4colors/20231003"
 ```
 
 ### Loading libraries and importing data
