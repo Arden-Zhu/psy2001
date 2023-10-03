@@ -7,7 +7,7 @@ categories: [JsPsych, code, psychology]
 image: "Stroop_comparison.png"
 ---
 
-Add a variation of stimulus duration into the tradictional Stroop. [The Stroop Test with stimuls duration](../../experiments/stroop/stroop-duration.html)
+Add a variation of stimulus duration into the tradictional Stroop. [The Stroop Test with stimuls duration](../../experiments/Stroop/stroop-duration.html)
 
 1.  Small changes
 

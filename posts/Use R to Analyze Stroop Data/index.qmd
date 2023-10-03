@@ -6,7 +6,7 @@ date-modified: last-modified
 categories: [JsPsych, code, psychology, R]
 ---
 
-This is a trial of using R to analyze the data of [Stroop with Stimulus Duration](../../experiments/stroop/stroop-duration.html).
+This is a trial of using R to analyze the data of [Stroop with Stimulus Duration](../../experiments/Stroop/stroop-duration.html).
 
 Follow the [instruction](https://www.crumplab.com/psyc2001/blog/5_stroop_data/)
 
