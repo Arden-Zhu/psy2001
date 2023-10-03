@@ -138,6 +138,7 @@ ggplot(group_mean_RT, aes(x=is_congruent_duration,y=mean_reaction_time)) +
   coord_cartesian(ylim=c(400,900)) +
   theme_classic()
 ```
+
 ### plot congruency on 2 lines
 
 ```{r, echo = TRUE}
@@ -281,5 +282,3 @@ ggplot(data = group_mean_pc, aes(x=duration, y=mean_proportion_correct)) + geom_
 # Conclusion
 
 Displaying colors shortly before showing colored text seems weeken stroop test.
-
-
