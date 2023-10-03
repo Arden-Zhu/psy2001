@@ -140,6 +140,31 @@ ggplot(group_mean_RT, aes(x=is_congruent_duration,y=mean_reaction_time)) +
   coord_cartesian(ylim=c(200,500)) +
   theme_classic()
 ```
+### plot congruency on 2 lines
+
+```{r, echo = TRUE}
+# pre-process and filter rows
+filtered_data <- all_data %>%
+  filter(task == "response",
+         is_correct == "TRUE") %>%
+  mutate(rt = as.numeric(rt),
+         # duration = as.character(duration),
+         is_congruent_duration = paste(is_congruent, " ", duration))
+
+# get individual subject means in each condition
+subject_mean_RT <- filtered_data %>%
+  group_by(subject,is_congruent, duration) %>%
+  summarize(mean_rt = mean(rt), .groups = "drop")
+
+# get group means in each condition
+group_mean_RT <- subject_mean_RT %>%
+  group_by(is_congruent, duration) %>%
+  summarize(mean_reaction_time = mean(mean_rt), .groups = "drop")
+
+# plot
+ggplot(data = group_mean_RT, aes(x=duration, y=mean_reaction_time)) + geom_line(aes(colour=is_congruent))
+
+```
 
 # Accuracy analysis
 
@@ -232,6 +257,28 @@ ggplot(group_mean_pc, aes(x=is_congruent_duration,y=mean_proportion_correct)) +
   coord_cartesian(ylim=c(0.5,1)) +
   theme_classic()
 ```
+### plot congruency on 2 lines
+ 
+```{r, echo = TRUE}
+# pre-process and filter rows
+filtered_data_pc <- all_data %>%
+  filter(task == "response")
+
+# get individual subject proportion correct values
+subject_pc <- filtered_data_pc %>%
+  group_by(subject,is_congruent, duration) %>%
+  summarize(proportion_correct = mean(is_correct), .groups = "drop")
+
+# get group means in each condition
+group_mean_pc <- subject_pc %>%
+  group_by(is_congruent, duration) %>%
+  summarize(mean_proportion_correct = mean(proportion_correct), .groups = "drop")
+
+# plot
+ggplot(data = group_mean_pc, aes(x=duration, y=mean_proportion_correct)) + geom_line(aes(colour=is_congruent))
+
+```
+
 # Conclusion
 
 Displaying colors shortly before showing colored text seems weeken stroop test.
