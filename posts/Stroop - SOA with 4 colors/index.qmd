@@ -1,0 +1,235 @@
+---
+title: "Stroop - SOA with 4 Colors"
+author: "Hao Zhu"
+date: "2023-10-02"
+date-modified: last-modified
+categories: [JsPsych, code, psychology, R]
+---
+
+Analyze the data of [Stroop - SOA with 4 Colors](../../experiments/stroop/stroop-soa-4colors.html).
+
+# Load data
+
+### Define parameters
+
+```{r, echo=TRUE}
+data_folder <- "../../experiments/Stroop/soa-4colors/20231002"
+```
+
+### Loading libraries and importing data
+
+```{r, echo=TRUE}
+# install from the Packages tab, or run the below in the console once.
+#install.packages('tidyverse')
+#install.packages('rio')
+
+# load libraries
+library(tidyverse)
+library(rio)
+
+# get data file names
+file_names <- list.files(data_folder,full.names = TRUE)
+
+# initialize data frame to hold individual subject data
+all_data <- tibble()
+
+# loop through each file and import
+for(i in 1:length(file_names)) {
+  
+  # import a single data file to a temporary data frame
+  temp_df <- rio::import(file_names[i]) %>%
+    mutate(subject = i)
+  
+  # append the single subject data to larger data frame
+  all_data <- rbind(all_data,temp_df)
+  
+}
+
+```
+
+# Reaction time analysis
+
+### By congruncy
+
+```{r, echo = TRUE}
+# pre-process and filter rows
+filtered_data <- all_data %>%
+  filter(task == "response",
+         is_correct == "TRUE") %>%
+  mutate(rt = as.numeric(rt),
+         duration = as.character(duration),
+         is_congruent_duration = paste(is_congruent, " ", duration))
+
+# get individual subject means in each condition
+subject_mean_RT <- filtered_data %>%
+  group_by(subject,is_congruent) %>%
+  summarize(mean_rt = mean(rt), .groups = "drop")
+
+# get group means in each condition
+group_mean_RT <- subject_mean_RT %>%
+  group_by(is_congruent) %>%
+  summarize(mean_reaction_time = mean(mean_rt),
+            sem = sd(mean_rt)/sqrt(length(mean_rt))
+            )
+
+# plot
+ggplot(group_mean_RT, aes(x=is_congruent,y=mean_reaction_time)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_reaction_time-sem,
+                    ymax=mean_reaction_time+sem),
+                width=.2) +
+  ylab("Mean Reaction Time (ms)") +
+  xlab("Congruency")+
+  coord_cartesian(ylim=c(400,900)) +
+  theme_classic()
+
+```
+
+### By stimulus duration
+
+```{r, echo = TRUE}
+# get individual subject means in each condition
+subject_mean_RT <- filtered_data %>%
+  group_by(subject,duration) %>%
+  summarize(mean_rt = mean(rt), .groups = "drop")
+
+# get group means in each condition
+group_mean_RT <- subject_mean_RT %>%
+  group_by(duration) %>%
+  summarize(mean_reaction_time = mean(mean_rt),
+            sem = sd(mean_rt)/sqrt(length(mean_rt))
+            )
+
+# plot
+ggplot(group_mean_RT, aes(x=duration,y=mean_reaction_time)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_reaction_time-sem,
+                    ymax=mean_reaction_time+sem),
+                width=.2) +
+  ylab("Mean Reaction Time (ms)") +
+  xlab("Duration")+
+  coord_cartesian(ylim=c(400,900)) +
+  theme_classic()
+```
+
+### By congruency plus stimulus duration
+
+```{r, echo = TRUE}
+# get individual subject means in each condition
+subject_mean_RT <- filtered_data %>%
+  group_by(subject,is_congruent_duration) %>%
+  summarize(mean_rt = mean(rt), .groups = "drop")
+
+# get group means in each condition
+group_mean_RT <- subject_mean_RT %>%
+  group_by(is_congruent_duration) %>%
+  summarize(mean_reaction_time = mean(mean_rt),
+            sem = sd(mean_rt)/sqrt(length(mean_rt))
+            )
+
+# plot
+ggplot(group_mean_RT, aes(x=is_congruent_duration,y=mean_reaction_time)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_reaction_time-sem,
+                    ymax=mean_reaction_time+sem),
+                width=.2) +
+  ylab("Mean Reaction Time (ms)") +
+  xlab("Congruency + Duration")+
+  coord_cartesian(ylim=c(400,900)) +
+  theme_classic()
+```
+
+# Accuracy analysis
+
+### By congruency
+
+```{r, echo=TRUE}
+
+# pre-process and filter rows
+filtered_data_pc <- all_data %>%
+  filter(task == "response") %>%
+  mutate(duration = as.character(duration),
+         is_congruent_duration = paste(is_congruent, " ", duration))
+
+# get individual subject proportion correct values
+subject_pc <- filtered_data_pc %>%
+  group_by(subject,is_congruent) %>%
+  summarize(proportion_correct = mean(is_correct), .groups = "drop")
+
+# get group means in each condition
+group_mean_pc <- subject_pc %>%
+  group_by(is_congruent) %>%
+  summarize(mean_proportion_correct = mean(proportion_correct),
+            sem = sd(proportion_correct)/sqrt(length(proportion_correct))
+            )
+
+# plot
+ggplot(group_mean_pc, aes(x=is_congruent,y=mean_proportion_correct)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_proportion_correct-sem,
+                    ymax=mean_proportion_correct+sem),
+                width=.2) +
+  ylab("Mean Proportion Correct") +
+  xlab("Congruency")+
+  coord_cartesian(ylim=c(0.5,1)) +
+  theme_classic()
+```
+
+### By duration
+
+```{r, echo=TRUE}
+
+# get individual subject proportion correct values
+subject_pc <- filtered_data_pc %>%
+  group_by(subject,duration) %>%
+  summarize(proportion_correct = mean(is_correct), .groups = "drop")
+
+# get group means in each condition
+group_mean_pc <- subject_pc %>%
+  group_by(duration) %>%
+  summarize(mean_proportion_correct = mean(proportion_correct),
+            sem = sd(proportion_correct)/sqrt(length(proportion_correct))
+            )
+
+# plot
+ggplot(group_mean_pc, aes(x=duration,y=mean_proportion_correct)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_proportion_correct-sem,
+                    ymax=mean_proportion_correct+sem),
+                width=.2) +
+  ylab("Mean Proportion Correct") +
+  xlab("Duration")+
+  coord_cartesian(ylim=c(0.5,1)) +
+  theme_classic()
+```
+
+### By congruency
+
+```{r, echo=TRUE}
+
+# get individual subject proportion correct values
+subject_pc <- filtered_data_pc %>%
+  group_by(subject,is_congruent_duration) %>%
+  summarize(proportion_correct = mean(is_correct), .groups = "drop")
+
+# get group means in each condition
+group_mean_pc <- subject_pc %>%
+  group_by(is_congruent_duration) %>%
+  summarize(mean_proportion_correct = mean(proportion_correct),
+            sem = sd(proportion_correct)/sqrt(length(proportion_correct))
+            )
+
+# plot
+ggplot(group_mean_pc, aes(x=is_congruent_duration,y=mean_proportion_correct)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_proportion_correct-sem,
+                    ymax=mean_proportion_correct+sem),
+                width=.2) +
+  ylab("Mean Proportion Correct") +
+  xlab("Congruency + Duration")+
+  coord_cartesian(ylim=c(0.5,1)) +
+  theme_classic()
+```
+# Conclusion
+
+Displaying colors shortly before showing colored text seems weeken stroop test.

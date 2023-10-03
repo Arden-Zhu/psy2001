@@ -1,0 +1,228 @@
+"rt","stimulus","response","trial_type","trial_index","time_elapsed","internal_node_id","accuracy","task","correct_response","is_correct","response_type","key_press","avg_frame_time","center_x","center_y","color","text","is_congruent"
+"5755","<p style=""font:bold 20pt Arial"">Welcome to Interactive Stroop Test with Stimulus Duration.</p>
+      <p style=""margin:50px"">Press any key to begin.</p>","h","html-keyboard-response","0","5758","0.0-0.0","","","","","","","","","","","",""
+"5086","","{""P0_Q0"":null,""heard-stroop-effect"":""Yes"",""gerder"":""""}","survey","1","10897","0.0-1.0","[]","","","","","","","","","","",""
+"5884","
+		<div style=""width:800px"">
+			<p>You will see text in 4 colors which are individually assigned to a key.</p>
+			<ul style=""list-style-type:none"">
+			  <li style=""color:Blue"">Blue - key B</li><li style=""color:Red"">Red - key R</li><li style=""color:Green"">Green - key G</li><li style=""color:Yellow"">Yellow - key Y</li>
+			</ul>
+			<p>Your task is to press the key as soon as possible when you see a color.</p>
+			<p>For example, you should press B key when seeing a word in color <span style=""color:Blue"">Blue</span>, even if the word is <span style=""color:Blue"">Red</span>.</p>
+			<p>Here is a tip, you can place your figures on the keys to have a better performance.</p>
+			<p>For instance, left middle figure on R; left index figure on B; right index figure on G; and right middle figure on Y</p>
+			<p>The experiment will start with a practice for you to be familiar with the task.</p>
+			<p>Then a test will start.</p>
+			</p></p>	  
+			<p>Press any key to begin the practice.</p>
+		</div>
+      ","b","html-keyboard-response","2","16782","0.0-2.0","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","3","17289","0.0-3.0-0.0","","fixation","","","","","","","","","",""
+"801","
+		<div style=""width:800px"">
+			<p style=""color:Blue;font:bold 100pt Arial"">
+				Blue
+			</p>
+			<p>The correct response is B.</p>
+		</div>
+	  ","b","html-keyboard-response","4","18605","0.0-3.0-1.0","","","B","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","5","19110","0.0-3.0-2.0","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","6","19620","0.0-3.0-0.1","","fixation","","","","","","","","","",""
+"696","
+		<div style=""width:800px"">
+			<p style=""color:Green;font:bold 100pt Arial"">
+				Green
+			</p>
+			<p>The correct response is G.</p>
+		</div>
+	  ","g","html-keyboard-response","7","20829","0.0-3.0-1.1","","","G","true","","","","","","","",""
+"31","<p style=""font-size:60pt"">Correct</p>","b","html-keyboard-response","8","20861","0.0-3.0-2.1","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","9","21367","0.0-3.0-0.2","","fixation","","","","","","","","","",""
+"1190","
+		<div style=""width:800px"">
+			<p style=""color:Blue;font:bold 100pt Arial"">
+				Red
+			</p>
+			<p>The correct response is B.</p>
+		</div>
+	  ","b","html-keyboard-response","10","23069","0.0-3.0-1.2","","","B","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","11","23573","0.0-3.0-2.2","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","12","24088","0.0-3.0-0.3","","fixation","","","","","","","","","",""
+"885","
+		<div style=""width:800px"">
+			<p style=""color:Red;font:bold 100pt Arial"">
+				Green
+			</p>
+			<p>The correct response is R.</p>
+		</div>
+	  ","r","html-keyboard-response","13","25474","0.0-3.0-1.3","","","R","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","14","25980","0.0-3.0-2.3","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","15","26492","0.0-3.0-0.4","","fixation","","","","","","","","","",""
+"671","
+		<div style=""width:800px"">
+			<p style=""color:Yellow;font:bold 100pt Arial"">
+				Yellow
+			</p>
+			<p>The correct response is Y.</p>
+		</div>
+	  ","y","html-keyboard-response","16","27677","0.0-3.0-1.4","","","Y","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","17","28182","0.0-3.0-2.4","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","18","28695","0.0-3.0-0.5","","fixation","","","","","","","","","",""
+"597","
+		<div style=""width:800px"">
+			<p style=""color:Red;font:bold 100pt Arial"">
+				Red
+			</p>
+			<p>The correct response is R.</p>
+		</div>
+	  ","r","html-keyboard-response","19","29805","0.0-3.0-1.5","","","R","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","20","30306","0.0-3.0-2.5","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","21","30813","0.0-3.0-0.6","","fixation","","","","","","","","","",""
+"681","
+		<div style=""width:800px"">
+			<p style=""color:Yellow;font:bold 100pt Arial"">
+				Blue
+			</p>
+			<p>The correct response is Y.</p>
+		</div>
+	  ","y","html-keyboard-response","22","31998","0.0-3.0-1.6","","","Y","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","23","32500","0.0-3.0-2.6","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","24","33002","0.0-3.0-0.7","","fixation","","","","","","","","","",""
+"1264","
+		<div style=""width:800px"">
+			<p style=""color:Green;font:bold 100pt Arial"">
+				Yellow
+			</p>
+			<p>The correct response is G.</p>
+		</div>
+	  ","g","html-keyboard-response","25","34771","0.0-3.0-1.7","","","G","true","","","","","","","",""
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","26","35275","0.0-3.0-2.7","","","","","","","","","","","",""
+"3459","
+  	<div style=""width:800px"">
+  		<p>The test will start. Remember to press the key according to the color rather than the word.</p>
+  		<p>You can press S if you do not catch the blink color.</p>
+  		<p>Press any key to begin.</p>
+  	</div>
+  	","b","html-keyboard-response","27","38736","0.0-4.0","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","28","39237","0.0-5.0-0.0","","fixation","","","","","","","","","",""
+"860","","y","psychophysics","29","40624","0.0-5.0-1.0","","response","Y","true","key","y","16.68275471698116","500","400","Yellow","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","30","41126","0.0-5.0-2.0","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","31","41632","0.0-5.0-0.1","","fixation","","","","","","","","","",""
+"548","","b","psychophysics","32","42702","0.0-5.0-1.1","","response","B","true","key","b","16.681090909090983","500","400","Blue","Blue","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","33","43205","0.0-5.0-2.1","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","34","43708","0.0-5.0-0.2","","fixation","","","","","","","","","",""
+"826","","g","psychophysics","35","45043","0.0-5.0-1.2","","response","G","true","key","g","16.683959183673526","500","400","Green","Yellow","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","36","45545","0.0-5.0-2.2","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","37","46047","0.0-5.0-0.3","","fixation","","","","","","","","","",""
+"536","","r","psychophysics","38","47118","0.0-5.0-1.3","","response","R","true","key","r","17.18296969696971","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","39","47619","0.0-5.0-2.3","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","40","48123","0.0-5.0-0.4","","fixation","","","","","","","","","",""
+"611","","y","psychophysics","41","49264","0.0-5.0-1.4","","response","Y","true","key","y","16.68315789473682","500","400","Yellow","Blue","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","42","49766","0.0-5.0-2.4","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","43","50268","0.0-5.0-0.5","","fixation","","","","","","","","","",""
+"570","","g","psychophysics","44","51356","0.0-5.0-1.5","","response","G","true","key","g","16.68391428571423","500","400","Green","Green","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","45","51857","0.0-5.0-2.5","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","46","52359","0.0-5.0-0.6","","fixation","","","","","","","","","",""
+"552","","r","psychophysics","47","53422","0.0-5.0-1.6","","response","R","true","key","r","16.698588235294128","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","48","53924","0.0-5.0-2.6","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","49","54425","0.0-5.0-0.7","","fixation","","","","","","","","","",""
+"555","","y","psychophysics","50","55508","0.0-5.0-1.7","","response","Y","true","key","y","16.685114285714267","500","400","Yellow","Yellow","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","51","56009","0.0-5.0-2.7","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","52","56511","0.0-5.0-0.8","","fixation","","","","","","","","","",""
+"736","","r","psychophysics","53","57777","0.0-5.0-1.8","","response","R","true","key","r","16.694266666666632","500","400","Red","Blue","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","54","58281","0.0-5.0-2.8","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","55","58782","0.0-5.0-0.9","","fixation","","","","","","","","","",""
+"381","","b","psychophysics","56","59692","0.0-5.0-1.9","","response","B","true","key","b","17.374208333333627","500","400","Blue","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","57","60200","0.0-5.0-2.9","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","58","60702","0.0-5.0-0.10","","fixation","","","","","","","","","",""
+"573","","g","psychophysics","59","61780","0.0-5.0-1.10","","response","G","true","key","g","16.653606060606155","500","400","Green","Green","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","60","62284","0.0-5.0-2.10","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","61","62786","0.0-5.0-0.11","","fixation","","","","","","","","","",""
+"673","","r","psychophysics","62","63967","0.0-5.0-1.11","","response","R","true","key","r","16.693124999999963","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","63","64470","0.0-5.0-2.11","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","64","64972","0.0-5.0-0.12","","fixation","","","","","","","","","",""
+"634","","r","psychophysics","65","66117","0.0-5.0-1.12","","response","R","true","key","r","17.132054054054016","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","66","66620","0.0-5.0-2.12","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","67","67122","0.0-5.0-0.13","","fixation","","","","","","","","","",""
+"695","","g","psychophysics","68","68349","0.0-5.0-1.13","","response","G","true","key","g","17.069116279069974","500","400","Green","Red","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","69","68854","0.0-5.0-2.13","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","70","69366","0.0-5.0-0.14","","fixation","","","","","","","","","",""
+"798","","r","psychophysics","71","70674","0.0-5.0-1.14","","response","B","false","key","r","16.68668749999991","500","400","Blue","Red","false"
+"null","<p style=""font-size:60pt"">Wrong</p>","null","html-keyboard-response","72","71182","0.0-5.0-2.14","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","73","71683","0.0-5.0-0.15","","fixation","","","","","","","","","",""
+"950","","g","psychophysics","74","73157","0.0-5.0-1.15","","response","G","true","key","g","16.683859649122734","500","400","Green","Yellow","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","75","73660","0.0-5.0-2.15","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","76","74162","0.0-5.0-0.16","","fixation","","","","","","","","","",""
+"840","","r","psychophysics","77","75533","0.0-5.0-1.16","","response","B","false","key","r","16.68057692307719","500","400","Blue","Blue","true"
+"null","<p style=""font-size:60pt"">Wrong</p>","null","html-keyboard-response","78","76034","0.0-5.0-2.16","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","79","76536","0.0-5.0-0.17","","fixation","","","","","","","","","",""
+"1864","","b","psychophysics","80","78911","0.0-5.0-1.17","","response","B","true","key","b","16.68249999999989","500","400","Blue","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","81","79425","0.0-5.0-2.17","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","82","79928","0.0-5.0-0.18","","fixation","","","","","","","","","",""
+"645","","y","psychophysics","83","81085","0.0-5.0-1.18","","response","Y","true","key","y","16.682000000000325","500","400","Yellow","Yellow","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","84","81587","0.0-5.0-2.18","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","85","82091","0.0-5.0-0.19","","fixation","","","","","","","","","",""
+"1093","","y","psychophysics","86","83697","0.0-5.0-1.19","","response","Y","true","key","y","16.68486153846159","500","400","Yellow","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","87","84202","0.0-5.0-2.19","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","88","84704","0.0-5.0-0.20","","fixation","","","","","","","","","",""
+"616","","y","psychophysics","89","85840","0.0-5.0-1.20","","response","Y","true","key","y","16.682105263157847","500","400","Yellow","Yellow","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","90","86343","0.0-5.0-2.20","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","91","86845","0.0-5.0-0.21","","fixation","","","","","","","","","",""
+"522","","g","psychophysics","92","87871","0.0-5.0-1.21","","response","G","true","key","g","16.69016666666624","500","400","Green","Green","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","93","88372","0.0-5.0-2.21","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","94","88874","0.0-5.0-0.22","","fixation","","","","","","","","","",""
+"470","","g","psychophysics","95","89854","0.0-5.0-1.22","","response","G","true","key","g","16.687793103448147","500","400","Green","Yellow","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","96","90356","0.0-5.0-2.22","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","97","90857","0.0-5.0-0.23","","fixation","","","","","","","","","",""
+"395","","g","psychophysics","98","91761","0.0-5.0-1.23","","response","G","true","key","g","16.701833333333223","500","400","Green","Yellow","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","99","92262","0.0-5.0-2.23","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","100","92766","0.0-5.0-0.24","","fixation","","","","","","","","","",""
+"664","","y","psychophysics","101","93940","0.0-5.0-1.24","","response","Y","true","key","y","16.686128205128345","500","400","Yellow","Yellow","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","102","94441","0.0-5.0-2.24","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","103","94943","0.0-5.0-0.25","","fixation","","","","","","","","","",""
+"984","","b","psychophysics","104","96430","0.0-5.0-1.25","","response","B","true","key","b","16.680881355932303","500","400","Blue","Blue","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","105","96932","0.0-5.0-2.25","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","106","97434","0.0-5.0-0.26","","fixation","","","","","","","","","",""
+"455","","b","psychophysics","107","98397","0.0-5.0-1.26","","response","B","true","key","b","16.678750000000168","500","400","Blue","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","108","98917","0.0-5.0-2.26","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","109","99419","0.0-5.0-0.27","","fixation","","","","","","","","","",""
+"639","","r","psychophysics","110","100575","0.0-5.0-1.27","","response","R","true","key","r","16.683179487179494","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","111","101078","0.0-5.0-2.27","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","112","101582","0.0-5.0-0.28","","fixation","","","","","","","","","",""
+"783","","g","psychophysics","113","102878","0.0-5.0-1.28","","response","G","true","key","g","16.683936170212853","500","400","Green","Blue","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","114","103384","0.0-5.0-2.28","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","115","103886","0.0-5.0-0.29","","fixation","","","","","","","","","",""
+"713","","y","psychophysics","116","105107","0.0-5.0-1.29","","response","Y","true","key","y","16.684232558139335","500","400","Yellow","Green","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","117","105610","0.0-5.0-2.29","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","118","106112","0.0-5.0-0.30","","fixation","","","","","","","","","",""
+"692","","y","psychophysics","119","107311","0.0-5.0-1.30","","response","Y","true","key","y","16.68032499999972","500","400","Yellow","Yellow","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","120","107814","0.0-5.0-2.30","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","121","108329","0.0-5.0-0.31","","fixation","","","","","","","","","",""
+"1086","","y","psychophysics","122","109926","0.0-5.0-1.31","","response","Y","true","key","y","16.682830769230854","500","400","Yellow","Red","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","123","110428","0.0-5.0-2.31","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","124","110930","0.0-5.0-0.32","","fixation","","","","","","","","","",""
+"718","","r","psychophysics","125","112167","0.0-5.0-1.32","","response","R","true","key","r","16.681681818181957","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","126","112670","0.0-5.0-2.32","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","127","113176","0.0-5.0-0.33","","fixation","","","","","","","","","",""
+"673","","b","psychophysics","128","114382","0.0-5.0-1.33","","response","B","true","key","b","16.68192857142865","500","400","Blue","Red","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","129","114885","0.0-5.0-2.33","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","130","115388","0.0-5.0-0.34","","fixation","","","","","","","","","",""
+"807","","r","psychophysics","131","116720","0.0-5.0-1.34","","response","R","true","key","r","16.69224489795915","500","400","Red","Blue","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","132","117224","0.0-5.0-2.34","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","133","117726","0.0-5.0-0.35","","fixation","","","","","","","","","",""
+"581","","r","psychophysics","134","118833","0.0-5.0-1.35","","response","R","true","key","r","16.679583333333238","500","400","Red","Red","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","135","119335","0.0-5.0-2.35","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","136","119836","0.0-5.0-0.36","","fixation","","","","","","","","","",""
+"441","","b","psychophysics","137","120789","0.0-5.0-1.36","","response","B","true","key","b","16.683481481481405","500","400","Blue","Blue","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","138","121292","0.0-5.0-2.36","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","139","121793","0.0-5.0-0.37","","fixation","","","","","","","","","",""
+"614","","y","psychophysics","140","122927","0.0-5.0-1.37","","response","G","false","key","y","16.680263157894508","500","400","Green","Yellow","false"
+"null","<p style=""font-size:60pt"">Wrong</p>","null","html-keyboard-response","141","123430","0.0-5.0-2.37","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","142","123932","0.0-5.0-0.38","","fixation","","","","","","","","","",""
+"952","","g","psychophysics","143","125396","0.0-5.0-1.38","","response","G","true","key","g","16.683438596491325","500","400","Green","Red","false"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","144","125898","0.0-5.0-2.38","","","","","","","","","","","",""
+"null","<div style=""font-size:60px;"">+</div>","null","html-keyboard-response","145","126401","0.0-5.0-0.39","","fixation","","","","","","","","","",""
+"506","","g","psychophysics","146","127430","0.0-5.0-1.39","","response","G","true","key","g","16.680999999999674","500","400","Green","Green","true"
+"null","<p style=""font-size:60pt"">Correct</p>","null","html-keyboard-response","147","127933","0.0-5.0-2.39","","","","","","","","","","","",""
+"4133","","{""P0_Q0"":null,""feedback-feel"":"""",""feedback-suggestion"":""""}","survey","148","132159","0.0-6.0","[]","","","","","","","","","","",""

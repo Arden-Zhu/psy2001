@@ -2,6 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Stroop - duration 2 colors/index.html",
+      "/posts/Stroop - SOA with 2 colors/index.html",
+      "/posts/Stroop - SOA with 4 colors/index.html",
+      "/posts/Use R to Analyze Stroop Data/index.html",
       "/posts/Second Try Stroop/index.html",
       "/posts/Note of An Integrative Review of Stroop Effect/index.html",
       "/posts/Note of Evaluating MTurk/index.html",
