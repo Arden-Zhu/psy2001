@@ -6,7 +6,7 @@ date-modified: last-modified
 categories: [JsPsych, code, psychology, R]
 ---
 
-This is a trial of using R to analyze the data of [Stroop with Stimulus Duration - 2 Colors](../../experiments/Stroop/stroop-duration-2colors.html).
+This is a trial of using R to analyze the data of [Stroop with Stimulus Duration - 2 Colors](../../experiments/stroop/stroop-duration-2colors.html).
 
 Follow the [instruction](https://www.crumplab.com/psyc2001/blog/5_stroop_data/)
 

@@ -6,7 +6,7 @@ date-modified: last-modified
 categories: [JsPsych, code, psychology, R]
 ---
 
-Analyze the data of [Stroop - SOA with 4 Colors](../../experiments/Stroop/stroop-soa-4colors.html).
+Analyze the data of [Stroop - SOA with 4 Colors](../../experiments/stroop/stroop-soa-4colors.html).
 
 # Load data
 
