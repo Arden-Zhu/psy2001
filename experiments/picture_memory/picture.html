@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+
+
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="stimuli.js"></script>
+
+    <!--
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-image-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-preload.js"></script>
+
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+    -->
+    <style>
+      /* Add the blur effect */
+      .blur_0 {
+        filter: blur(0);
+        -webkit-filter: blur(0);
+      }
+      .blur_1 {
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+
+  const durations = [125,250,500,1000,2000];
+  const blurs = ["blur_0", "blur_1"];
+  const images_per_condition = 1;
+
+  var jsPsych = initJsPsych({
+    on_finish: function() {
+      jsPsych.data.displayData();
+    }
+  });
+
+  var timeline = [];
+
+  var welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "Welcome to the experiment. Press any key to begin."
+  };
+
+  var encoding_instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p>In this task, you will be shown a series of pictures</p>
+    <p>The pictures will be presented quickly, and they will remain on the screen for different durations </p>
+    <p>Pay attention to the pictures as best as you can.</p>
+    <p>After the encoding phase you will be given a recognition test for the pictures that were presented.</p>
+    <p>Press any key to begin.</p>
+    `,
+    post_trial_gap: 2000
+  };
+
+  // Set goals
+  // get some pictures
+  // figure out how to present them using jspsych
+
+  var encoding_stimuli = [];
+
+  all_pictures = jsPsych.randomization.shuffle(all_pictures);
+
+  var index = 0;
+  for (i=0; i < durations.length; i++) {
+    for (j = 0; j < blurs.length; j++) {
+      for (k = 0; k < images_per_condition; k++) {
+        encoding_stimuli.push({
+          stimulus: `<img class='${blurs[j]}' src='images/${all_pictures[index++]}'>`,
+          phase: "encoding",
+          duration: durations[i],
+          blur: blurs[j],
+          image: all_pictures[index++]
+        });
+      }
+    }
+  }
+
+  console.log(encoding_stimuli)
+  
+  var fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div style="font-size:60px;">+</div>',
+    choices: "NO_KEYS",
+    trial_duration: 1000,
+    data: {
+      task: 'fixation'
+    }
+  };
+
+  var display_picture = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: 'NO_KEYS',
+    trial_duration: jsPsych.timelineVariable('duration'),
+    response_ends_trial: false,
+    stimulus_duration: jsPsych.timelineVariable('duration'),
+    data: {
+      phase: jsPsych.timelineVariable('phase'),
+      duration: jsPsych.timelineVariable('duration')
+    },
+    post_trial_gap: 500
+  };
+
+  var encoding_procedure = {
+    timeline: [display_picture],
+    timeline_variables: encoding_stimuli,
+    randomize_order: true,
+    repetitions: 1
+  };
+
+
+  var recognition_instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p>In this phase, you will be shown pictures one at a time</p>
+    <p>For each picture you will judge whether you saw the picture before. </p>
+
+    <p> Press 'o' if the picture is OLD, and you saw it before </p>
+
+    <p> Press 'n' if the picture is NEW, and you did not see it before. </p>
+
+    <p>Press any key to begin.</p>
+    `,
+    post_trial_gap: 2000
+  };
+
+  // make list of stimuli for recognition test
+
+    var recognition_stimuli = [];
+
+    for (i=0; i < encoding_stimuli.length; i++){
+
+      //push old stimuli
+      recognition_stimuli.push({
+        stimulus: `<img src='images/${encoding_stimuli[i].image}'>`,
+        phase: "test",
+        type: "old",
+        correct_response: 'o',
+        duration: encoding_stimuli[i].duration,
+        blur: encoding_stimuli[i].blur
+      });
+
+       //push new stimuli
+      recognition_stimuli.push({
+        stimulus: `<img src='images/${all_pictures[encoding_stimuli.length + i]}'>`,
+        phase: "test",
+        type: "new",
+        correct_response: 'n',
+        duration: "NA",
+        blur: "NA",
+      });
+  }
+
+  var display_picture_recognition = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: ['o','n'],
+    response_ends_trial: true,
+    data: {
+      phase: jsPsych.timelineVariable('phase'),
+      duration: jsPsych.timelineVariable('duration'),
+      correct_response: jsPsych.timelineVariable('correct_response'),
+      blur: jsPsych.timelineVariable('blur'),
+    },
+    on_finish: function(data){
+      data.is_correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+    },
+    post_trial_gap: 500
+  };
+
+  var recognition_procedure = {
+    timeline: [display_picture_recognition],
+    timeline_variables: recognition_stimuli,
+    randomize_order: true,
+    repetitions: 1
+  };
+
+  /* save data with DataPipe */
+  const subject_id = jsPsych.randomization.randomID(10);
+  const filename = `d_${(new Date().toJSON().slice(0,19))}_${subject_id}.csv`;
+
+  const save_data = {
+    type: jsPsychPipe,
+    action: "save",
+    experiment_id: "EJONd9nB9QUt",
+    filename: filename,
+    data_string: ()=>jsPsych.data.get().csv()
+  };            
+  
+
+  timeline.push(welcome);
+  timeline.push(encoding_instructions);
+  timeline.push(encoding_procedure);
+  timeline.push(recognition_instructions);
+  timeline.push(recognition_procedure);
+  timeline.push(save_data);
+
+  jsPsych.run(timeline);
+
+
+  </script>
+</html>

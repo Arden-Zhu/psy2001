@@ -1,0 +1,33 @@
+---
+title: "Week 6: Picture memory"
+description: "This week we program a replication of a classic picture memory experiment."
+author: "Hao Zhu"
+date: 10-9-23
+date-modified: last-modified
+image: 'week_6.jpeg'
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+-   Copied all experiment related files to [/experiments/picture_memory](../../experiments/picture_memory/picture.html)
+
+-   Read the paper [Recognition memory for a rapid sequence of pictures](Recognition memory for a rapid sequence of pictures.pdf)
+
+-   Adjusted the original code
+
+    -   Changed 50 to two const images_per_condition and durations that makes the code easier for extending
+    -   Added is_correct to the data
+
+-   Added a new variable blurring/no-blurring. Images in the blurring condition were blurred only in the encoding phrase but no in the recognition phrase. The hypothesis was that blurred images are most difficult to be remembered.
+
+    -   After the first trial, I felt that blurred images needed a longer time to decode. Sometimes, the duration was too short for me to decode and remember the image shown during the interval.
+
+-   Saved data to OSF
+

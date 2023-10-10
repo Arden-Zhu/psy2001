@@ -4,6 +4,7 @@ project:
   resources:
     - "dist/"
     - "experiments/"
+    - "*.pdf"
 website:
   title: "Psy2001 Journal - Hao Zhu"
   navbar:
