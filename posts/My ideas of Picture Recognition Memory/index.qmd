@@ -1,0 +1,44 @@
+---
+title: "My ideas of Picture Recognition Memory" 
+author: "Hao Zhu" 
+date: "2023-10-18" 
+date-modified: last-modified 
+categories: [note, psychology] 
+image: "note.jpg" 
+---
+
+This is my ideas of picture recognition experiements
+
+# 1. Interference Test
+
+The study aims to investigate how interference affects picture recognition. The hypothesis is that subjects will have a lower performance of remember images if their attention is led to another task while they are shown with the image.
+
+Here is the initial solution:
+
+1.  It is an in-subjects design. Participants attend a two-turn test.
+
+2.  In the first turn, split the display area (about 800 px \* 600 px in the middle of the screen) on the screen into 2 \* 2 regions. 
+
+3.  A fixation will be displayed in the center of one random region of the four.
+
+4.  After the fixation disappears,  a single mathematical question ( for example 4 + 8 = ? ) will be displayed in the highlighted region, and an image will simultaneously show in another random region. The stimuli both show during a short time ( maybe 0.5s - 2s). 
+
+5.  After the stimuli disappear, participants are asked to answer the mathematical question correctly; otherwise, they have to repeat the same trial with another image but the same math question. An implied reward here is that participants can continue the test when their answer is correct, and this reward will hopefully draw their attention to the area with a math question.
+
+6.  After 16 trials, they will be tested on picture memory.
+
+7.  The same participants will attend a second turn in which only images are presented, no math anymore, and they will be tested on picture memory, too.
+
+8.  Compare their performance in the two turns.
+
+# 2. Pairing Test 
+
+In the real world we always relate what we see to other objects, for example, the name of a person, the category of the object, and so on. The study is to investigate the performance of memorizing image with another object, such as a symbol, another image, or a word.
+
+## Pair with a symbol
+
+The hypothesis is that the memory of remembering a pair between an image with a simple symbol is lower than recognizing the image. Each image in the study phase will be cover with a green check, a yellow circle, or a red cross. In the test phase, participants will be answer whether an image has been paired with the green check, the yellow circle, the red cross, or never appeared in the study phase.
+
+## Pair with another image
+
+In the study phase, images will be shown in pairs. And the question to answer in the test phase is whether two images were paired, or not paired, or at least one one of the images did not appear in the study phase.

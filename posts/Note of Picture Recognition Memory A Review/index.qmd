@@ -1,4 +1,4 @@
---- 
+---
 title: "Note of Picture Recognition Memory: A Review of Research and Theory" 
 author: "Hao Zhu" 
 date: "2023-10-16" 
@@ -157,4 +157,4 @@ in general, strategies that lead to deeper or more elaborate encoding improve pe
 
 # Final Comment
 
-## Face Recognition
+
