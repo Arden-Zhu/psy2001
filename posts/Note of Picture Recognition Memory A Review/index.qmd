@@ -1,0 +1,160 @@
+--- 
+title: "Note of Picture Recognition Memory: A Review of Research and Theory" 
+author: "Hao Zhu" 
+date: "2023-10-16" 
+date-modified: last-modified 
+categories: [note, psychology] 
+image: "note.jpg" 
+---
+
+This is a note written while reading *Picture Recognition Memory: A Review of Research and Theory* written by W. Howard Levie and Susan N. Hathaway.
+
+-   Experiments have a study phase and a test phase. In the study phase, subjects look at a series of pictures one after the other at a controlled rate. In the test phase, subjects see some of the study pictures mixed in with new pictures (distractors) and are asked to discriminate the study pictures from the distractors
+-   Two kinds of tests are commonly used: forced-choice tests and single-item tests.
+
+# Pictures Versus words
+
+-   pictures are remembered better than words. (?)
+-   no difference between recognition memory for real objects and pictures of the objects.
+
+# Pictures Plus Words
+
+## Experimenter-Provided Words
+
+-   when an added label increases the meaningfulness of a picture, recognition is improved
+-   The authors speculate that the sentences caused subjects to review and further process their mental representation of the picture. This more elaborate representation was then more easily recalled than an unelaborated representation.
+-   when the label described only a portion of a picture, children's recognition of the described part of the picture was improved, but at the expense of the nondescribed parts.
+
+## Subject-Generated Words
+
+-   The verbal descriptions increased recognition of the study pictures, but also increased false recognitions of similar distractors.
+
+## Dual-Code versus Single-Code Memory Models
+
+-   The dual-code model postulates the existence of two symbolic systems: A verbal system specialized for processing and storing linguistic information, and a nonverbal system specialized for spatial information and mental imagery.
+-   the dual-code model predicts the results of memory experiments: Pictures are remembered better than concrete words, which in turn are remembered better than abstract words
+-   Several theorists have spoken out against the dual-code model. The initial stages of processing pictures and words may differ, but ultimately both types of information are coded in a common memory store consisting of abstract propositions.
+
+# Pictorial Stimulus Variables
+
+## Distinctiveness
+
+-   Pictures that are "distinctive" are more memorable than less distinctive pictures. distinctiveness was the underlying dimension relating recognition and aesthetic quality.
+
+## The Role of Distinctiveness in Picture-Word Memory Models
+
+-   The Sensory-Semantic Model suggests that the presentation of a picture involves interpreting and storing two aspects of an item: a sensory code that is concerned with the visual appearance of an item, and a semantic code that concerns the meaning of the item
+-   "generic-specific hypothesis"
+-   frequency theory.
+
+## Meaningfulness
+
+-   Perceivers for whom a panicular type of stimulus is more meaningful (e.g., expert chess players rather than novices) will show superior ability to accurately recognize stimulus patterns (chess board positions) involving that class of stimuli
+
+## Visual Richness
+
+-   studies of the effects of visual richness on picture recognition have shown mixed results.
+
+## Other Pictorial Stimulus Variables
+
+-   COMPLEXITY.
+-   Color
+-   Motion, Recognition accuracy was better with the moving pictures.
+-   FIGURE-GROUND SEPARATION. alterations in the figure were detected more easily than alterations in the ground.
+-   LUMINANCE. the brighter the image, the better subjects were able later to recognize the picture.
+
+## Memory for Parts and Attributes of Pictures
+
+-   evidence showing that global features are processed prior to local features.
+-   however, found that the order in which global versus local information is processed may depend on factors such as the size of the image and the semantic relationship between key local features and global meaning.
+-   Eye movement research shows that fixations are most likely to fall upon the "informative areas" of pictures.
+-   When, however, study pictures are presented for very brief durations (250 milliseconds), picture recognition is more likely to be based upon holistic information than on specific detail information
+-   Often, subjects' ability to discriminate study pictures from their mirror-images is near chance
+
+## Summary
+
+-   Studies of pictorial stimulus variables suggest that high distinctiveness, high meaningfulness, motion, good figure-ground separation, and high illumination help subjects remember pictures. Studies of the effects of visual richness, complexity and color have yielded mixed results, whereas a high degree of similarity between pictures in the study set diminishes recognition accuracy.
+-   Subjects are unlikely to remember parts of a picture unless they are unexpected, distinctive, or central to the meaning of the picture.
+-   Among the attributes of pictures, subjects are most likely to retain color information and spatial information.
+
+# Encoding Strategy
+
+## Level of Processing
+
+It is predicted that information processed at a semantic level will be remembered better than information processed at the sensory surface level.
+
+## Test-Related Encoding
+
+conceptual encoding was best, schematic next best, and acoustic encoding and the control condition poorest.
+
+## Interference Tasks
+
+the verbal interference task had a less damaging impact upon the recognition of pictures than words.
+
+## Summary
+
+in general, strategies that lead to deeper or more elaborate encoding improve performance on subsequent recognition tasks.
+
+# Research Design Factors
+
+## Time Intervals
+
+### PRESENTATION DURATION
+
+-   recognition is nearly perfect with a presentation rate of only two seconds.
+-   Presentations lasting only one second produce recognition accuracy in the 80% to 90% range
+-   in experiments in which the task requires encoding detailed aspects of complex pictures, a ceiling effect will likely not occur at a two second presentation duration,
+
+### INTERSTIMULUS INTERVAL
+
+-   Most subsequent researchers, howevert have found that increasing the blank period between pictures does improve recognition accuracy
+
+### TEST DELAY.
+
+-   Numerous researchers have found that performance is poorer on delayed as compared to immediate tests
+
+# Factors Related to the Form of the Dependent Measure
+
+### TEST-FORM: FORCES-CHOICE VERSUS SINGLE-ITEM METHODS.
+
+-   Single-item tests are more difficult than two alternative forced-choice tests
+
+### SIMILARITY OF TEST ITEMS.
+
+-   Recognition performance can be affected dramatically by varying the degree of similarity between study pictures and distractor pictures.
+
+### STUDY MODALITY AND TEST MODALITY.
+
+-   
+
+    (1) pictures are better than words as study stimuli, and (2) testing in the same modality is better than testing in the opposite modality
+
+# Individual Differences
+
+## Age Differences
+
+-   Although young children's ability to recognize pictures is very good, numerous researchers have now documented improvement in performance with age
+
+-   it may be that young children are less likely to label, and hence dual-code, pictures
+
+-   When novel and familiar pictures are shown side by side, infants tend to look more at the novel picture.
+
+-   although recognition memory for words declines with age, recognition memory for pictures does not.
+
+## Style, Aptitude, and Ability
+
+## Experience with the Class of Stimuli
+
+# Some Closely Related Research Areas
+
+## Face Recognition
+
+## Eye Witness Research
+
+-   no correlation has been found between subjects' performance and confidence.
+
+## Recognition of Environmental Scenes
+
+# Final Comment
+
+## Face Recognition

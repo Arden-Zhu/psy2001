@@ -28,6 +28,377 @@
     "text": "This is a trial of using R to analyze the data of Stroop with Stimulus Duration - 2 Colors.\nFollow the instruction\n\nLoad data\n\nDefine parameters\n\ndata_folder &lt;- \"../../experiments/Stroop/stroop-duration-2colors/20231002\"\n\n\n\nLoading libraries and importing data\n\n# install from the Packages tab, or run the below in the console once.\n#install.packages('tidyverse')\n#install.packages('rio')\n\n# load libraries\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(rio)\n\n# get data file names\nfile_names &lt;- list.files(data_folder,full.names = TRUE)\n\n# initialize data frame to hold individual subject data\nall_data &lt;- tibble()\n\n# loop through each file and import\nfor(i in 1:length(file_names)) {\n  \n  # import a single data file to a temporary data frame\n  temp_df &lt;- rio::import(file_names[i]) %&gt;%\n    mutate(subject = i)\n  \n  # append the single subject data to larger data frame\n  all_data &lt;- rbind(all_data,temp_df)\n  \n}\n\n\n\n\nReaction time analysis\n\nBy congruncy\n\n# pre-process and filter rows\nfiltered_data &lt;- all_data %&gt;%\n  filter(task == \"response\",\n         is_correct == \"TRUE\") %&gt;%\n  mutate(rt = as.numeric(rt),\n         duration = as.character(duration),\n         is_congruent_duration = paste(is_congruent, \" \", duration))\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,is_congruent) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(is_congruent) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt),\n            sem = sd(mean_rt)/sqrt(length(mean_rt))\n            )\n\n# plot\nggplot(group_mean_RT, aes(x=is_congruent,y=mean_reaction_time)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_reaction_time-sem,\n                    ymax=mean_reaction_time+sem),\n                width=.2) +\n  ylab(\"Mean Reaction Time (ms)\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(200,500)) +\n  theme_classic()\n\n\n\n\n\n\nBy stimulus duration\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,duration) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(duration) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt),\n            sem = sd(mean_rt)/sqrt(length(mean_rt))\n            )\n\n# plot\nggplot(group_mean_RT, aes(x=duration,y=mean_reaction_time)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_reaction_time-sem,\n                    ymax=mean_reaction_time+sem),\n                width=.2) +\n  ylab(\"Mean Reaction Time (ms)\") +\n  xlab(\"Duration\")+\n  coord_cartesian(ylim=c(200,500)) +\n  theme_classic()\n\n\n\n\n\n\nBy congruency plus stimulus duration\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,is_congruent_duration) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(is_congruent_duration) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt),\n            sem = sd(mean_rt)/sqrt(length(mean_rt))\n            )\n\n# plot\nggplot(group_mean_RT, aes(x=is_congruent_duration,y=mean_reaction_time)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_reaction_time-sem,\n                    ymax=mean_reaction_time+sem),\n                width=.2) +\n  ylab(\"Mean Reaction Time (ms)\") +\n  xlab(\"Congruency + Duration\")+\n  coord_cartesian(ylim=c(200,500)) +\n  theme_classic()\n\n\n\n\n\n\nplot congruency on 2 lines\n\n# pre-process and filter rows\nfiltered_data &lt;- all_data %&gt;%\n  filter(task == \"response\",\n         is_correct == \"TRUE\") %&gt;%\n  mutate(rt = as.numeric(rt),\n         duration = duration %% 1000,\n         is_congruent_duration = paste(is_congruent, \" \", duration))\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,is_congruent, duration) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(is_congruent, duration) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt), .groups = \"drop\")\n\n# plot\nggplot(data = group_mean_RT, aes(x=duration, y=mean_reaction_time)) + geom_line(aes(colour=is_congruent))\n\n\n\n\n\n\n\nAccuracy analysis\n\nBy congruency\n\n# pre-process and filter rows\nfiltered_data_pc &lt;- all_data %&gt;%\n  filter(task == \"response\") %&gt;%\n  mutate(duration = as.character(duration),\n         is_congruent_duration = paste(is_congruent, \" \", duration))\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,is_congruent) %&gt;%\n  summarize(proportion_correct = mean(is_correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(is_congruent) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct),\n            sem = sd(proportion_correct)/sqrt(length(proportion_correct))\n            )\n\n# plot\nggplot(group_mean_pc, aes(x=is_congruent,y=mean_proportion_correct)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_proportion_correct-sem,\n                    ymax=mean_proportion_correct+sem),\n                width=.2) +\n  ylab(\"Mean Proportion Correct\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(0.5,1)) +\n  theme_classic()\n\n\n\n\n\n\nBy duration\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,duration) %&gt;%\n  summarize(proportion_correct = mean(is_correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(duration) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct),\n            sem = sd(proportion_correct)/sqrt(length(proportion_correct))\n            )\n\n# plot\nggplot(group_mean_pc, aes(x=duration,y=mean_proportion_correct)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_proportion_correct-sem,\n                    ymax=mean_proportion_correct+sem),\n                width=.2) +\n  ylab(\"Mean Proportion Correct\") +\n  xlab(\"Duration\")+\n  coord_cartesian(ylim=c(0.5,1)) +\n  theme_classic()\n\n\n\n\n\n\nBy congruency\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,is_congruent_duration) %&gt;%\n  summarize(proportion_correct = mean(is_correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(is_congruent_duration) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct),\n            sem = sd(proportion_correct)/sqrt(length(proportion_correct))\n            )\n\n# plot\nggplot(group_mean_pc, aes(x=is_congruent_duration,y=mean_proportion_correct)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_proportion_correct-sem,\n                    ymax=mean_proportion_correct+sem),\n                width=.2) +\n  ylab(\"Mean Proportion Correct\") +\n  xlab(\"Congruency + Duration\")+\n  coord_cartesian(ylim=c(0.5,1)) +\n  theme_classic()\n\n\n\n\n\n\nplot congruency on 2 lines\n\n# pre-process and filter rows\nfiltered_data_pc &lt;- all_data %&gt;%\n  filter(task == \"response\") %&gt;%\n  mutate(duration = duration %% 1000 )\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,is_congruent, duration) %&gt;%\n  summarize(proportion_correct = mean(is_correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(is_congruent, duration) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct), .groups = \"drop\")\n\n# plot\nggplot(data = group_mean_pc, aes(x=duration, y=mean_proportion_correct)) + geom_line(aes(colour=is_congruent))\n\n\n\n\n\n\n\nConclusion\nIt seems that reducing color number to two plus mapping colors to an arbitrary key can weeken Stroop test."
   },
   {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "",
+    "text": "This is a note written while reading Picture Recognition Memory: A Review of Research and Theory written by W. Howard Levie and Susan N. Hathaway."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#experimenter-provided-words",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#experimenter-provided-words",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Experimenter-Provided Words",
+    "text": "Experimenter-Provided Words\n\nwhen an added label increases the meaningfulness of a picture, recognition is improved\nThe authors speculate that the sentences caused subjects to review and further process their mental representation of the picture. This more elaborate representation was then more easily recalled than an unelaborated representation.\nwhen the label described only a portion of a picture, children’s recognition of the described part of the picture was improved, but at the expense of the nondescribed parts."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#subject-generated-words",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#subject-generated-words",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Subject-Generated Words",
+    "text": "Subject-Generated Words\n\nThe verbal descriptions increased recognition of the study pictures, but also increased false recognitions of similar distractors."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#dual-code-versus-single-code-memory-models",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#dual-code-versus-single-code-memory-models",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Dual-Code versus Single-Code Memory Models",
+    "text": "Dual-Code versus Single-Code Memory Models\n\nThe dual-code model postulates the existence of two symbolic systems: A verbal system specialized for processing and storing linguistic information, and a nonverbal system specialized for spatial information and mental imagery.\nthe dual-code model predicts the results of memory experiments: Pictures are remembered better than concrete words, which in turn are remembered better than abstract words\nSeveral theorists have spoken out against the dual-code model. The initial stages of processing pictures and words may differ, but ultimately both types of information are coded in a common memory store consisting of abstract propositions."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#distinctiveness",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#distinctiveness",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Distinctiveness",
+    "text": "Distinctiveness\n\nPictures that are “distinctive” are more memorable than less distinctive pictures. distinctiveness was the underlying dimension relating recognition and aesthetic quality."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#the-role-of-distinctiveness-in-picture-word-memory-models",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#the-role-of-distinctiveness-in-picture-word-memory-models",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "The Role of Distinctiveness in Picture-Word Memory Models",
+    "text": "The Role of Distinctiveness in Picture-Word Memory Models\n\nThe Sensory-Semantic Model suggests that the presentation of a picture involves interpreting and storing two aspects of an item: a sensory code that is concerned with the visual appearance of an item, and a semantic code that concerns the meaning of the item\n“generic-specific hypothesis”\nfrequency theory."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#meaningfulness",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#meaningfulness",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Meaningfulness",
+    "text": "Meaningfulness\n\nPerceivers for whom a panicular type of stimulus is more meaningful (e.g., expert chess players rather than novices) will show superior ability to accurately recognize stimulus patterns (chess board positions) involving that class of stimuli"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#visual-richness",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#visual-richness",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Visual Richness",
+    "text": "Visual Richness\n\nstudies of the effects of visual richness on picture recognition have shown mixed results."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#other-pictorial-stimulus-variables",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#other-pictorial-stimulus-variables",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Other Pictorial Stimulus Variables",
+    "text": "Other Pictorial Stimulus Variables\n\nCOMPLEXITY.\nColor\nMotion, Recognition accuracy was better with the moving pictures.\nFIGURE-GROUND SEPARATION. alterations in the figure were detected more easily than alterations in the ground.\nLUMINANCE. the brighter the image, the better subjects were able later to recognize the picture."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#memory-for-parts-and-attributes-of-pictures",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#memory-for-parts-and-attributes-of-pictures",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Memory for Parts and Attributes of Pictures",
+    "text": "Memory for Parts and Attributes of Pictures\n\nevidence showing that global features are processed prior to local features.\nhowever, found that the order in which global versus local information is processed may depend on factors such as the size of the image and the semantic relationship between key local features and global meaning.\nEye movement research shows that fixations are most likely to fall upon the “informative areas” of pictures.\nWhen, however, study pictures are presented for very brief durations (250 milliseconds), picture recognition is more likely to be based upon holistic information than on specific detail information\nOften, subjects’ ability to discriminate study pictures from their mirror-images is near chance"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#summary",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#summary",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Summary",
+    "text": "Summary\n\nStudies of pictorial stimulus variables suggest that high distinctiveness, high meaningfulness, motion, good figure-ground separation, and high illumination help subjects remember pictures. Studies of the effects of visual richness, complexity and color have yielded mixed results, whereas a high degree of similarity between pictures in the study set diminishes recognition accuracy.\nSubjects are unlikely to remember parts of a picture unless they are unexpected, distinctive, or central to the meaning of the picture.\nAmong the attributes of pictures, subjects are most likely to retain color information and spatial information."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#level-of-processing",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#level-of-processing",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Level of Processing",
+    "text": "Level of Processing\nIt is predicted that information processed at a semantic level will be remembered better than information processed at the sensory surface level."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#test-related-encoding",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#test-related-encoding",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Test-Related Encoding",
+    "text": "Test-Related Encoding\nconceptual encoding was best, schematic next best, and acoustic encoding and the control condition poorest."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#interference-tasks",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#interference-tasks",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Interference Tasks",
+    "text": "Interference Tasks\nthe verbal interference task had a less damaging impact upon the recognition of pictures than words."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#summary-1",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#summary-1",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Summary",
+    "text": "Summary\nin general, strategies that lead to deeper or more elaborate encoding improve performance on subsequent recognition tasks."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#time-intervals",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#time-intervals",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Time Intervals",
+    "text": "Time Intervals\n\nPRESENTATION DURATION\n\nrecognition is nearly perfect with a presentation rate of only two seconds.\nPresentations lasting only one second produce recognition accuracy in the 80% to 90% range\nin experiments in which the task requires encoding detailed aspects of complex pictures, a ceiling effect will likely not occur at a two second presentation duration,\n\n\n\nINTERSTIMULUS INTERVAL\n\nMost subsequent researchers, howevert have found that increasing the blank period between pictures does improve recognition accuracy\n\n\n\nTEST DELAY.\n\nNumerous researchers have found that performance is poorer on delayed as compared to immediate tests"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#age-differences",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#age-differences",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Age Differences",
+    "text": "Age Differences\n\nAlthough young children’s ability to recognize pictures is very good, numerous researchers have now documented improvement in performance with age\nit may be that young children are less likely to label, and hence dual-code, pictures\nWhen novel and familiar pictures are shown side by side, infants tend to look more at the novel picture.\nalthough recognition memory for words declines with age, recognition memory for pictures does not."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#style-aptitude-and-ability",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#style-aptitude-and-ability",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Style, Aptitude, and Ability",
+    "text": "Style, Aptitude, and Ability"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#experience-with-the-class-of-stimuli",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#experience-with-the-class-of-stimuli",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Experience with the Class of Stimuli",
+    "text": "Experience with the Class of Stimuli"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#face-recognition",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#face-recognition",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Face Recognition",
+    "text": "Face Recognition"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#eye-witness-research",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#eye-witness-research",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Eye Witness Research",
+    "text": "Eye Witness Research\n\nno correlation has been found between subjects’ performance and confidence."
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#recognition-of-environmental-scenes",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#recognition-of-environmental-scenes",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Recognition of Environmental Scenes",
+    "text": "Recognition of Environmental Scenes"
+  },
+  {
+    "objectID": "posts/Note of Picture Recognition Memory A Review/index.html#face-recognition-1",
+    "href": "posts/Note of Picture Recognition Memory A Review/index.html#face-recognition-1",
+    "title": "Note of Picture Recognition Memory: A Review of Research and Theory",
+    "section": "Face Recognition",
+    "text": "Face Recognition"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html",
+    "href": "posts/Note of Evaluating MTurk/index.html",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "",
+    "text": "This is a note written while reading Evaluating Amazon’s Mechanical Turk a sa Tool for Experimental Behavioral 2Research written by Matthew J. C. Crump et al."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#amt-basics",
+    "href": "posts/Note of Evaluating MTurk/index.html#amt-basics",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "AMT Basics",
+    "text": "AMT Basics"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
+    "href": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Potential Advantages and disadvatages of collecting data online",
+    "text": "Potential Advantages and disadvatages of collecting data online"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
+    "href": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Empirical Validation through Replication",
+    "text": "Empirical Validation through Replication\nThe purpose of the present experiments is to validate AMT as a tool for running multi-trial designs that are common in behavioral cognitive research.\nThree series of experiments were run 1. The first to validate multi-trial designs requiring millisecond control over response collection; 2. the second to validate multi-trial designs requiring millisecond control over stimulus presentation; 3. and the third to validate other aspects of multi-trial designs, with a focus on experiments where instructional manipulations are important."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
+    "href": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Ethics Statement",
+    "text": "Ethics Statement"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiement 1: Stroop",
+    "text": "Experiement 1: Stroop"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 2: Task-Switching Costs",
+    "text": "Experiment 2: Task-Switching Costs"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 3: Flanker",
+    "text": "Experiment 3: Flanker"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 4: Simon",
+    "text": "Experiment 4: Simon"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 5: Visual Cuing & Inhibition of Return",
+    "text": "Experiment 5: Visual Cuing & Inhibition of Return\n\nwhen a detection task is used, RTs tend to be much faster\nwhen there is short delay between cue and the target (e.g. * ; 300 ms) RTs are faster for valid (target appears in cued location) than invalidly cued (target appears in uncued location).\nThird, when the cue-target interval is longer (e.g. * &gt;400 ms) the cuing effect reverses with RTs faster for invalid than valid trials (reflecting inhibition of return for attention) 2 ## Experiment 6: Attentional Blink\n\nVisual target detection can be impaired for a second target item that appears within 100–500 ms of the first target"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 7: Masked Priming",
+    "text": "Experiment 7: Masked Priming\nThe notable finding was that compatibility effects were negative (incompatible RTs faster than compatible RTs) for the 16, 32, and 48 ms durations, but positive (compatible RTs faster than incompatible RTs) for the longer 64, 80, and 96 durations."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 8: Category Learning",
+    "text": "Experiment 8: Category Learning"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 9: Category Learning and the Effect of Payment Magnitude",
+    "text": "Experiment 9: Category Learning and the Effect of Payment Magnitude\nThis result aligns well with Mason and Watts [7], who report that the magnitude of payment does not have a strong effect on the quality of data obtained from online, crowd-sourced systems.\nHowever, the incentive variable did influence the rate of signups. In addition, it strongly influenced the dropout rate."
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
+    "href": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Experiment 10: An Instructional Manipulation Check",
+    "text": "Experiment 10: An Instructional Manipulation Check"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#summary",
+    "href": "posts/Note of Evaluating MTurk/index.html#summary",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
+    "href": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
+    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
+    "section": "suggestions and advice",
+    "text": "suggestions and advice\n\nOn the ethical side, we echo the point made by Mason and Suri [2] that researchers should pay AMT users something close to what is offered to someone to perform the task in the lab. While our analysis suggests that lower pay doesn’t necessarily affect the quality of the data, we have found that we can recruit participant faster and have fewer dropouts by making the study financially appealing.\nexperiments that are at least somewhat fun and engaging are likely to be better received\nAs with all empirical studies, restrictions should be decided before data collection and clearly reported in papers to avoid excess experimenter degrees of freedom. Additionally, reporting the time of day and date of data collection may be important as the AMT population may evolve over time.\nMost importantly, we found that testing participants’ comprehension of the instructions was critical.\nFinally, it is important to monitor and record the rate at which people begin an experiment but do not finish. We recommend that, perhaps unlike a typical laboratory study, all Internet experiments report dropout rates as a function of condition"
+  },
+  {
+    "objectID": "posts/First Try Stroop/index.html",
+    "href": "posts/First Try Stroop/index.html",
+    "title": "A Stroop Test in JsPsych",
+    "section": "",
+    "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server. Done\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu.\n\n9/20/2023\nIt is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, to screen the participants, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.\nAdding a survey is rather straightfoward by using a JsPsych plugin Survey. I added a survey in which I asked two questions.\n\n\n9/24/2023\n\nadd a fixation of 500ms and a blank after fixation of 500ms\nadd a feedback after each trial which shows whether the input is correct or wrong"
+  },
+  {
+    "objectID": "posts/6_picture_memory/index.html",
+    "href": "posts/6_picture_memory/index.html",
+    "title": "Week 6: Picture memory",
+    "section": "",
+    "text": "Copied all experiment related files to /experiments/picture_memory\nRead the paper Recognition memory for a rapid sequence of pictures\nAdjusted the original code\n\nChanged 50 to two const images_per_condition and durations that makes the code easier for extending\nAdded is_correct to the data\n\nAdded a new variable blurring/no-blurring. Images in the blurring condition were blurred only in the encoding phrase but no in the recognition phrase. The hypothesis was that blurred images are most difficult to be remembered.\n\nAfter the first trial, I felt that blurred images needed a longer time to decode. Sometimes, the duration was too short for me to decode and remember the image shown during the interval.\n\nSaved data to OSF"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Psy 2001 Journal - Hao Zhu",
+    "section": "",
+    "text": "Note of Picture Recognition Memory: A Review of Research and Theory\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nWeek 6: Picture memory\n\n\n\n\n\n\n\nPsyc 2001\n\n\nPictures\n\n\nRecognition Memory\n\n\n\n\nThis week we program a replication of a classic picture memory experiment.\n\n\n\n\n\n\nOct 9, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop with Stimulus Duration and 2 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop - SOA with 2 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop - SOA with 4 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse R to Analyze the Data of Stroop with Stimulus Duration\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop Test with Stimulus Duration\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Half a Century of Research on the Stroop Effect: An Integrative Review\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 23, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 20, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Course Schedule and My Schedule/index.html",
+    "href": "posts/Course Schedule and My Schedule/index.html",
+    "title": "Course Schedule and My Goal",
+    "section": "",
+    "text": "This is a course schedule copied from Professor Matthew plus my goals.\n\n\n\n\n\n\n\n\nWeek\nActivity/Goal\nMy Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\nSet-up Quarto blogs/Document my Stroop Test\n\n\n2\nBasic HTML and Javascript coding\nIncorporate Jatos/datapipe into the Stroop Test\n\n\n3\nJsPsych overview and Simple Reaction time task demo\nRead Moving Experimental Psychology Online\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n\n5\nAnalyzing data from a Stroop Experiment in R\nPractice data analysis in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\nCode the Memory Test in JsPsych and R\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\nReplicate the test\n\n\n9\nChoosing your own experiment to replicate\n\n\n\n10\nIndependent Replication Implementation\n\n\n\n11\nIndependent Replication Implementation\n\n\n\n12\nPilot Data collection\n\n\n\n13\nIndependent Replication analysis\n\n\n\n14\nAdvanced topics/Presentations\n\n\n\n15\nAdvanced topics/Presentations\n\n\n\n\nTodos:\n\nAdd a survey before the test\nTry Mturk or Academic Prolific\nRead Evaluating Amazon’s Mechanical Turk as a Tool"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "",
+    "text": "This is a note written while reading Half a Century of Research on the Stroop Effect: An Integrative Review written by Colin M. MacLeod."
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "the half century before stroop",
+    "text": "the half century before stroop"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Stroop’s Classic Article",
+    "text": "Stroop’s Classic Article"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Variations on the Stroop Procedure",
+    "text": "Variations on the Stroop Procedure\n\nThe Stroop Color-Word Interference Test\n\n\nThe Individual Stimulus Version of the Color-Word Task\n\n\nSorting and Matching versions of the color-word task\n\n\nThe picture-word interference task\n\n\nAuditory Analogs of the stroop task\n\n\nOther analogs of the stroop task"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Manipulations of Information on Critical Trials",
+    "text": "Manipulations of Information on Critical Trials\n\nHue variation\n\n\nAcoustic Variation\n\n\nSemantic Variation\n\n\nCongruency effects\n\n\nIntegration of the Two Dimensions"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Experiment-wide manipulations of information",
+    "text": "Experiment-wide manipulations of information\n\nprobability of various trial types\n\n\nStimulus Set Size\n\n\nTrial Sequence\n\n\nPretrial Cues\n\n\nStimulus Onset Asynchrony (SOA) - 17\n\n\nThe reverse stroop effect\n\n\nPractice"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Reponse-related manipuations",
+    "text": "Reponse-related manipuations\n\norder of response\n\n\nResponse modality: oral versus manual\n\n\nResponse set size and composition"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "Individual Differences",
+    "text": "Individual Differences\n\nsex differences\n\n\nAge differences\n\n\nHemispherice differences\n\n\nlanguage differences: the case of the bilingual"
+  },
+  {
+    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
+    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
+    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
+    "section": "theoretical accounts of the stroop effect - 25",
+    "text": "theoretical accounts of the stroop effect - 25\n\nrelative speed of processing\n\n\nautomaticicty\n\n\nperceptual encoding\n\n\nparallel models: accruing evidence toward a decision\n\n\nA paralle distributed processing model"
+  },
+  {
     "objectID": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html",
     "href": "posts/Note of Moving Experimental Psychology Online How to Maintain Data Quality When We Can’t See Our Participants/index.html",
     "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
@@ -152,216 +523,6 @@
     "title": "Note of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants",
     "section": "A general, systematic approach",
     "text": "A general, systematic approach\n\nStage 1: specify experiment-specific data quality concerns\nStage 2: design study-specific exclusion criteria\nStage 3: Piloting of exclusion criteria\nStage 4: preresiger study-specific exclusion criteria\nStage 5: review exclusion criteria after data collection"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "",
-    "text": "This is a note written while reading Half a Century of Research on the Stroop Effect: An Integrative Review written by Colin M. MacLeod."
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#the-half-century-before-stroop",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "the half century before stroop",
-    "text": "the half century before stroop"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#stroops-classic-article",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Stroop’s Classic Article",
-    "text": "Stroop’s Classic Article"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#variations-on-the-stroop-procedure",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Variations on the Stroop Procedure",
-    "text": "Variations on the Stroop Procedure\n\nThe Stroop Color-Word Interference Test\n\n\nThe Individual Stimulus Version of the Color-Word Task\n\n\nSorting and Matching versions of the color-word task\n\n\nThe picture-word interference task\n\n\nAuditory Analogs of the stroop task\n\n\nOther analogs of the stroop task"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#manipulations-of-information-on-critical-trials",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Manipulations of Information on Critical Trials",
-    "text": "Manipulations of Information on Critical Trials\n\nHue variation\n\n\nAcoustic Variation\n\n\nSemantic Variation\n\n\nCongruency effects\n\n\nIntegration of the Two Dimensions"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#experiment-wide-manipulations-of-information",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Experiment-wide manipulations of information",
-    "text": "Experiment-wide manipulations of information\n\nprobability of various trial types\n\n\nStimulus Set Size\n\n\nTrial Sequence\n\n\nPretrial Cues\n\n\nStimulus Onset Asynchrony (SOA) - 17\n\n\nThe reverse stroop effect\n\n\nPractice"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#reponse-related-manipuations",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Reponse-related manipuations",
-    "text": "Reponse-related manipuations\n\norder of response\n\n\nResponse modality: oral versus manual\n\n\nResponse set size and composition"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#individual-differences",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "Individual Differences",
-    "text": "Individual Differences\n\nsex differences\n\n\nAge differences\n\n\nHemispherice differences\n\n\nlanguage differences: the case of the bilingual"
-  },
-  {
-    "objectID": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
-    "href": "posts/Note of An Integrative Review of Stroop Effect/index.html#theoretical-accounts-of-the-stroop-effect---25",
-    "title": "Note of Half a Century of Research on the Stroop Effect: An Integrative Review",
-    "section": "theoretical accounts of the stroop effect - 25",
-    "text": "theoretical accounts of the stroop effect - 25\n\nrelative speed of processing\n\n\nautomaticicty\n\n\nperceptual encoding\n\n\nparallel models: accruing evidence toward a decision\n\n\nA paralle distributed processing model"
-  },
-  {
-    "objectID": "posts/Course Schedule and My Schedule/index.html",
-    "href": "posts/Course Schedule and My Schedule/index.html",
-    "title": "Course Schedule and My Goal",
-    "section": "",
-    "text": "This is a course schedule copied from Professor Matthew plus my goals.\n\n\n\n\n\n\n\n\nWeek\nActivity/Goal\nMy Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\nSet-up Quarto blogs/Document my Stroop Test\n\n\n2\nBasic HTML and Javascript coding\nIncorporate Jatos/datapipe into the Stroop Test\n\n\n3\nJsPsych overview and Simple Reaction time task demo\nRead Moving Experimental Psychology Online\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n\n5\nAnalyzing data from a Stroop Experiment in R\nPractice data analysis in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\nCode the Memory Test in JsPsych and R\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\nReplicate the test\n\n\n9\nChoosing your own experiment to replicate\n\n\n\n10\nIndependent Replication Implementation\n\n\n\n11\nIndependent Replication Implementation\n\n\n\n12\nPilot Data collection\n\n\n\n13\nIndependent Replication analysis\n\n\n\n14\nAdvanced topics/Presentations\n\n\n\n15\nAdvanced topics/Presentations\n\n\n\n\nTodos:\n\nAdd a survey before the test\nTry Mturk or Academic Prolific\nRead Evaluating Amazon’s Mechanical Turk as a Tool"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Psy 2001 Journal - Hao Zhu",
-    "section": "",
-    "text": "Week 6: Picture memory\n\n\n\n\n\n\n\nPsyc 2001\n\n\nPictures\n\n\nRecognition Memory\n\n\n\n\nThis week we program a replication of a classic picture memory experiment.\n\n\n\n\n\n\nOct 9, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop with Stimulus Duration and 2 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop - SOA with 2 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop - SOA with 4 Colors\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse R to Analyze the Data of Stroop with Stimulus Duration\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nStroop Test with Stimulus Duration\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Half a Century of Research on the Stroop Effect: An Integrative Review\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 23, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 20, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nNote of Moving Experimental Psychology Online: How to Maintain Data Quality When We Can’t See Our Participants\n\n\n\n\n\n\n\nnote\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse DataPipe to Save Data to OSF\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nUse Jatos to Deploy my Stroop Test\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nCourse Schedule and My Goal\n\n\n\n\n\n\n\nplan\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nA Stroop Test in JsPsych\n\n\n\n\n\n\n\nJsPsych\n\n\ncode\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\n  \n\n\n\n\nTopics for the Final Project of PSY345W Experimental Psychology\n\n\n\n\n\n\n\nidea\n\n\nexperiement\n\n\npsychology\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2023\n\n\nHao Zhu\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/6_picture_memory/index.html",
-    "href": "posts/6_picture_memory/index.html",
-    "title": "Week 6: Picture memory",
-    "section": "",
-    "text": "Copied all experiment related files to /experiments/picture_memory\nRead the paper Recognition memory for a rapid sequence of pictures\nAdjusted the original code\n\nChanged 50 to two const images_per_condition and durations that makes the code easier for extending\nAdded is_correct to the data\n\nAdded a new variable blurring/no-blurring. Images in the blurring condition were blurred only in the encoding phrase but no in the recognition phrase. The hypothesis was that blurred images are most difficult to be remembered.\n\nAfter the first trial, I felt that blurred images needed a longer time to decode. Sometimes, the duration was too short for me to decode and remember the image shown during the interval.\n\nSaved data to OSF"
-  },
-  {
-    "objectID": "posts/First Try Stroop/index.html",
-    "href": "posts/First Try Stroop/index.html",
-    "title": "A Stroop Test in JsPsych",
-    "section": "",
-    "text": "The Interactive Stroop Test is my first try in JsPsych. The Stroop Test\nIn the Stroop test, a colored text is shown on the center of the screen, and participants are instructed to press a specific key according to the color of the text as soon as possible. They should ignore the text. Before the participants engage in the test, they read an instruction that designates individual keys to four colors. Then, they do some practice to remember the key mapping. Now, the trial starts. Ten randomly picked congruent stimuli mixed with ten incongruent ones are presented one by one. The participants press a key for each stimulus, and the pressed key and the response time are recorded. After a total of 20 stimuli get a response, the accuracy and average response time are calculated and shown to the participants.\nThere are some questions left:\n\nIt is not a very simple task to remember four color-to-key mappings. The memory loading may be a confound. The practice before the test is an imperfect method to reduce the confound. How can we eliminate the confound?\nHow to enlarge or reduce the Stroop effect? For example, making the text upside down should hurt the effect. How about making the font size larger or smaller?\n\nTodo:\n\nSave trail results on a server. Done\n\nGo to the Stroop Test. It is a single html file, and you can review the code by clicking “view page source” in the browser’s popup menu.\n\n9/20/2023\nIt is useful to add a survey at the beginning of the experiment to collect geographic and interesting background information, to screen the participants, and to get consent. It may also helpful to ask participants to write some feedback at the end of the experiement.\nAdding a survey is rather straightfoward by using a JsPsych plugin Survey. I added a survey in which I asked two questions.\n\n\n9/24/2023\n\nadd a fixation of 500ms and a blank after fixation of 500ms\nadd a feedback after each trial which shows whether the input is correct or wrong"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html",
-    "href": "posts/Note of Evaluating MTurk/index.html",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "",
-    "text": "This is a note written while reading Evaluating Amazon’s Mechanical Turk a sa Tool for Experimental Behavioral 2Research written by Matthew J. C. Crump et al."
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#amt-basics",
-    "href": "posts/Note of Evaluating MTurk/index.html#amt-basics",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "AMT Basics",
-    "text": "AMT Basics"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
-    "href": "posts/Note of Evaluating MTurk/index.html#potential-advantages-and-disadvatages-of-collecting-data-online",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Potential Advantages and disadvatages of collecting data online",
-    "text": "Potential Advantages and disadvatages of collecting data online"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
-    "href": "posts/Note of Evaluating MTurk/index.html#empirical-validation-through-replication",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Empirical Validation through Replication",
-    "text": "Empirical Validation through Replication\nThe purpose of the present experiments is to validate AMT as a tool for running multi-trial designs that are common in behavioral cognitive research.\nThree series of experiments were run 1. The first to validate multi-trial designs requiring millisecond control over response collection; 2. the second to validate multi-trial designs requiring millisecond control over stimulus presentation; 3. and the third to validate other aspects of multi-trial designs, with a focus on experiments where instructional manipulations are important."
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
-    "href": "posts/Note of Evaluating MTurk/index.html#ethics-statement",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Ethics Statement",
-    "text": "Ethics Statement"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiement-1-stroop",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiement 1: Stroop",
-    "text": "Experiement 1: Stroop"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-2-task-switching-costs",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 2: Task-Switching Costs",
-    "text": "Experiment 2: Task-Switching Costs"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-3-flanker",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 3: Flanker",
-    "text": "Experiment 3: Flanker"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-4-simon",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 4: Simon",
-    "text": "Experiment 4: Simon"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-5-visual-cuing-inhibition-of-return",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 5: Visual Cuing & Inhibition of Return",
-    "text": "Experiment 5: Visual Cuing & Inhibition of Return\n\nwhen a detection task is used, RTs tend to be much faster\nwhen there is short delay between cue and the target (e.g. * ; 300 ms) RTs are faster for valid (target appears in cued location) than invalidly cued (target appears in uncued location).\nThird, when the cue-target interval is longer (e.g. * &gt;400 ms) the cuing effect reverses with RTs faster for invalid than valid trials (reflecting inhibition of return for attention) 2 ## Experiment 6: Attentional Blink\n\nVisual target detection can be impaired for a second target item that appears within 100–500 ms of the first target"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-7-masked-priming",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 7: Masked Priming",
-    "text": "Experiment 7: Masked Priming\nThe notable finding was that compatibility effects were negative (incompatible RTs faster than compatible RTs) for the 16, 32, and 48 ms durations, but positive (compatible RTs faster than incompatible RTs) for the longer 64, 80, and 96 durations."
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-8-category-learning",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 8: Category Learning",
-    "text": "Experiment 8: Category Learning"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-9-category-learning-and-the-effect-of-payment-magnitude",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 9: Category Learning and the Effect of Payment Magnitude",
-    "text": "Experiment 9: Category Learning and the Effect of Payment Magnitude\nThis result aligns well with Mason and Watts [7], who report that the magnitude of payment does not have a strong effect on the quality of data obtained from online, crowd-sourced systems.\nHowever, the incentive variable did influence the rate of signups. In addition, it strongly influenced the dropout rate."
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
-    "href": "posts/Note of Evaluating MTurk/index.html#experiment-10-an-instructional-manipulation-check",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Experiment 10: An Instructional Manipulation Check",
-    "text": "Experiment 10: An Instructional Manipulation Check"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#summary",
-    "href": "posts/Note of Evaluating MTurk/index.html#summary",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "Summary",
-    "text": "Summary"
-  },
-  {
-    "objectID": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
-    "href": "posts/Note of Evaluating MTurk/index.html#suggestions-and-advice",
-    "title": "Note of Evaluating Amazon’s Mechanical Turk as a Tool for Experimental Behavioral Research",
-    "section": "suggestions and advice",
-    "text": "suggestions and advice\n\nOn the ethical side, we echo the point made by Mason and Suri [2] that researchers should pay AMT users something close to what is offered to someone to perform the task in the lab. While our analysis suggests that lower pay doesn’t necessarily affect the quality of the data, we have found that we can recruit participant faster and have fewer dropouts by making the study financially appealing.\nexperiments that are at least somewhat fun and engaging are likely to be better received\nAs with all empirical studies, restrictions should be decided before data collection and clearly reported in papers to avoid excess experimenter degrees of freedom. Additionally, reporting the time of day and date of data collection may be important as the AMT population may evolve over time.\nMost importantly, we found that testing participants’ comprehension of the instructions was critical.\nFinally, it is important to monitor and record the rate at which people begin an experiment but do not finish. We recommend that, perhaps unlike a typical laboratory study, all Internet experiments report dropout rates as a function of condition"
   },
   {
     "objectID": "posts/Second Try Stroop/index.html",
