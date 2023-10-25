@@ -1,0 +1,79 @@
+---
+title: "Note of How Low Can You Go? Detecting Style in Extremely Low Resolution Images" 
+author: "Hao Zhu" 
+date: "2023-10-24" 
+date-modified: last-modified 
+categories: [note, psychology] 
+image: "note.jpg" 
+---
+
+This is a note written while reading *Note of How Low Can You Go? Detecting Style in Extremely Low Resolution Images* written by Rachel A. Searston and others
+
+-   the stylistic information retained at extremely low image resolutions is sufficient for visual recognition of images, and visual discrimination of categories
+-   In scene recognition terms, Torralba (2009) describes “gist” as a summary of the semantic content of the scene
+-   We use visual style here to describe the residual redundant information distributed within and across extremely low resolution image sets.
+
+# Experiment 1: Recognizing Natural Images at Extremely Low Resolutions 
+
+-   we test whether people can recognize natural images based on their most redundant visual features, by gradually reducing their resolution down to one pixel.
+-   reducing the resolution of images appears to limit people’s capacity to rely on conceptual understanding to aid image recognition
+-   all of the images were first downsampled to eight different resolutions (128×128, 64×64, 32×32, 16×16, 8×8, 4×4, 2×2, and 1×1) and then upsampled to 256×256.
+
+## Paintings
+
+## Birds
+
+## Faces
+
+## Image Resolution
+
+-   We generated eight different versions of every image in our three sets, at 1 pixel, 2×2, 4×4, 8×8, 16×16, 32×32, 64×64, and 128×128 pixels, using a nearest neighbor resampling procedure in Matlab (see Figures 2 and 3, for an example image from each domain at each of the eight image resolutions). All images were then upsampled to 256×256 pixels.4
+
+## Participants
+
+## Procedure
+
+-   In each learning phase, participants viewed 12 images appearing on screen for 4 seconds at a time, separated by a 500 millisecond interval. In each test phase, participants also viewed 12 images with an old/new response scale appearing on screen.
+
+## Results
+
+## Discriminability
+
+-   This analysis revealed that participants performed significantly greater than chance for all image resolution conditions, including the one pixel images, t(49) = 9.36, p < .001, d = 1.32
+
+## Response Bias
+
+-   Participants in our experiment tended to say, “old” more than “new” (b = 1.15; SD = .37).
+
+## Rate Correct
+
+-   RCS is also easy to interpret, and can be described here as the number of correct responses per second.
+
+## Discussion
+
+# Experiment 2: Discriminating Natural Images at Extremely Low Resolutions 
+
+-   we show people two images on screen, side-by-side. Their task is to decide whether these two images are from the same category or two different categories.
+
+## Method
+
+### Participants
+
+### Procedure
+
+### Results
+
+### Discriminability
+
+### Response Bias
+
+### Rate Correct
+
+### Discussion
+
+# General Discussion
+
+
+
+
+

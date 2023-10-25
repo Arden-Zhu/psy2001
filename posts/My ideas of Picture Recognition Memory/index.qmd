@@ -31,7 +31,7 @@ Here is the initial solution:
 
 8.  Compare their performance in the two turns.
 
-# 2. Pairing Test 
+# 2. Pairing Test
 
 In the real world we always relate what we see to other objects, for example, the name of a person, the category of the object, and so on. The study is to investigate the performance of memorizing image with another object, such as a symbol, another image, or a word.
 

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Hao Zhu">
-<meta name="dcterms.date" content="2023-10-18">
+<meta name="dcterms.date" content="2023-10-24">
 
-<title>Psy2001 Journal - Hao Zhu - My ideas of Picture Recognition Memory</title>
+<title>Psy2001 Journal - Hao Zhu - Note of How Low Can You Go? Detecting Style in Extremely Low Resolution Images</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">My ideas of Picture Recognition Memory</h1>
+      <h1 class="title">Note of How Low Can You Go? Detecting Style in Extremely Low Resolution Images</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">note</div>
                 <div class="quarto-category">psychology</div>
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 18, 2023</p>
+        <p class="date">October 24, 2023</p>
       </div>
     </div>
     
@@ -153,35 +153,102 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is my ideas of picture recognition experiements</p>
-<section id="interference-test" class="level1">
-<h1>1. Interference Test</h1>
-<p>The study aims to investigate how interference affects picture recognition. The hypothesis is that subjects will have a lower performance of remember images if their attention is led to another task while they are shown with the image.</p>
-<p>Here is the initial solution:</p>
-<ol type="1">
-<li><p>It is an in-subjects design. Participants attend a two-turn test.</p></li>
-<li><p>In the first turn, split the display area (about 800 px * 600 px in the middle of the screen) on the screen into 2 * 2 regions.&nbsp;</p></li>
-<li><p>A fixation will be displayed in the center of one random region of the four.</p></li>
-<li><p>After the fixation disappears,&nbsp; a single mathematical question ( for example 4 + 8 = ? ) will be displayed in the highlighted region, and an image will simultaneously&nbsp;show in another random region. The stimuli both show during a short time ( maybe 0.5s - 2s).&nbsp;</p></li>
-<li><p>After the stimuli disappear, participants are asked to answer the mathematical question correctly; otherwise, they have to repeat the same trial with another image but the same math question. An implied reward here is that participants can continue the test when their answer is correct, and this reward will hopefully draw their attention to the area with a math question.</p></li>
-<li><p>After 16 trials, they will be tested on picture memory.</p></li>
-<li><p>The same participants will attend a second turn in which only images are presented, no math anymore, and they will be tested on picture memory, too.</p></li>
-<li><p>Compare their performance in the two turns.</p></li>
-</ol>
+<p>This is a note written while reading <em>Note of How Low Can You Go? Detecting Style in Extremely Low Resolution Images</em> written by Rachel A. Searston and others</p>
+<ul>
+<li>the stylistic information retained at extremely low image resolutions is sufficient for visual recognition of images, and visual discrimination of categories</li>
+<li>In scene recognition terms, Torralba (2009) describes “gist” as a summary of the semantic content of the scene</li>
+<li>We use visual style here to describe the residual redundant information distributed within and across extremely low resolution image sets.</li>
+</ul>
+<section id="experiment-1-recognizing-natural-images-at-extremely-low-resolutions" class="level1">
+<h1>Experiment 1: Recognizing Natural Images at Extremely Low Resolutions</h1>
+<ul>
+<li>we test whether people can recognize natural images based on their most redundant visual features, by gradually reducing their resolution down to one pixel.</li>
+<li>reducing the resolution of images appears to limit people’s capacity to rely on conceptual understanding to aid image recognition</li>
+<li>all of the images were first downsampled to eight different resolutions (128×128, 64×64, 32×32, 16×16, 8×8, 4×4, 2×2, and 1×1) and then upsampled to 256×256.</li>
+</ul>
+<section id="paintings" class="level2">
+<h2 class="anchored" data-anchor-id="paintings">Paintings</h2>
 </section>
-<section id="pairing-test" class="level1">
-<h1>2. Pairing Test</h1>
-<p>In the real world we always relate what we see to other objects, for example, the name of a person, the category of the object, and so on. The study is to investigate the performance of memorizing image with another object, such as a symbol, another image, or a word.</p>
-<section id="pair-with-a-symbol" class="level2">
-<h2 class="anchored" data-anchor-id="pair-with-a-symbol">Pair with a symbol</h2>
-<p>The hypothesis is that the memory of remembering a pair between an image with a simple symbol is lower than recognizing the image. Each image in the study phase will be cover with a green check, a yellow circle, or a red cross. In the test phase, participants will be answer whether an image has been paired with the green check, the yellow circle, the red cross, or never appeared in the study phase.</p>
+<section id="birds" class="level2">
+<h2 class="anchored" data-anchor-id="birds">Birds</h2>
 </section>
-<section id="pair-with-another-image" class="level2">
-<h2 class="anchored" data-anchor-id="pair-with-another-image">Pair with another image</h2>
-<p>In the study phase, images will be shown in pairs. And the question to answer in the test phase is whether two images were paired, or not paired, or at least one one of the images did not appear in the study phase.</p>
+<section id="faces" class="level2">
+<h2 class="anchored" data-anchor-id="faces">Faces</h2>
+</section>
+<section id="image-resolution" class="level2">
+<h2 class="anchored" data-anchor-id="image-resolution">Image Resolution</h2>
+<ul>
+<li>We generated eight different versions of every image in our three sets, at 1 pixel, 2×2, 4×4, 8×8, 16×16, 32×32, 64×64, and 128×128 pixels, using a nearest neighbor resampling procedure in Matlab (see Figures 2 and 3, for an example image from each domain at each of the eight image resolutions). All images were then upsampled to 256×256 pixels.4</li>
+</ul>
+</section>
+<section id="participants" class="level2">
+<h2 class="anchored" data-anchor-id="participants">Participants</h2>
+</section>
+<section id="procedure" class="level2">
+<h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
+<ul>
+<li>In each learning phase, participants viewed 12 images appearing on screen for 4 seconds at a time, separated by a 500 millisecond interval. In each test phase, participants also viewed 12 images with an old/new response scale appearing on screen.</li>
+</ul>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+</section>
+<section id="discriminability" class="level2">
+<h2 class="anchored" data-anchor-id="discriminability">Discriminability</h2>
+<ul>
+<li>This analysis revealed that participants performed significantly greater than chance for all image resolution conditions, including the one pixel images, t(49) = 9.36, p &lt; .001, d = 1.32</li>
+</ul>
+</section>
+<section id="response-bias" class="level2">
+<h2 class="anchored" data-anchor-id="response-bias">Response Bias</h2>
+<ul>
+<li>Participants in our experiment tended to say, “old” more than “new” (b = 1.15; SD = .37).</li>
+</ul>
+</section>
+<section id="rate-correct" class="level2">
+<h2 class="anchored" data-anchor-id="rate-correct">Rate Correct</h2>
+<ul>
+<li>RCS is also easy to interpret, and can be described here as the number of correct responses per second.</li>
+</ul>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+</section>
+</section>
+<section id="experiment-2-discriminating-natural-images-at-extremely-low-resolutions" class="level1">
+<h1>Experiment 2: Discriminating Natural Images at Extremely Low Resolutions</h1>
+<ul>
+<li>we show people two images on screen, side-by-side. Their task is to decide whether these two images are from the same category or two different categories.</li>
+</ul>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+<section id="participants-1" class="level3">
+<h3 class="anchored" data-anchor-id="participants-1">Participants</h3>
+</section>
+<section id="procedure-1" class="level3">
+<h3 class="anchored" data-anchor-id="procedure-1">Procedure</h3>
+</section>
+<section id="results-1" class="level3">
+<h3 class="anchored" data-anchor-id="results-1">Results</h3>
+</section>
+<section id="discriminability-1" class="level3">
+<h3 class="anchored" data-anchor-id="discriminability-1">Discriminability</h3>
+</section>
+<section id="response-bias-1" class="level3">
+<h3 class="anchored" data-anchor-id="response-bias-1">Response Bias</h3>
+</section>
+<section id="rate-correct-1" class="level3">
+<h3 class="anchored" data-anchor-id="rate-correct-1">Rate Correct</h3>
+</section>
+<section id="discussion-1" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-1">Discussion</h3>
+</section>
+</section>
+</section>
+<section id="general-discussion" class="level1">
+<h1>General Discussion</h1>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
