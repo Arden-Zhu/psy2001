@@ -1,0 +1,32 @@
+---
+title: "Brief Note of Papers"
+author: "Hao Zhu"
+date: "2023-10-25"
+date-modified: last-modified
+categories: [note, psychology]
+image: "note.jpg"
+---
+
+This is a note of paper which I quick-read.
+
+# Detecting and remembering pictures with and without visual noise
+
+-   To evaluate human ability to perceive and remember partially occluded pictures, we showed sequences of pictures using rapid serial visual presentation (RSVP) for durations of 53 ms, 107 ms, 213 ms, or 426 ms/picture. Participants either attempted to detect a named target (e.g., "businessmen at table") or were given a yes--no recognition memory test of one item4
+
+-   with as much as 30% of the picture area covered, detection and recognition were both well above chance
+
+-   when pictures were inverted, occlusion impaired detection as severely as recognition.
+
+-   By contrast, taking away color information did not significantly reduce detection's tolerance of occlusion
+
+-   with 40% of the picture area occluded, detection performance was impaired
+
+-   For the **detection task**, participants were instructed to look for a named target picture in the RSVP sequence in each trial. After a button-press to initiate the trial, a descriptive title of the target (e.g., "businessmen at table") was presented in the center of the screen. .... The participant was instructed to press a key labeled "YES" or "NO" on the keyboard to indicate whether he/she had seen a picture that fit the target description.
+
+# How many pixels make a memory? Picture memory for small pictures 
+
+-   memory for tiny and degraded scenes parallels the recognizability of those scenes. You can remember a scene to approximately the degree to which you can classify it.
+
+-   there is a striking asymmetry in memory when scenes are not the same size on their initial appearance and subsequent test. Memory for a large, full-resolution stimulus can be tested with a small, degraded stimulus. However, memory for a small stimulus is not retrieved when it is tested with a large stimulus.
+
+-   

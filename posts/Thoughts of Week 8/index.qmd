@@ -1,0 +1,24 @@
+---
+title: "Thoughts of Week 8"
+author: "Hao Zhu"
+date: "2023-10-25"
+date-modified: last-modified
+categories: [note, psychology]
+image: "light-bulb.jpg"
+---
+
+This is of thoughts after reading the three designated papers in week 8.
+
+-   I picked the newest paper, read it carefully, and took notes. It turned out that my strategy of choosing the paper was wrong. After quick-read the other two papers, I realized that I should read all the papers with 10-20 minutes for each to decide how to spend the rest of time.
+
+-   In the first paper, researchers desampled images to very less pixels, for example, even 1 pixel after being desampled. Then, they zoomed out the desampled image to a regular size for learning and testing.
+
+-   If I am not wrong, the first paper I read was problematic. Participants in the study learned desampled images and then test with the same images and some new desampled images. My opinion is that, if participants learn and test with the same noised image, the noise actually become a part of the image, and the so-called noised image becomes voiceless.
+
+-   The most interesting paper I read found an asymmetry in memory that when memory for large, full-resolution images could be tested with a small, degraded image with a good performance; yet the performance was worse if participants studied small images and were tested with large images.
+
+-   The most interesting thing in the last paper included a detection task. Participants were shown a descriptive text and then identified which image they saw was related to the description.
+
+-   
+
+# 
