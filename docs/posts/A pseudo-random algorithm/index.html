@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Hao Zhu">
-<meta name="dcterms.date" content="2023-10-25">
+<meta name="dcterms.date" content="2023-11-01">
 
-<title>Psy2001 Journal - Hao Zhu - Brief Note of Papers</title>
+<title>Psy2001 Journal - Hao Zhu - A pseudo-random algorithm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Brief Note of Papers</h1>
+      <h1 class="title">A pseudo-random algorithm</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">note</div>
                 <div class="quarto-category">psychology</div>
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 25, 2023</p>
+        <p class="date">November 1, 2023</p>
       </div>
     </div>
     
@@ -153,28 +153,144 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a note of paper which I quick-read.</p>
-<section id="detecting-and-remembering-pictures-with-and-without-visual-noise" class="level1">
-<h1>Detecting and remembering pictures with and without visual noise</h1>
-<ul>
-<li><p>To evaluate human ability to perceive and remember partially occluded pictures, we showed sequences of pictures using rapid serial visual presentation (RSVP) for durations of 53 ms, 107 ms, 213 ms, or 426 ms/picture. Participants either attempted to detect a named target (e.g., “businessmen at table”) or were given a yes–no recognition memory test of one item4</p></li>
-<li><p>with as much as 30% of the picture area covered, detection and recognition were both well above chance</p></li>
-<li><p>when pictures were inverted, occlusion impaired detection as severely as recognition.</p></li>
-<li><p>By contrast, taking away color information did not significantly reduce detection’s tolerance of occlusion</p></li>
-<li><p>with 40% of the picture area occluded, detection performance was impaired</p></li>
-<li><p>For the <strong>detection task</strong>, participants were instructed to look for a named target picture in the RSVP sequence in each trial. After a button-press to initiate the trial, a descriptive title of the target (e.g., “businessmen at table”) was presented in the center of the screen. …. The participant was instructed to press a key labeled “YES” or “NO” on the keyboard to indicate whether he/she had seen a picture that fit the target description.</p></li>
-</ul>
-</section>
-<section id="how-many-pixels-make-a-memory-picture-memory-for-small-pictures" class="level1">
-<h1>How many pixels make a memory? Picture memory for small pictures</h1>
-<ul>
-<li><p>memory for tiny and degraded scenes parallels the recognizability of those scenes. You can remember a scene to approximately the degree to which you can classify it.</p></li>
-<li><p>there is a striking asymmetry in memory when scenes are not the same size on their initial appearance and subsequent test. Memory for a large, full-resolution stimulus can be tested with a small, degraded stimulus. However, memory for a small stimulus is not retrieved when it is tested with a large stimulus.</p></li>
-<li></li>
-</ul>
+<p>I thought about the shuffle question after the meeting last week, and I supposed a pseudo-random algorithm was needed. Although creating such an algorithm may not be difficult, the first question was how to define the criteria for evaluating the algorithm. The first set of criteria in my mind seemed arbitrary, so I hesitated to start working.</p>
+<p>Just now, I read your criteria as the following, which are reasonable, so I can post my design here.</p>
+<ol type="1">
+<li><p>The proportion of new and old items (e.g.&nbsp;50% each).</p>
+<ol type="1">
+<li><p>Hao:&nbsp; introduce constant&nbsp;</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Maximum Old Card Ratio = old items / ( new items + old items)</li>
+</ol>
+</div></li>
+</ol></li>
+<li><p>So, the maximum number of old cards in the result queue is</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Maximum Old Cards = ceiling( old items * ( 1-&nbsp;Maximum Old Card Ratio) /&nbsp;Maximum Old Card Ratio )</li>
+</ol>
+</div></li>
+</ol></li>
+</ol></li>
+<li><p>The lag between repetitions. That is how many other items are between first and second presentations.</p>
+<ol type="1">
+<li><p>Hao: introduce constant&nbsp;</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Leg = minimum allowed distance between the position of any pair of items.</li>
+</ol>
+</div></li>
+</ol></li>
+<li><p>This affects which old card can be drawn.</p></li>
+</ol></li>
+<li><p>Avoiding long runs of all new or all old.</p>
+<ol type="1">
+<li><p>Hao: my solution is to introduce a running window and calculate the running ratio of new items inside the window as</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Running Ratio = number of new items in the running window / window size</li>
+</ol>
+</div></li>
+</ol></li>
+<li><p><br>
+</p>
+<p>And calculate the desired proportion of drawing a new item in the draw as</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Desired Proportion for Drawing a New Card = 0.5 - (Running Ratio - 0.5) = 1 - Running Ratio</li>
+</ol>
+</div></li>
+</ol></li>
+<li><p>This affects the possibility of drawing a new item in the next draw, i.e., we get a random number (0..1),&nbsp; when it is larger than&nbsp;Desired Proportion for Drawing a New Card, we are going to draw a new card from the new card pool; otherwise, we are going to draw an old card.</p>
+<p>The formula of Desired Proportion is arbitrary, so we can have other versions, for example:</p>
+<ol type="1">
+<li><div>
+<ol type="1">
+<li>Desired Proportion = 0.5 - (Running Ratio - 0.5) * a,&nbsp; where a is a constant, and we have to truncate the calculated result to (0..1) when a &gt; 1<br>
+</li>
+</ol>
+</div></li>
+</ol></li>
+<li><p><br>
+</p>
+<p>Additionally, we can define a Threshold. When the Running Ratio is out of (0.5 - Threshold, 0.5 + Threshold), we are going to draw a new item or an old item respectively.&nbsp;</p></li>
+</ol></li>
+</ol>
+<p>    With the above description, the algorithm is rather clear now. It may look like that.<br>
+</p>
+<blockquote class="blockquote">
+<p>Create a new cards pool [1..n]<br>
+</p>
+<p>Create an empty waiting room&nbsp;</p>
+<p>Create an empty old cards pool</p>
+<p>Create an empty result cards queue</p>
+<p>for each draw:</p>
+<blockquote class="blockquote">
+<p>count Current Old Items in the result queue<br>
+</p>
+<p>if the count &gt;&nbsp;Maximum Old Cards:</p>
+<blockquote class="blockquote">
+<p>Draw a new card</p>
+</blockquote>
+<p>else:</p>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Move the card (if any) which has waited for (Leg - 1) turns in the waiting room to the old card pool</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>if either the new cards pool or the old cards pool is empty:</p>
+<blockquote class="blockquote">
+<p>Draw a card from the opposite pool to the result queue</p>
+</blockquote>
+<p>else:</p>
+<blockquote class="blockquote">
+<p>Running Ratio&nbsp;= number of new items in the running window / window size</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>if Running Ratio is out of&nbsp;&nbsp;[0.5 - Threshold, 0.5 + Threshold]:</p>
+<blockquote class="blockquote">
+<p>draw a new card or an old card respectively&nbsp;to the result queue</p>
+</blockquote>
+<p>else:</p>
+<blockquote class="blockquote">
+<p>Desired Proportion = 0.5 - (Running Ratio - 0.5) = 1 - Running Ratio<br>
+</p>
+<p>get a random number (0..1)</p>
+<p>if the random number &lt;&nbsp;Desired Proportion:</p>
+<blockquote class="blockquote">
+<p>draw a new card&nbsp;to the result queue</p>
+</blockquote>
+<p>else:</p>
+<blockquote class="blockquote">
+<p>draw an old card&nbsp;to the result queue</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>if the card just drawn is a new card:</p>
+<blockquote class="blockquote">
+<p>Move it from the new cards pool to the waiting room</p>
+</blockquote>
+<p>else:</p>
+<blockquote class="blockquote">
+<p>Drop it out from the old cards pool</p>
+</blockquote>
+</blockquote>
+<p>If the design is good, I will write it with JavaScript.</p>
+</blockquote>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

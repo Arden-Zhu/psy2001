@@ -23,7 +23,7 @@ This is a note of paper which I quick-read.
 
 -   For the **detection task**, participants were instructed to look for a named target picture in the RSVP sequence in each trial. After a button-press to initiate the trial, a descriptive title of the target (e.g., "businessmen at table") was presented in the center of the screen. .... The participant was instructed to press a key labeled "YES" or "NO" on the keyboard to indicate whether he/she had seen a picture that fit the target description.
 
-# How many pixels make a memory? Picture memory for small pictures 
+# How many pixels make a memory? Picture memory for small pictures
 
 -   memory for tiny and degraded scenes parallels the recognizability of those scenes. You can remember a scene to approximately the degree to which you can classify it.
 

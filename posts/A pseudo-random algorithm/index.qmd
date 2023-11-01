@@ -1,0 +1,134 @@
+---
+title: "A pseudo-random algorithm"
+author: "Hao Zhu"
+date: "2023-11-01"
+date-modified: last-modified
+categories: [note, psychology]
+image: "light-bulb.jpg"
+---
+
+I thought about the shuffle question after the meeting last week, and I supposed a pseudo-random algorithm was needed. Although creating such an algorithm may not be difficult, the first question was how to define the criteria for evaluating the algorithm. The first set of criteria in my mind seemed arbitrary, so I hesitated to start working.
+
+Just now, I read your criteria as the following, which are reasonable, so I can post my design here.
+
+1.  The proportion of new and old items (e.g. 50% each).
+
+    1.  Hao:  introduce constant 
+
+        1.  <div>
+
+            1.  Maximum Old Card Ratio = old items / ( new items + old items)
+
+            </div>
+
+    2.  So, the maximum number of old cards in the result queue is
+
+        1.  <div>
+
+            1.  Maximum Old Cards = ceiling( old items \* ( 1- Maximum Old Card Ratio) / Maximum Old Card Ratio )
+
+            </div>
+
+2.  The lag between repetitions. That is how many other items are between first and second presentations.
+
+    1.  Hao: introduce constant 
+
+        1.  <div>
+
+            1.  Leg = minimum allowed distance between the position of any pair of items.
+
+            </div>
+
+    2.  This affects which old card can be drawn.
+
+3.  Avoiding long runs of all new or all old.
+
+    1.  Hao: my solution is to introduce a running window and calculate the running ratio of new items inside the window as
+
+        1.  <div>
+
+            1.  Running Ratio = number of new items in the running window / window size
+
+            </div>
+
+    2.  \
+
+        And calculate the desired proportion of drawing a new item in the draw as
+
+        1.  <div>
+
+            1.  Desired Proportion for Drawing a New Card = 0.5 - (Running Ratio - 0.5) = 1 - Running Ratio
+
+            </div>
+
+    3.  This affects the possibility of drawing a new item in the next draw, i.e., we get a random number (0..1),  when it is larger than Desired Proportion for Drawing a New Card, we are going to draw a new card from the new card pool; otherwise, we are going to draw an old card.
+
+        The formula of Desired Proportion is arbitrary, so we can have other versions, for example:
+
+        1.  <div>
+
+            1.  Desired Proportion = 0.5 - (Running Ratio - 0.5) \* a,  where a is a constant, and we have to truncate the calculated result to (0..1) when a \> 1\
+
+            </div>
+
+    4.  \
+
+        Additionally, we can define a Threshold. When the Running Ratio is out of (0.5 - Threshold, 0.5 + Threshold), we are going to draw a new item or an old item respectively. 
+
+    With the above description, the algorithm is rather clear now. It may look like that.\
+
+> Create a new cards pool \[1..n\]\
+>
+> Create an empty waiting room 
+>
+> Create an empty old cards pool
+>
+> Create an empty result cards queue
+>
+> for each draw:
+>
+> > count Current Old Items in the result queue\
+> >
+> > if the count \> Maximum Old Cards:
+> >
+> > > Draw a new card
+> >
+> > else:
+>
+> > > Move the card (if any) which has waited for (Leg - 1) turns in the waiting room to the old card pool
+> >
+> > > if either the new cards pool or the old cards pool is empty:
+> > >
+> > > > Draw a card from the opposite pool to the result queue
+> > >
+> > > else:
+> > >
+> > > > Running Ratio = number of new items in the running window / window size
+>
+> > > > if Running Ratio is out of  \[0.5 - Threshold, 0.5 + Threshold\]:
+> > > >
+> > > > > draw a new card or an old card respectively to the result queue
+> > > >
+> > > > else:
+> > > >
+> > > > > Desired Proportion = 0.5 - (Running Ratio - 0.5) = 1 - Running Ratio\
+> > > > >
+> > > > > get a random number (0..1)
+> > > > >
+> > > > > if the random number \< Desired Proportion:
+> > > > >
+> > > > > > draw a new card to the result queue
+> > > > >
+> > > > > else:
+> > > > >
+> > > > > > draw an old card to the result queue
+> >
+> > if the card just drawn is a new card:
+> >
+> > > Move it from the new cards pool to the waiting room
+> >
+> > else:
+> >
+> > > Drop it out from the old cards pool
+>
+> If the design is good, I will write it with JavaScript.
