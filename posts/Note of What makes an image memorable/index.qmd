@@ -1,0 +1,30 @@
+---
+title: "Note of What makes an image memorable? " 
+author: "Hao Zhu" 
+date: "2023-11-7" 
+date-modified: last-modified 
+categories: [note, psychology] 
+image: "note.jpg" 
+---
+
+This is a note written while reading *What makes an image memorable?* written by Phillip Isola and others
+
+# Notes
+
+-   focus on the problem of predicting how memorable an image will be
+-   show that memorability is a stable property of an image that is shared across different viewers
+-   analyze image features and labels that contribute to making an image memorable,
+-   we train a predictor based on global image descriptors.
+-   The use of "vigilance task'
+-   Semantics boosted performance
+
+# My thoughts
+
+-   It is the most interesting and complex paper I have read this semester because of the methods it used. It created a real memory game for MTurk workers, did a consistency analysis, trained predictor to evaluate memorability on image labels or global image features.
+-   Many contents in the paper I could not understand, for example, Support Vector Regression. How can I study the statistical tools required for fully digesting the paper?
+-   What are global image descriptors like GIST, SIFT?
+
+# An experimental proposal
+
+-   This is only an imagination. I guess that there are a vector of factors for an image which represents an internal memory model. Two images are distinguishable in long-term memory when the distance of the two vectors are large enough. Thus, the outliners inside a set of images are easier to be remembered and figured out. Generally, an image is memorable because some factors are outstanding above a baseline. The first difficulty of this theory is to find out potential factors, that is out of my capability. :-)
+-   The homework requires a practical experiment. Here it is. The study of the paper trained a set of predictors. The new study aims to examine how good these predictors can be generalized. It will get a new image set, evaluate memorability of each images by using the predictors, conduct a similar memory game on the new images, and compare the result with the prediction.
