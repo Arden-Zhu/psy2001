@@ -105,6 +105,13 @@
             options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian', 'Other'],
             required: true,
           },
+          {
+            type: 'text',
+            input_type: 'email',
+            prompt: "For the chance to win a $10 gift card, enter your email address please.",
+            name: 'email', 
+            required: false,
+          },	          
         ]
       ],
       button_label_finish: 'Continue',
@@ -376,7 +383,9 @@
 
   /* save data with DataPipe */
   const subject_id = jsPsych.randomization.randomID(10);
-  const filename = `d_${(new Date().toJSON().slice(0,10))}_${subject_id}.csv`;
+  var d = new Date().toJSON()
+  var date_part = d.slice(0,10) + '_' + d.slice(11, 13) + d.slice(14,16) + d.slice(17, 19)  
+  const filename = `d_${trials_per_group}_${date_part}_${subject_id}.csv`;
 
   const save_data = {
     type: jsPsychPipe,
