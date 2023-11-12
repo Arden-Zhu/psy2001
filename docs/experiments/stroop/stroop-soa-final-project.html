@@ -39,9 +39,10 @@
   		{ color: "Green", key: "G" },
   		{ color: "Yellow", key: "Y" },
   	];
-  	var stimulus_duration = [0, 200];
+  	var stimulus_durations = [0, 200];
   	var data_pipe_experiement_id = '478JTfm2S8zr';
   	var font = "bold 100pt Arial";
+    var font_hint = "20px Arial"
 
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
@@ -92,6 +93,7 @@
           },
           {
             type: 'text',
+            input_type: 'number',
             prompt: "What's your age?", 
             name: 'age', 
             required: true,
@@ -138,7 +140,48 @@
 		</div>
       `
     };
-    
+
+  // test stimulus
+  const stimulus_color = {
+    obj_type: 'rect', 
+    line_color: jsPsych.timelineVariable('color'),
+    fill_color: jsPsych.timelineVariable('color'),
+    origin_center : true,
+    show_start_time: 0,
+    //show_end_time: jsPsych.timelineVariable('color'),
+    width: 600,
+    height: 300,
+  }
+
+  const stimulus_bg = {
+    obj_type: 'rect', 
+    line_color: 'white',
+    fill_color: 'white',
+    origin_center : true,
+    show_start_time: jsPsych.timelineVariable('stimulus_duration'),
+    width: 650,
+    height: 350,
+  }
+  
+  const stimulus_text = {
+    obj_type: 'text', 
+    content: jsPsych.timelineVariable('text'),
+    font: font,
+    text_color: jsPsych.timelineVariable('color'),
+    origin_center : true,
+    show_start_time: jsPsych.timelineVariable('stimulus_duration'),
+  }
+
+  const stimulus_hint = {
+    obj_type: 'text', 
+    content: jsPsych.timelineVariable('hint'),
+    font: font_hint,
+    text_color: 'black',
+    origin_center : true,
+    startY: 300,
+    show_start_time: jsPsych.timelineVariable('stimulus_duration'),
+  }
+
 	/* define practice */
 	const fixation = {
     type: jsPsychHtmlKeyboardResponse,
@@ -169,33 +212,45 @@
 		let color = colors[i];
 		let nextColor = colors[(i+1) % colors.length];
 
-		practice_stimuli.push({
-			text: color.color,
-			color: color.color,
-			key: color.key,
-		});
-		practice_stimuli.push({
-			text: nextColor.color,
-			color: color.color,
-			key: color.key,
-		});
+    for (const duration of stimulus_durations) {
+      practice_stimuli.push({
+        text: color.color,
+        color: color.color,
+        key: color.key,
+        hint: 'The correct response is ' + color.key,
+        stimulus_duration: duration,
+      });
+      practice_stimuli.push({
+        text: nextColor.color,
+        color: color.color,
+        key: color.key,
+        hint: 'The correct response is ' + color.key,
+        stimulus_duration: duration,
+      });
+    }
 	}
-	
-  var practice = {
-    type: jsPsychHtmlKeyboardResponse,
-    choices: [jsPsych.timelineVariable('key'),],
-    stimulus: function() {
-	  return `
-		<div style="width:800px">
-			<p style="color:${jsPsych.timelineVariable('color')};font:${font}">
-				${jsPsych.timelineVariable('text')}
-			</p>
-			<p>The correct response is ${jsPsych.timelineVariable('key')}.</p>
-		</div>
-	  `
+
+  const practice = {
+    type: jsPsychPsychophysics,
+    stimuli: [stimulus_color, stimulus_bg, stimulus_text, stimulus_hint],
+    choices: [jsPsych.timelineVariable('key')],
+    canvas_width: 1000,
+    canvas_height: 800,
+    background_color: 'white', 
+    data: {
+      task: 'practise',
+  		color: jsPsych.timelineVariable('color'),
+  		text: jsPsych.timelineVariable('text'),
+  		is_congruent: jsPsych.timelineVariable('is_congruent'),
+  		duration:  jsPsych.timelineVariable('stimulus_duration'),
+      is_soa: jsPsych.timelineVariable('is_soa'),
+      correct_response: jsPsych.timelineVariable('key')
     },
-  };
-	
+    on_finish: function(data){
+      data.is_correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+    }
+  }
+
 	var practice_procedure = {
 		timeline: [fixation, practice, trial_feedback],
 		timeline_variables: practice_stimuli,
@@ -217,7 +272,7 @@
 	var test_stimuli = [];
 	
   // sample for congruent conditions
-	for (let duration of stimulus_duration) {
+	for (let duration of stimulus_durations) {
   	var sample = jsPsych.randomization.sampleWithReplacement(colors, trials_per_group);
   	for (let instance of sample) {
   		test_stimuli.push({
@@ -245,7 +300,7 @@
 		}
 	}
 
-  for (let duration of stimulus_duration) {
+  for (let duration of stimulus_durations) {
   	var sample = jsPsych.randomization.sampleWithReplacement(uncongruent, trials_per_group);
   	for (let instance of sample) {
   		test_stimuli.push({
@@ -258,36 +313,6 @@
   			});
   	}
 	}
-  // test stimulus
-  const stimulus_color = {
-    obj_type: 'rect', 
-    line_color: jsPsych.timelineVariable('color'),
-    fill_color: jsPsych.timelineVariable('color'),
-    origin_center : true,
-    show_start_time: 0,
-    //show_end_time: jsPsych.timelineVariable('color'),
-    width: 550,
-    height: 250,
-  }
-
-  const stimulus_bg = {
-    obj_type: 'rect', 
-    line_color: 'white',
-    fill_color: 'white',
-    origin_center : true,
-    show_start_time: jsPsych.timelineVariable('stimulus_duration'),
-    width: 600,
-    height: 300,
-  }
-  
-  const stimulus_text = {
-    obj_type: 'text', 
-    content: jsPsych.timelineVariable('text'),
-    font: font,
-    text_color: jsPsych.timelineVariable('color'),
-    origin_center : true,
-    show_start_time: jsPsych.timelineVariable('stimulus_duration'),
-  }
 
   // allowed keys
   let choices = [];
