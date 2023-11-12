@@ -6,16 +6,33 @@
     <script src="../../dist/jspsych/plugin-html-keyboard-response.js"></script>
     <!--script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script-->
     <script src="../../dist/jspsych/plugin-survey.js"></script>
+    <script src="../../dist/jspsych/plugin-browser-check.js"></script>
     <script src="../../dist/jspsych-psychophysics.js"></script>
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
 
     <link href="../../dist/jspsych/jspsych.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@0.2.1/css/survey.css">
+    <style>
+      .result table {
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+      .result th {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid black;
+      }
+      .result td {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid black;
+      }      
+    </style>
   </head>
   <body></body>
   <script>
     /* parameters */
-    var trials_per_group = 20;
+    var trials_per_group = 5;
   	var colors = [
   		{ color: "Blue", key: "B" },
   		{ color: "Red", key: "R" },
@@ -29,10 +46,20 @@
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
       on_finish: function() {
-        //jsPsych.data.displayData();
+        // jsPsych.data.displayData();
       }
     });
 
+    /* exclude mobiles */
+    var excludeMobiles = {
+      type: jsPsychBrowserCheck,
+      inclusion_function: (data) => {
+        return !data.mobile;
+      },
+      exclusion_message: (data) => {
+        return `<p>You must use a PC or laptop to complete this experiment.</p>`
+      },
+    };
     /* define welcome message trial */
     var welcome = {
       type: jsPsychHtmlKeyboardResponse,
@@ -71,8 +98,8 @@
           },		  
           {
             type: 'multi-choice',
-            prompt: "What's your ethnic?", 
-            name: 'ethnic', 
+            prompt: "What's your ethnicity?", 
+            name: 'ethnicity', 
             options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian'],
             required: true,
           },
@@ -96,14 +123,15 @@
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
 		<div style="width:800px">
-			<p>You will see text in ${colors.length} colors which are individually assigned to a key.</p>
+			<p>You will see text randomly in one of the four colors, ${colorSpan}.</p>
+      <p>Your task to to press a key designated to the color stimulus as soon as possible.</p>
+      <p>Here is a list of the colors with associated keys.</p>
 			<ul style="list-style-type:none">
 			  ${colorLi}
 			</ul>
-			<p>Your task is to press the key as soon as possible when you see a color.</p>
-			<p>For example, you should press ${colors[0].key} key when seeing a word in color <span style="color:${colors[0].color}">${colors[0].color}</span>, even if the word is <span style="color:${colors[0].color}">${colors[1].color}</span>.</p>
+			<p>For example, you should press ${colors[0].key} when seeing a stimulus of color <span style="color:${colors[0].color}">${colors[0].color}</span>, even if it is presented with another word like <span style="color:${colors[0].color}">${colors[1].color}</span>.</p>
 			${tips}
-			<p>The experiment will start with a practice for you to be familiar with the task.</p>
+			<p>The experiment will start with a practice for you to become familiar with the task.</p>
 			<p>Then a test will start.</p>
 			</p></p>	  
 			<p>Press any key to begin the practice.</p>
@@ -166,12 +194,6 @@
 		</div>
 	  `
     },
-    data: {
-      correct_response: jsPsych.timelineVariable('key')
-    },
-    on_finish: function(data){
-      data.is_correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
-    }
   };
 	
 	var practice_procedure = {
@@ -186,7 +208,6 @@
     stimulus: `
   	<div style="width:800px">
   		<p>The test will start. Remember to press the key according to the color rather than the word.</p>
-  		<p>You can press S if you do not catch the blink color.</p>
   		<p>Press any key to begin.</p>
   	</div>
   	`
@@ -195,6 +216,7 @@
 	/* define trial */
 	var test_stimuli = [];
 	
+  // sample for congruent conditions
 	for (let duration of stimulus_duration) {
   	var sample = jsPsych.randomization.sampleWithReplacement(colors, trials_per_group);
   	for (let instance of sample) {
@@ -204,11 +226,12 @@
   			key: instance.key,
   			is_congruent: true,
   			stimulus_duration: duration,
+        is_soa: duration > 0,
   			});
   	}
 	}
 	
-	
+	// sample for incongruent conditions
 	var uncongruent = []
 	for (let i = 0; i < colors.length; i++) {
 		for (let j = 0; j < colors.length; j++) {
@@ -231,10 +254,11 @@
   			key: instance.key,
   			is_congruent: false,
   			stimulus_duration: duration,
+        is_soa: duration > 0,
   			});
   	}
 	}
-  
+  // test stimulus
   const stimulus_color = {
     obj_type: 'rect', 
     line_color: jsPsych.timelineVariable('color'),
@@ -265,12 +289,12 @@
     show_start_time: jsPsych.timelineVariable('stimulus_duration'),
   }
 
-
-  let choices = ['S'];
+  // allowed keys
+  let choices = [];
   for (let c of colors) {
     choices.push(c.key);
   }
-  
+  // define a trial
   const trial = {
     type: jsPsychPsychophysics,
     stimuli: [stimulus_color, stimulus_bg, stimulus_text],
@@ -284,6 +308,7 @@
   		text: jsPsych.timelineVariable('text'),
   		is_congruent: jsPsych.timelineVariable('is_congruent'),
   		duration:  jsPsych.timelineVariable('stimulus_duration'),
+      is_soa: jsPsych.timelineVariable('is_soa'),
       correct_response: jsPsych.timelineVariable('key')
     },
     on_finish: function(data){
@@ -340,22 +365,44 @@
     type: jsPsychHtmlKeyboardResponse,
     stimulus: function() {
       var trials = jsPsych.data.get().filter({task: 'response'});
-	  	var congruents = trials.filter({is_congruent: true});
-      var correct_congruents = congruents.filter({is_correct: true});
-      var accuracy_congruents = Math.round(correct_congruents.count() / congruents.count() * 100);
-      var rt_congruents = Math.round(congruents.select('rt').mean());
+      const conditions = [
+        {is_congruent: true, is_soa: false},
+        {is_congruent: true, is_soa: true},
+        {is_congruent: false, is_soa: false},
+        {is_congruent: false, is_soa: true},
+      ];
+      for (const condition of conditions) {
+        const conditioned = trials.filter(condition);
+        const correct = conditioned.filter({is_correct: true});
+        condition.accuracy = Math.round(correct.count() / conditioned.count() * 100);
+        condition.rt = Math.round(correct.select('rt').mean()) || 0;
+      }
 
-  		var uncongruents = trials.filter({is_congruent: false});
-      var correct_uncongruents = uncongruents.filter({is_correct: true});
-      var accuracy_uncongruents = Math.round(correct_uncongruents.count() / uncongruents.count() * 100);
-      var rt_uncongruents = Math.round(uncongruents.select('rt').mean());
+      var result = '';
+      for (const condition of conditions) {
+        result += `<tr>
+          <td>${condition.is_congruent}</td>
+          <td>${condition.is_soa}</td>
+          <td>${condition.accuracy}</td>
+          <td>${condition.rt}</td>
+          </tr>`;
+        
+      }
 
       return `
-			<div style="width:800px">
-				<p>You responded correctly on ${accuracy_congruents}% of the congruential trials with an average response time of ${rt_congruents}ms..</p>
-				<p>On the contrast, you responded correctly on ${accuracy_uncongruents}% of the uncongruential trials with an average response time of ${rt_uncongruents}ms..</p>
-				<p></p>
-				<p>Press any key to complete the experiment. Thank you!</p>
+			<div class="result">
+        <p><b>Thank you for finishing the experiement!</b></p>
+        <p>Here is the report of your accuracy and average reaction time.</p>
+        <p></p>
+        <table>
+          <tr>
+            <th>Congruent</th>
+            <th>Stimulus Onset Asynchrony</th>
+            <th>Accuracy(%)</th>
+            <th>Reaction Time(ms)</th>
+          </tr>
+          ${result}
+        </table>
 			</div>
 		`;
     }
@@ -363,13 +410,14 @@
   
   /* define timeline */
   var timeline = [
+    excludeMobiles,
     welcome,
-    survey,
-    instructions,
-    practice_procedure,
-    reminder,
+    //survey,
+    //instructions,
+    //practice_procedure,
+    //reminder,
     trial_procedure,
-    feedback_survey,
+    //feedback_survey,
     save_data,
     debrief_block,
   ];
