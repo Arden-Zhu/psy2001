@@ -47,7 +47,7 @@
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
       on_finish: function() {
-        jsPsych.data.displayData();
+        //jsPsych.data.displayData();
       }
     });
 
@@ -102,7 +102,7 @@
             type: 'multi-choice',
             prompt: "What's your ethnicity?", 
             name: 'ethnicity', 
-            options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian'],
+            options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian', 'Other'],
             required: true,
           },
         ]
@@ -438,13 +438,13 @@
   var timeline = [
     excludeMobiles,
     welcome,
-    survey,
     instructions,
     practice_procedure,
     reminder,
     trial_procedure,
     //feedback_survey,
     save_data,
+    survey,
     debrief_block,
   ];
 

@@ -63,7 +63,7 @@ filtered_data <- all_data %>%
 # get individual subject means in each condition
 subject_mean_RT <- filtered_data %>%
   group_by(subject,is_congruent) %>%
-  summarize(mean_rt = mean(rt), .groups = "drop")
+  summarize(mean_rt = mean(reaction_time), .groups = "drop")
 
 # get group means in each condition
 group_mean_RT <- subject_mean_RT %>%
