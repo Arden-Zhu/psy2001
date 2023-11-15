@@ -1,0 +1,33 @@
+---
+title: "Week 11 Minerva II"
+description: "Play the Minerva II."
+author: "Hao Zhu"
+date: 11-14-23
+date-modified: last-modified
+image: 'week11.jpg'
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+-   I watched the video about Instance Theory and Minerva II on [professor Matthew Crump's blog](https://www.crumplab.com/cognition/articles/modules/L11_Instance_Theory.html).
+
+# Created a paradox 
+
+![instance 1](instance_1.png)
+
+You can see that the correlation of Echo and Cue are perfect while Global Activiator is zero, that may demonstrates a paradox. According to the theory, in psychological language, a participant sees a black stimulus and a white stimulus in a learn stage of a hypothetical experiment. When being asked whether he has seen a black stimulus during the learn stage, he answers Yes in confidence. Yet, when answering how much time he has seen the stimulus, he answers Zero.
+
+# Searched for examples of being blurred memory
+
+I wrote a piece of code to search the whole 8 \* 5 matrix space looking for instances which generate a relative small Echo-Cue correlation while the cue exists in the matrix, that is, the recall of an exact same item in the memory is interfered by others items. Here is one of the examples.
+
+![instance 2](instance_2.png)
+
+It may suggest that a memory item can be blurred by exposing the participant under some specific stimuli.

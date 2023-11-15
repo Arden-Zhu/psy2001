@@ -1,0 +1,316 @@
+width,height,webaudio,browser,browser_version,mobile,os,fullscreen,vsync_rate,webcam,microphone,trial_type,trial_index,time_elapsed,internal_node_id,rt,stimulus,response,task,response_type,key_press,avg_frame_time,center_x,center_y,color,text,is_congruent,duration,is_soa,correct_response,is_correct,reaction_time
+1324,753,TRUE,safari,13.1.3,FALSE,Mac OS,TRUE,21.72,TRUE,TRUE,browser-check,0,2778,0.0-0.0,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,1,4723,0.0-1.0,1942,"<p style=""font:bold 20pt Arial"">Welcome to Interactive Stroop Test with Stimulus Onset Asynchrony.</p>
+      <p style=""margin:50px"">Press any key to begin.</p>", ,,,,,,,,,,,,,,
+,,,,,,,,,,,survey,2,35904,0.0-2.0,31050,,"{""P0_Q0"":null,""gerder"":""Female"",""age"":21,""ethnicity"":""Asian""}",,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,3,101880,0.0-3.0,65977,"
+		<div style=""width:800px"">
+			<p>You will see text randomly in one of the four colors,  <span style=""color:Blue"">Blue</span> <span style=""color:Red"">Red</span> <span style=""color:Green"">Green</span> <span style=""color:Yellow"">Yellow</span>.</p>
+      <p>Your task to to press a key designated to the color stimulus as soon as possible.</p>
+      <p>Here is a list of the colors with associated keys.</p>
+			<ul style=""list-style-type:none"">
+			  <li style=""color:Blue"">Blue - key B</li><li style=""color:Red"">Red - key R</li><li style=""color:Green"">Green - key G</li><li style=""color:Yellow"">Yellow - key Y</li>
+			</ul>
+			<p>For example, you should press B when seeing a stimulus of color <span style=""color:Blue"">Blue</span>, even if it is presented with another word like <span style=""color:Blue"">Red</span>.</p>
+			<p>Here is a tip, you can place your figures on the keys to have a better performance.</p>
+			<p>For instance, left middle figure on R; left index figure on B; right index figure on G; and right middle figure on Y</p>
+			<p>The experiment will start with a practice for you to become familiar with the task.</p>
+			<p>Then a test will start.</p>
+			</p></p>	  
+			<p>Press any key to begin the practice.</p>
+		</div>
+      ", ,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,4,102382,0.0-4.0-0.0,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,5,104632,0.0-4.0-1.0,1714,,r,practise,key,r,16.65686275,500,400,Red,Green,,200,,R,TRUE,
+,,,,,,,,,,,html-keyboard-response,6,105134,0.0-4.0-2.0,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,7,105637,0.0-4.0-0.1,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,8,108026,0.0-4.0-1.1,1883,,b,practise,key,b,16.66071429,500,400,Blue,Red,,0,,B,TRUE,
+,,,,,,,,,,,html-keyboard-response,9,108527,0.0-4.0-2.1,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,10,109029,0.0-4.0-0.2,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,11,110960,0.0-4.0-1.2,1424,,b,practise,key,b,16.6626506,500,400,Blue,Blue,,200,,B,TRUE,
+,,,,,,,,,,,html-keyboard-response,12,111462,0.0-4.0-2.2,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,13,111963,0.0-4.0-0.3,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,14,113739,0.0-4.0-1.3,1270,,b,practise,key,b,16.57333333,500,400,Blue,Red,,200,,B,TRUE,
+,,,,,,,,,,,html-keyboard-response,15,114241,0.0-4.0-2.3,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,16,114742,0.0-4.0-0.4,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,17,116399,0.0-4.0-1.4,1151,,y,practise,key,y,16.67164179,500,400,Yellow,Blue,,0,,Y,TRUE,
+,,,,,,,,,,,html-keyboard-response,18,116901,0.0-4.0-2.4,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,19,117402,0.0-4.0-0.5,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,20,119160,0.0-4.0-1.5,1255,,y,practise,key,y,16.58108108,500,400,Yellow,Blue,,200,,Y,TRUE,
+,,,,,,,,,,,html-keyboard-response,21,119663,0.0-4.0-2.5,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,22,120164,0.0-4.0-0.6,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,23,121642,0.0-4.0-1.6,968,,g,practise,key,g,16.66666667,500,400,Green,Green,,0,,G,TRUE,
+,,,,,,,,,,,html-keyboard-response,24,122144,0.0-4.0-2.6,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,25,122646,0.0-4.0-0.7,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,26,124045,0.0-4.0-1.7,894,,y,practise,key,y,16.54716981,500,400,Yellow,Yellow,,0,,Y,TRUE,
+,,,,,,,,,,,html-keyboard-response,27,124546,0.0-4.0-2.7,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,28,125048,0.0-4.0-0.8,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,29,126651,0.0-4.0-1.8,1098,,g,practise,key,g,16.65625,500,400,Green,Yellow,,0,,G,TRUE,
+,,,,,,,,,,,html-keyboard-response,30,127153,0.0-4.0-2.8,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,31,127655,0.0-4.0-0.9,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,32,129661,0.0-4.0-1.9,1502,,r,practise,key,r,16.58426966,500,400,Red,Green,,0,,R,TRUE,
+,,,,,,,,,,,html-keyboard-response,33,130163,0.0-4.0-2.9,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,34,130665,0.0-4.0-0.10,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,35,132183,0.0-4.0-1.10,1013,,r,practise,key,r,16.6440678,500,400,Red,Red,,200,,R,TRUE,
+,,,,,,,,,,,html-keyboard-response,36,132685,0.0-4.0-2.10,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,37,133186,0.0-4.0-0.11,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,38,134685,0.0-4.0-1.11,989,,y,practise,key,y,16.55172414,500,400,Yellow,Yellow,,200,,Y,TRUE,
+,,,,,,,,,,,html-keyboard-response,39,135187,0.0-4.0-2.11,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,40,135689,0.0-4.0-0.12,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,41,137217,0.0-4.0-1.12,1021,,b,practise,key,b,16.66666667,500,400,Blue,Blue,,0,,B,TRUE,
+,,,,,,,,,,,html-keyboard-response,42,137719,0.0-4.0-2.12,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,43,138220,0.0-4.0-0.13,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,44,139798,0.0-4.0-1.13,1073,,g,practise,key,g,16.55555556,500,400,Green,Yellow,,200,,G,TRUE,
+,,,,,,,,,,,html-keyboard-response,45,140300,0.0-4.0-2.13,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,46,140801,0.0-4.0-0.14,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,47,142277,0.0-4.0-1.14,970,,g,practise,key,g,16.68421053,500,400,Green,Green,,200,,G,TRUE,
+,,,,,,,,,,,html-keyboard-response,48,142779,0.0-4.0-2.14,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,49,143280,0.0-4.0-0.15,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,50,144688,0.0-4.0-1.15,902,,r,practise,key,r,16.52830189,500,400,Red,Red,,0,,R,TRUE,
+,,,,,,,,,,,html-keyboard-response,51,145190,0.0-4.0-2.15,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,52,146780,0.0-5.0,1589,"
+  	<div style=""width:800px"">
+  		<p>The test will start. Remember to press the key according to the color rather than the word.</p>
+  		<p>Press any key to begin.</p>
+  	</div>
+  	", ,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,53,147282,0.0-6.0-0.0,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,54,148903,0.0-6.0-1.0,1111,,r,response,key,r,16.63076923,500,400,Red,Yellow,FALSE,0,FALSE,R,TRUE,1111
+,,,,,,,,,,,html-keyboard-response,55,149405,0.0-6.0-2.0,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,56,149907,0.0-6.0-0.1,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,57,151204,0.0-6.0-1.1,792,,y,response,key,y,16.65217391,500,400,Yellow,Green,FALSE,0,FALSE,Y,TRUE,792
+,,,,,,,,,,,html-keyboard-response,58,151706,0.0-6.0-2.1,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,59,152209,0.0-6.0-0.2,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,60,153510,0.0-6.0-1.2,796,,g,response,key,g,16.65217391,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,796
+,,,,,,,,,,,html-keyboard-response,61,154011,0.0-6.0-2.2,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,62,154514,0.0-6.0-0.3,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,63,156189,0.0-6.0-1.3,1169,,g,response,key,g,16.66666667,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,969
+,,,,,,,,,,,html-keyboard-response,64,156690,0.0-6.0-2.3,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,65,157192,0.0-6.0-0.4,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,66,158590,0.0-6.0-1.4,893,,r,response,key,r,16.67307692,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,693
+,,,,,,,,,,,html-keyboard-response,67,159092,0.0-6.0-2.4,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,68,159594,0.0-6.0-0.5,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,69,160997,0.0-6.0-1.5,893,,b,response,key,b,16.67307692,500,400,Blue,Blue,TRUE,0,FALSE,B,TRUE,893
+,,,,,,,,,,,html-keyboard-response,70,161500,0.0-6.0-2.5,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,71,162002,0.0-6.0-0.6,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,72,164245,0.0-6.0-1.6,1739,,b,response,key,b,16.61165049,500,400,Blue,Red,FALSE,0,FALSE,B,TRUE,1739
+,,,,,,,,,,,html-keyboard-response,73,164747,0.0-6.0-2.6,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,74,165249,0.0-6.0-0.7,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,75,167019,0.0-6.0-1.7,1265,,y,response,key,y,16.65333333,500,400,Yellow,Yellow,TRUE,0,FALSE,Y,TRUE,1265
+,,,,,,,,,,,html-keyboard-response,76,167520,0.0-6.0-2.7,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,77,168022,0.0-6.0-0.8,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,78,169447,0.0-6.0-1.8,920,,g,response,key,g,16.55555556,500,400,Green,Red,FALSE,0,FALSE,G,TRUE,920
+,,,,,,,,,,,html-keyboard-response,79,169949,0.0-6.0-2.8,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,80,170452,0.0-6.0-0.9,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,81,172130,0.0-6.0-1.9,1173,,g,response,key,g,16.66666667,500,400,Green,Blue,FALSE,0,FALSE,G,TRUE,1173
+,,,,,,,,,,,html-keyboard-response,82,172632,0.0-6.0-2.9,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,83,173134,0.0-6.0-0.10,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,84,174553,0.0-6.0-1.10,910,,g,response,key,g,16.58490566,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,710
+,,,,,,,,,,,html-keyboard-response,85,175055,0.0-6.0-2.10,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,86,175556,0.0-6.0-0.11,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,87,177330,0.0-6.0-1.11,1268,,r,response,key,r,16.66666667,500,400,Red,Blue,FALSE,0,FALSE,R,TRUE,1268
+,,,,,,,,,,,html-keyboard-response,88,177832,0.0-6.0-2.11,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,89,178334,0.0-6.0-0.12,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,90,179873,0.0-6.0-1.12,1033,,y,response,key,y,16.57377049,500,400,Yellow,Green,FALSE,200,TRUE,Y,TRUE,833
+,,,,,,,,,,,html-keyboard-response,91,180374,0.0-6.0-2.12,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,92,180876,0.0-6.0-0.13,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,93,182109,0.0-6.0-1.13,728,,y,response,key,y,16.66666667,500,400,Yellow,Yellow,TRUE,0,FALSE,Y,TRUE,728
+,,,,,,,,,,,html-keyboard-response,94,182610,0.0-6.0-2.13,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,95,183113,0.0-6.0-0.14,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,96,184958,0.0-6.0-1.14,1339,,b,response,key,b,16.58227848,500,400,Blue,Blue,TRUE,0,FALSE,B,TRUE,1339
+,,,,,,,,,,,html-keyboard-response,97,185459,0.0-6.0-2.14,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,98,185960,0.0-6.0-0.15,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,99,187910,0.0-6.0-1.15,1440,,g,response,key,g,16.6547619,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,1440
+,,,,,,,,,,,html-keyboard-response,100,188411,0.0-6.0-2.15,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,101,188913,0.0-6.0-0.16,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,102,190520,0.0-6.0-1.16,1102,,y,response,key,y,16.61538462,500,400,Yellow,Green,FALSE,200,TRUE,Y,TRUE,902
+,,,,,,,,,,,html-keyboard-response,103,191022,0.0-6.0-2.16,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,104,191524,0.0-6.0-0.17,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,105,193344,0.0-6.0-1.17,1314,,b,response,key,b,16.65384615,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,1114
+,,,,,,,,,,,html-keyboard-response,106,193846,0.0-6.0-2.17,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,107,194347,0.0-6.0-0.18,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,108,196060,0.0-6.0-1.18,1208,,g,response,key,g,16.57746479,500,400,Green,Green,TRUE,200,TRUE,G,TRUE,1008
+,,,,,,,,,,,html-keyboard-response,109,196563,0.0-6.0-2.18,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,110,197064,0.0-6.0-0.19,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,111,198272,0.0-6.0-1.19,702,,y,response,key,y,16.68292683,500,400,Yellow,Yellow,TRUE,0,FALSE,Y,TRUE,702
+,,,,,,,,,,,html-keyboard-response,112,198774,0.0-6.0-2.19,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,113,199275,0.0-6.0-0.20,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,114,200642,0.0-6.0-1.20,857,,y,response,key,y,16.54,500,400,Yellow,Yellow,TRUE,200,TRUE,Y,TRUE,657
+,,,,,,,,,,,html-keyboard-response,115,201144,0.0-6.0-2.20,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,116,201646,0.0-6.0-0.21,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,117,203425,0.0-6.0-1.21,1275,,r,response,key,r,16.66666667,500,400,Red,Green,FALSE,200,TRUE,R,TRUE,1075
+,,,,,,,,,,,html-keyboard-response,118,203928,0.0-6.0-2.21,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,119,204430,0.0-6.0-0.22,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,120,205785,0.0-6.0-1.22,850,,r,response,key,r,16.56,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,650
+,,,,,,,,,,,html-keyboard-response,121,206286,0.0-6.0-2.22,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,122,206788,0.0-6.0-0.23,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,123,208612,0.0-6.0-1.23,1320,,r,response,key,r,16.66666667,500,400,Red,Red,TRUE,0,FALSE,R,TRUE,1320
+,,,,,,,,,,,html-keyboard-response,124,209114,0.0-6.0-2.23,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,125,209616,0.0-6.0-0.24,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,126,211364,0.0-6.0-1.24,1243,,b,response,key,b,16.5890411,500,400,Blue,Red,FALSE,0,FALSE,B,TRUE,1243
+,,,,,,,,,,,html-keyboard-response,127,211865,0.0-6.0-2.24,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,128,212367,0.0-6.0-0.25,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,129,213631,0.0-6.0-1.25,754,,r,response,key,r,16.65909091,500,400,Red,Red,TRUE,0,FALSE,R,TRUE,754
+,,,,,,,,,,,html-keyboard-response,130,214133,0.0-6.0-2.25,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,131,214635,0.0-6.0-0.26,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,132,215970,0.0-6.0-1.26,829,,b,response,key,b,16.52083333,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,629
+,,,,,,,,,,,html-keyboard-response,133,216472,0.0-6.0-2.26,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,134,216974,0.0-6.0-0.27,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,135,218532,0.0-6.0-1.27,1051,,y,response,key,y,16.67741935,500,400,Yellow,Yellow,TRUE,200,TRUE,Y,TRUE,851
+,,,,,,,,,,,html-keyboard-response,136,219034,0.0-6.0-2.27,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,137,219536,0.0-6.0-0.28,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,138,221312,0.0-6.0-1.28,1268,,g,response,key,g,16.61333333,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,1068
+,,,,,,,,,,,html-keyboard-response,139,221815,0.0-6.0-2.28,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,140,222316,0.0-6.0-0.29,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,141,224018,0.0-6.0-1.29,1196,,y,response,key,y,16.65714286,500,400,Yellow,Blue,FALSE,0,FALSE,Y,TRUE,1196
+,,,,,,,,,,,html-keyboard-response,142,224520,0.0-6.0-2.29,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,143,225022,0.0-6.0-0.30,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,144,226513,0.0-6.0-1.30,986,,r,response,key,r,16.55172414,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,786
+,,,,,,,,,,,html-keyboard-response,145,227014,0.0-6.0-2.30,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,146,227516,0.0-6.0-0.31,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,147,229059,0.0-6.0-1.31,1038,,r,response,key,r,16.67213115,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,838
+,,,,,,,,,,,html-keyboard-response,148,229560,0.0-6.0-2.31,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,149,230061,0.0-6.0-0.32,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,150,231620,0.0-6.0-1.32,1053,,g,response,key,g,16.58064516,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,1053
+,,,,,,,,,,,html-keyboard-response,151,232122,0.0-6.0-2.32,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,152,232624,0.0-6.0-0.33,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,153,234013,0.0-6.0-1.33,880,,r,response,key,r,16.67307692,500,400,Red,Blue,FALSE,0,FALSE,R,TRUE,880
+,,,,,,,,,,,html-keyboard-response,154,234517,0.0-6.0-2.33,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,155,235019,0.0-6.0-0.34,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,156,236354,0.0-6.0-1.34,831,,g,response,key,g,16.53061224,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,831
+,,,,,,,,,,,html-keyboard-response,157,236856,0.0-6.0-2.34,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,158,237360,0.0-6.0-0.35,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,159,239705,0.0-6.0-1.35,1839,,b,response,key,b,16.66972477,500,400,Blue,Red,FALSE,200,TRUE,B,TRUE,1639
+,,,,,,,,,,,html-keyboard-response,160,240207,0.0-6.0-2.35,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,161,240708,0.0-6.0-0.36,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,162,242040,0.0-6.0-1.36,823,,y,response,key,y,16.66666667,500,400,Yellow,Yellow,TRUE,200,TRUE,Y,TRUE,623
+,,,,,,,,,,,html-keyboard-response,163,242541,0.0-6.0-2.36,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,164,243043,0.0-6.0-0.37,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,165,244442,0.0-6.0-1.37,894,,r,response,key,r,16.67307692,500,400,Red,Red,TRUE,0,FALSE,R,TRUE,894
+,,,,,,,,,,,html-keyboard-response,166,244944,0.0-6.0-2.37,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,167,245446,0.0-6.0-0.38,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,168,247333,0.0-6.0-1.38,1382,,g,response,key,g,16.57317073,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,1182
+,,,,,,,,,,,html-keyboard-response,169,247834,0.0-6.0-2.38,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,170,248336,0.0-6.0-0.39,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,171,250008,0.0-6.0-1.39,1167,,g,response,key,g,16.66666667,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,967
+,,,,,,,,,,,html-keyboard-response,172,250510,0.0-6.0-2.39,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,173,251011,0.0-6.0-0.40,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,174,253166,0.0-6.0-1.40,1650,,y,response,key,y,16.65306122,500,400,Yellow,Blue,FALSE,0,FALSE,Y,TRUE,1650
+,,,,,,,,,,,html-keyboard-response,175,253667,0.0-6.0-2.40,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,176,254168,0.0-6.0-0.41,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,177,255619,0.0-6.0-1.41,939,,b,response,key,b,16.65454545,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,739
+,,,,,,,,,,,html-keyboard-response,178,256121,0.0-6.0-2.41,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,179,256623,0.0-6.0-0.42,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,180,258492,0.0-6.0-1.42,1363,,r,response,key,r,16.6625,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,1163
+,,,,,,,,,,,html-keyboard-response,181,258994,0.0-6.0-2.42,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,182,259495,0.0-6.0-0.43,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,183,261526,0.0-6.0-1.43,1524,,r,response,key,r,16.63333333,500,400,Red,Yellow,FALSE,200,TRUE,R,TRUE,1324
+,,,,,,,,,,,html-keyboard-response,184,262028,0.0-6.0-2.43,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,185,262529,0.0-6.0-0.44,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,186,264379,0.0-6.0-1.44,1345,,y,response,key,y,16.65822785,500,400,Yellow,Red,FALSE,0,FALSE,Y,TRUE,1345
+,,,,,,,,,,,html-keyboard-response,187,264881,0.0-6.0-2.44,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,188,265383,0.0-6.0-0.45,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,189,267593,0.0-6.0-1.45,1705,,b,response,key,b,16.61386139,500,400,Blue,Blue,TRUE,0,FALSE,B,TRUE,1705
+,,,,,,,,,,,html-keyboard-response,190,268094,0.0-6.0-2.45,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,191,268596,0.0-6.0-0.46,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,192,270017,0.0-6.0-1.46,911,,y,response,key,y,16.66037736,500,400,Yellow,Blue,FALSE,0,FALSE,Y,TRUE,911
+,,,,,,,,,,,html-keyboard-response,193,270518,0.0-6.0-2.46,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,194,271020,0.0-6.0-0.47,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,195,272896,0.0-6.0-1.47,1370,,b,response,key,b,16.58024691,500,400,Blue,Green,FALSE,200,TRUE,B,TRUE,1170
+,,,,,,,,,,,html-keyboard-response,196,273398,0.0-6.0-2.47,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,197,273900,0.0-6.0-0.48,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,198,275351,0.0-6.0-1.48,944,,b,response,key,b,16.65454545,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,744
+,,,,,,,,,,,html-keyboard-response,199,275853,0.0-6.0-2.48,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,200,276355,0.0-6.0-0.49,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,201,277627,0.0-6.0-1.49,767,,y,response,key,y,16.55555556,500,400,Yellow,Yellow,TRUE,0,FALSE,Y,TRUE,767
+,,,,,,,,,,,html-keyboard-response,202,278129,0.0-6.0-2.49,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,203,278631,0.0-6.0-0.50,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,204,280142,0.0-6.0-1.50,1006,,g,response,key,g,16.66101695,500,400,Green,Yellow,FALSE,0,FALSE,G,TRUE,1006
+,,,,,,,,,,,html-keyboard-response,205,280644,0.0-6.0-2.50,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,206,281146,0.0-6.0-0.51,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,207,282478,0.0-6.0-1.51,820,,g,response,key,g,16.45833333,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,820
+,,,,,,,,,,,html-keyboard-response,208,282980,0.0-6.0-2.51,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,209,283482,0.0-6.0-0.52,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,210,285484,0.0-6.0-1.52,1497,,r,response,key,r,16.65909091,500,400,Red,Yellow,FALSE,200,TRUE,R,TRUE,1297
+,,,,,,,,,,,html-keyboard-response,211,285986,0.0-6.0-2.52,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,212,286487,0.0-6.0-0.53,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,213,288586,0.0-6.0-1.53,1593,,g,response,key,g,16.57894737,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,1393
+,,,,,,,,,,,html-keyboard-response,214,289088,0.0-6.0-2.53,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,215,289589,0.0-6.0-0.54,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,216,291497,0.0-6.0-1.54,1404,,g,response,key,g,16.68292683,500,400,Green,Green,TRUE,200,TRUE,G,TRUE,1204
+,,,,,,,,,,,html-keyboard-response,217,291998,0.0-6.0-2.54,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,218,292500,0.0-6.0-0.55,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,219,294161,0.0-6.0-1.55,1155,,b,response,key,b,16.64705882,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,955
+,,,,,,,,,,,html-keyboard-response,220,294662,0.0-6.0-2.55,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,221,295164,0.0-6.0-0.56,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,222,296695,0.0-6.0-1.56,1022,,r,response,key,r,16.66666667,500,400,Red,Yellow,FALSE,200,TRUE,R,TRUE,822
+,,,,,,,,,,,html-keyboard-response,223,297197,0.0-6.0-2.56,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,224,297698,0.0-6.0-0.57,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,225,299643,0.0-6.0-1.57,1440,,g,response,key,g,16.65882353,500,400,Green,Red,FALSE,200,TRUE,G,TRUE,1240
+,,,,,,,,,,,html-keyboard-response,226,300146,0.0-6.0-2.57,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,227,300647,0.0-6.0-0.58,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,228,302383,0.0-6.0-1.58,1230,,y,response,key,y,16.56164384,500,400,Yellow,Red,FALSE,0,FALSE,Y,TRUE,1230
+,,,,,,,,,,,html-keyboard-response,229,302885,0.0-6.0-2.58,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,230,303386,0.0-6.0-0.59,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,231,304746,0.0-6.0-1.59,856,,y,response,key,y,16.66,500,400,Yellow,Yellow,TRUE,200,TRUE,Y,TRUE,656
+,,,,,,,,,,,html-keyboard-response,232,305248,0.0-6.0-2.59,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,233,305750,0.0-6.0-0.60,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,234,307414,0.0-6.0-1.60,1159,,y,response,key,y,16.57352941,500,400,Yellow,Red,FALSE,200,TRUE,Y,TRUE,959
+,,,,,,,,,,,html-keyboard-response,235,307915,0.0-6.0-2.60,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,236,308417,0.0-6.0-0.61,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,237,309794,0.0-6.0-1.61,870,,r,response,key,r,16.66,500,400,Red,Red,TRUE,0,FALSE,R,TRUE,870
+,,,,,,,,,,,html-keyboard-response,238,310297,0.0-6.0-2.61,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,239,310799,0.0-6.0-0.62,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,240,312436,0.0-6.0-1.62,1131,,g,response,key,g,16.58208955,500,400,Green,Blue,FALSE,0,FALSE,G,TRUE,1131
+,,,,,,,,,,,html-keyboard-response,241,312938,0.0-6.0-2.62,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,242,313439,0.0-6.0-0.63,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,243,315967,0.0-6.0-1.63,2023,,r,response,key,r,16.65833333,500,400,Red,Red,TRUE,200,TRUE,R,TRUE,1823
+,,,,,,,,,,,html-keyboard-response,244,316469,0.0-6.0-2.63,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,245,316970,0.0-6.0-0.64,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,246,318469,0.0-6.0-1.64,994,,y,response,key,y,16.53448276,500,400,Yellow,Yellow,TRUE,200,TRUE,Y,TRUE,794
+,,,,,,,,,,,html-keyboard-response,247,318971,0.0-6.0-2.64,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,248,319472,0.0-6.0-0.65,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,249,321024,0.0-6.0-1.65,1042,,g,response,key,g,16.6557377,500,400,Green,Green,TRUE,0,FALSE,G,TRUE,1042
+,,,,,,,,,,,html-keyboard-response,250,321527,0.0-6.0-2.65,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,251,322028,0.0-6.0-0.66,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,252,323775,0.0-6.0-1.66,1241,,b,response,key,b,16.61643836,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,1041
+,,,,,,,,,,,html-keyboard-response,253,324277,0.0-6.0-2.66,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,254,324778,0.0-6.0-0.67,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,255,326508,0.0-6.0-1.67,1224,,b,response,key,b,16.66666667,500,400,Blue,Red,FALSE,0,FALSE,B,TRUE,1224
+,,,,,,,,,,,html-keyboard-response,256,327010,0.0-6.0-2.67,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,257,327512,0.0-6.0-0.68,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,258,329117,0.0-6.0-1.68,1099,,y,response,key,y,16.56923077,500,400,Yellow,Blue,FALSE,0,FALSE,Y,TRUE,1099
+,,,,,,,,,,,html-keyboard-response,259,329619,0.0-6.0-2.68,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,260,330121,0.0-6.0-0.69,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,261,331593,0.0-6.0-1.69,968,,r,response,key,r,16.66071429,500,400,Red,Red,TRUE,0,FALSE,R,TRUE,968
+,,,,,,,,,,,html-keyboard-response,262,332095,0.0-6.0-2.69,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,263,332598,0.0-6.0-0.70,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,264,333888,0.0-6.0-1.70,780,,y,response,key,y,16.67391304,500,400,Yellow,Yellow,TRUE,0,FALSE,Y,TRUE,780
+,,,,,,,,,,,html-keyboard-response,265,334389,0.0-6.0-2.70,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,266,334892,0.0-6.0-0.71,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,267,336513,0.0-6.0-1.71,1116,,y,response,key,y,16.66153846,500,400,Yellow,Green,FALSE,200,TRUE,Y,TRUE,916
+,,,,,,,,,,,html-keyboard-response,268,337015,0.0-6.0-2.71,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,269,337517,0.0-6.0-0.72,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,270,339383,0.0-6.0-1.72,1361,,r,response,key,r,16.58024691,500,400,Red,Blue,FALSE,200,TRUE,R,TRUE,1161
+,,,,,,,,,,,html-keyboard-response,271,339884,0.0-6.0-2.72,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,272,340386,0.0-6.0-0.73,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,273,342452,0.0-6.0-1.73,1561,,y,response,key,y,16.66304348,500,400,Yellow,Green,FALSE,0,FALSE,Y,TRUE,1561
+,,,,,,,,,,,html-keyboard-response,274,342953,0.0-6.0-2.73,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,275,343455,0.0-6.0-0.74,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,276,345264,0.0-6.0-1.74,1304,,b,response,key,b,16.64935065,500,400,Blue,Blue,TRUE,200,TRUE,B,TRUE,1104
+,,,,,,,,,,,html-keyboard-response,277,345766,0.0-6.0-2.74,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,278,346267,0.0-6.0-0.75,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,279,349192,0.0-6.0-1.75,2414,,b,response,key,b,16.62937063,500,400,Blue,Green,FALSE,0,FALSE,B,TRUE,2414
+,,,,,,,,,,,html-keyboard-response,280,349693,0.0-6.0-2.75,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,281,350195,0.0-6.0-0.76,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,282,351924,0.0-6.0-1.76,1224,,y,response,key,y,16.66666667,500,400,Yellow,Blue,FALSE,200,TRUE,Y,TRUE,1024
+,,,,,,,,,,,html-keyboard-response,283,352426,0.0-6.0-2.76,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,284,352928,0.0-6.0-0.77,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,285,354455,0.0-6.0-1.77,1023,,y,response,key,y,16.56666667,500,400,Yellow,Green,FALSE,200,TRUE,Y,TRUE,823
+,,,,,,,,,,,html-keyboard-response,286,354956,0.0-6.0-2.77,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,287,355458,0.0-6.0-0.78,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,288,357132,0.0-6.0-1.78,1169,,r,response,key,r,16.66666667,500,400,Red,Yellow,FALSE,0,FALSE,R,TRUE,1169
+,,,,,,,,,,,html-keyboard-response,289,357633,0.0-6.0-2.78,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
+,,,,,,,,,,,html-keyboard-response,290,358135,0.0-6.0-0.79,null,"<div style=""font-size:60px;"">+</div>",null,fixation,,,,,,,,,,,,,
+,,,,,,,,,,,psychophysics,291,359725,0.0-6.0-1.79,1085,,b,response,key,b,16.578125,500,400,Blue,Blue,TRUE,0,FALSE,B,TRUE,1085
+,,,,,,,,,,,html-keyboard-response,292,360227,0.0-6.0-2.79,null,"<p style=""font-size:60pt"">Correct</p>",null,,,,,,,,,,,,,,
