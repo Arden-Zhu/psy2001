@@ -18,7 +18,7 @@ execute:
 
 -   I watched the video about Instance Theory and Minerva II on [professor Matthew Crump's blog](https://www.crumplab.com/cognition/articles/modules/L11_Instance_Theory.html).
 
-# Created a paradox 
+# Created a paradox
 
 ![instance 1](instance_1.png)
 
@@ -30,4 +30,4 @@ I wrote a piece of code to search the whole 8 \* 5 matrix space looking for inst
 
 ![instance 2](instance_2.png)
 
-It may suggest that a memory item can be blurred by exposing the participant under some specific stimuli.
+It may suggest that a memory item can be blurred by exposing the participant under some specific stimuli. Additionally, it may also imply that memory is difficult to be eliminated because 0.652 is almost the lowest value of Cue-Echo correlation in the 8 \* 5 space.
