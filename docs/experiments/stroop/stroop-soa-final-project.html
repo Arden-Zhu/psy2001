@@ -4,10 +4,12 @@
     <title>Interactive Stroop Test with Stimulus Onset Asynchrony</title>
     <script src="../../dist/jspsych/jspsych.js"></script>
     <script src="../../dist/jspsych/plugin-html-keyboard-response.js"></script>
+	<script src="../../dist/jspsych/plugin-html-button-response.js"></script>
     <!--script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script-->
     <script src="../../dist/jspsych/plugin-survey.js"></script>
     <script src="../../dist/jspsych/plugin-browser-check.js"></script>
     <script src="../../dist/jspsych-psychophysics.js"></script>
+
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
 
     <link href="../../dist/jspsych/jspsych.css" rel="stylesheet" type="text/css" />
@@ -34,10 +36,10 @@
     /* parameters */
     var trials_per_group = 20;
   	var colors = [
-  		{ color: "Blue", key: "B" },
-  		{ color: "Red", key: "R" },
-  		{ color: "Green", key: "G" },
-  		{ color: "Yellow", key: "Y" },
+  		{ color: "Blue", key: "B", colorCode: "blue" },
+  		{ color: "Red", key: "R", colorCode: "red" },
+  		{ color: "Green", key: "G", colorCode: "green" },
+  		{ color: "Yellow", key: "Y", colorCode: "#ffdf00" },
   	];
   	var stimulus_durations = [0, 200];
   	var data_pipe_experiement_id = '478JTfm2S8zr';
@@ -92,6 +94,13 @@
             required: true,
           },
           {
+            type: 'multi-choice',
+            prompt: "What's your ethnicity?", 
+            name: 'ethnicity', 
+            options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian', 'Other'],
+            required: true,
+          },
+          {
             type: 'text',
             input_type: 'number',
             prompt: "What's your age?", 
@@ -99,12 +108,12 @@
             required: true,
           },		  
           {
-            type: 'multi-choice',
-            prompt: "What's your ethnicity?", 
-            name: 'ethnicity', 
-            options: ['Black/African American', 'Hispanic', 'White', 'Native American', 'Asian', 'Other'],
+            type: 'text',
+            input_type: 'number',
+            prompt: "How many hours approximately do you use a keyboard on a laptop or computer per week?", 
+            name: 'age', 
             required: true,
-          },
+          },		  
           {
             type: 'text',
             input_type: 'email',
@@ -121,31 +130,30 @@
     var colorSpan = "";
     var colorLi = "";
     for (let c of colors) {
-      colorSpan += ` <span style="color:${c.color}">${c.color}</span>,`;
-      colorSpan = colorSpan.substring(0, colorSpan.length -1 );
-      colorLi += `<li style="color:${c.color}">${c.color} - key ${c.key}</li>`;
+      colorSpan += ` <span style="color:${c.colorCode}">${c.color}</span>,`;
+      colorLi += `<li style="color:${c.colorCode}">${c.color} - key ${c.key}</li>`;
     }
+    colorSpan = colorSpan.substring(0, colorSpan.length -1 );
+	
     const tips = `<p>Here is a tip, you can place your figures on the keys to have a better performance.</p>
 			<p>For instance, left middle figure on R; left index figure on B; right index figure on G; and right middle figure on Y</p>`
 
     var instructions = {
-      type: jsPsychHtmlKeyboardResponse,
+      type: jsPsychHtmlButtonResponse,
       stimulus: `
 		<div style="width:800px">
 			<p>You will see text randomly in one of the four colors, ${colorSpan}.</p>
-      <p>Your task to to press a key designated to the color stimulus as soon as possible.</p>
+      <p>Your task to to press a key designated to the color stimulus as soon as possible, no matter there is a blink of color or not.</p>
       <p>Here is a list of the colors with associated keys.</p>
 			<ul style="list-style-type:none">
 			  ${colorLi}
 			</ul>
 			<p>For example, you should press ${colors[0].key} when seeing a stimulus of color <span style="color:${colors[0].color}">${colors[0].color}</span>, even if it is presented with another word like <span style="color:${colors[0].color}">${colors[1].color}</span>.</p>
-			${tips}
-			<p>The experiment will start with a practice for you to become familiar with the task.</p>
-			<p>Then a test will start.</p>
-			</p></p>	  
-			<p>Press any key to begin the practice.</p>
+			<div style="display:none">${tips}</div>
+			<p>The experiment will start with a practice for you to become familiar with the task, then a test will start.</p>
 		</div>
-      `
+      `,
+	  choices: ['Continue'],
     };
 
   // test stimulus
@@ -185,7 +193,7 @@
     font: font_hint,
     text_color: 'black',
     origin_center : true,
-    startY: 300,
+    startY: 200,
     show_start_time: jsPsych.timelineVariable('stimulus_duration'),
   }
 
@@ -242,7 +250,7 @@
     stimuli: [stimulus_color, stimulus_bg, stimulus_text, stimulus_hint],
     choices: [jsPsych.timelineVariable('key')],
     canvas_width: 1000,
-    canvas_height: 800,
+    canvas_height: 500,
     background_color: 'white', 
     data: {
       task: 'practise',
@@ -332,7 +340,7 @@
     stimuli: [stimulus_color, stimulus_bg, stimulus_text],
     choices: choices,
     canvas_width: 1000,
-    canvas_height: 800,
+    canvas_height: 500,
     background_color: 'white', 
     data: {
       task: 'response',
