@@ -1,0 +1,131 @@
+
+
+355 499
+
+x: 250, 460
+y: 400, 600
+
+
+
+23:26
+
+
+313
+
+
+
+335.546
+
+676.2
+8.0M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iron 
+	5% 156 235.400
+
+Stone 
+	(10%) 29  383.504  mine
+	(5%) 136  473.432
+
+Wood -- 5% wood production bonus
+	(10%) 89 443.504	
+	(5%) 102 330.401
+	(5%) 117 309.392
+	(10%) 133 277.392
+
+Wool - decreases army upkeep by 
+	(-5%) 131  247.425
+	(-10%) 95  267.464  barbarian 11
+	(-5%)  89  431.544
+
+Horses -- decreases army movement time, while on a mission, by %
+	(-5%) 116 240.512
+	(-5%)  63 359.561  
+	(-5%) 102 430.568
+	
+Cotton -- decreases army upkeep by 5%
+	(-5%) 53	   406.513
+	
+Clay -- 5% Houses capacity bonus
+	(5%)  142 248 592
+	(5%) 117 269.578
+    (10%) 109 251.529
+    (5%)  51 390.536
+	(10%) 99 450.472
+Rice -- 5% Farm effect bonus
+	(5%)  81 313.568
+	(5%)  59 383.448
+
+Wheat -- 5% Farm effect bonus
+	(5%) 84 277.529
+
+Gold -- 5% bonus to the generated gold of the exacted tax level
+	(5%) 113 260.560
+
+Wine -- 5 points Happiness bonus in all Empire’s territories
+	(5) 121	   290.600
+	
+Gems -- 10 points Happiness bonus in all Empire’s territories 
+	(10) 52 335.546 mine
+
+Ivory -- increases the Happiness maximum level by 5 in all Empire’s territories.
+	(5) 41  320.479
+
+Coffee -- 5% Trade potential bonus
+	(5%) 142	   462.592
+	(5%) 103	   397.592
+	(5%) 113	   418.592
+
+Silver -- 10% governor´s generated experience bonus
+	(10%) 75  286.472
+Bronze -- 10% general´s generated experience bonus
+	(10%) 79  415.448
+
+Elixirs -- increases the chance of your general´s survival by %, increases the chance of enemy general´s death by %
+	(10%)  37  364.464
+
+Infusions -- increases the chance of your general´s survival by 5%	increases the chance of enemy general´s death by 5%
+	(5%) 106	   329.601
+	
+Granite -- 10% Fortress hit points bonus
+	(5%) 72  300.545
+	
+Coal -- 5% Infantry (swordsmen and spearmen) attack bonus
+	(10%) 69 328.436
+	(5%)  86 368.414  
+	
+Yew -- 5% Range attack bonus
+	(10%) 61	   410.473
+	(5%) 113	   385.391	
+Horseshoe -- 5% bonus to Attack of all Cavalry
+	(5%) 126	   441.408
+
+Hemp -- decreases the construction time by 5%
+	(-5%) 111	   450.555
+
+
+
+_FAVELA., Trading post
+114	   logistics 30% 413.402
+
+
+
+
+hap: 0,00025 * distance * distance - 0,23 * distance -13
