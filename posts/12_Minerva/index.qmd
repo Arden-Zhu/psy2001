@@ -29,6 +29,7 @@ You will need to install the following libraries:
 install.packages('devtools')
 devtools::install_github("CrumpLab/RsemanticLibrarian")
 install.packages('lsa')
+install.packages('tidyverse')
 ```
 
 ## Basic MINERVA II model
