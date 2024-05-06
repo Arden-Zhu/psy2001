@@ -1,0 +1,268 @@
+---
+title: "Design algorithms"
+author: "Matt Crump"
+description: "Algorithms for use in the present design."
+date: 2/28/24
+execute: 
+  eval: false
+---
+
+```{r}
+# make everything reproducible with this seed
+set.seed(24601)
+```
+
+## Frequency vectors with systematically varied entropy
+
+The purpose of this code is to create frequency vectors with systematically varied frequencies, from equal frequency to maximally unequal frequency.
+
+```{r, eval=FALSE}
+library(dplyr)
+library(glue)
+
+# rich to poor
+cells <- 8 # number of unique items
+total_sum <- 64 # total number of occurrences across items
+all_elements <- 1:cells # cell ids
+
+# the most equal vector
+equal_vector <- rep(total_sum/cells,cells)
+
+# the most unequal vector
+un_equal_vector <- c(rep(1,(cells-1)),total_sum-(cells-1))
+
+# empty matrix to collect combinations of frequency vectors
+frequency_matrix <- matrix(0,ncol=cells,nrow=500)
+
+# start with the most unequal vector
+frequency_matrix[1,] <- un_equal_vector
+
+# run a loop
+# take from the max and give to the min
+# stop when the new vector =  equal_vector
+for(i in 2:500){
+  
+  # if the last vector is the equal_vector break
+  if(sum(frequency_matrix[i-1, ] == equal_vector) == cells){
+    frequency_matrix <- frequency_matrix[1:(i-1),]
+    break
+  }
+  
+  # get the last vector
+  last_vector <- frequency_matrix[i-1,]
+  
+  # choose a max cell to take away
+  max_id <- which(last_vector == max(last_vector))
+  if(length(max_id) > 1) max_id <- sample(max_id,1)
+  
+  # choose a cell to add
+  possible_add <- which(last_vector != last_vector[max_id])
+  if(length(possible_add) > 1 ) choose_add <- sample(possible_add,1)
+  if(length(possible_add) == 1 ) choose_add <- possible_add
+  
+  # create modified vector
+  redistribute <- frequency_matrix[i-1,]
+  redistribute[max_id] <- redistribute[max_id] - 1 
+  redistribute[choose_add] <- redistribute[choose_add] + 1 
+  
+  # assign to frequency matrix
+  frequency_matrix[i,] <- redistribute
+
+}
+
+# function to calculate Shannon entropy in bits
+entropy <- function(x){
+  -1*sum(x*log2(x))
+}
+
+# remove any duplicate rows in frequency matrix
+sort_frequency <- t(apply(frequency_matrix, 1, sort))
+unique_rows <- duplicated(sort_frequency) == FALSE
+unique_frequency <- sort_frequency[unique_rows,]
+
+# convert rows to probability vectors
+prob_matrix <- unique_frequency/rowSums(unique_frequency)
+
+# calculate bits for each row
+bits <- apply(prob_matrix,1,entropy)
+
+# find equal intervals in bits
+num_intervals <- 11
+equal_interval_bits <- seq(min(bits),max(bits),
+                           by = ((max(bits) - min(bits))/num_intervals))
+
+# make a tibble with frequency vectors at equal intervals across bit range
+interval_bits <- tibble::tibble(equal_intervals = equal_interval_bits,
+                                id = 1:length(equal_interval_bits),
+                                closest = 0 ) %>%
+  rowwise %>%
+  mutate(closest = which.min(abs(bits - equal_interval_bits[id]))) %>%
+  mutate(bits = bits[closest]) %>%
+  mutate(frequency_vector = list(unique_frequency[closest,]))
+
+```
+
+
+```{r}
+generate_ordered_permutations <- function(length = 8){
+  sapply(1:length, function(x) rep(1:length,2)[x:(x+(length-1))] )
+}
+```
+
+
+## Generating midi files from frequency vectors
+
+```{r, eval=FALSE}
+library(midiblender)
+library(pyramidi)
+
+stimlist <- data.frame()
+
+# note parameters
+bars <- 4
+possible_time_steps <- 16
+note_duration <- 24
+possible_notes <- c(60, 63, 65, 66, 67, 70, 72, 75)
+
+# order to assign biased frequencies
+permutation_matrix <- generate_ordered_permutations(length(possible_notes))
+
+total_notes <- 8
+total_beats <- bars*possible_time_steps
+
+for(t in 1:dim(interval_bits)[1]) {
+  for (n in 1:length(possible_notes)) {
+    
+    compose_notes <- tibble::tibble(
+      note_id = integer(),
+      note = integer(),
+      beat_on = integer(),
+      note_on = integer(),
+      note_off = integer()
+    ) %>%
+      # 1 beat every time_step
+      rowwise() %>%
+      add_row(beat_on = 1,
+              note = sample(rep(possible_notes,times=interval_bits$frequency_vector[[t]][permutation_matrix[n,]]))
+              )%>%
+      ungroup() %>%
+      # handle note times
+      mutate(
+        note_id = 1:n(),
+        note_on = (1:n() - 1) * note_duration,
+        note_off = note_on + note_duration
+      ) %>%
+      filter(beat_on == 1) %>%
+      #pivot to long
+      tidyr::pivot_longer(c("note_on", "note_off"),
+                          names_to = "type",
+                          values_to = "time") %>%
+      mutate(time = time - lag(time, default = 0))
+    
+    ## add to a new midi df
+    new_midi_df <- create_empty_midi_df() %>% # initialize
+      add_meta_track_name(name = "My track") %>%
+      add_meta_tempo(tempo = 500000) %>%
+      add_meta_time_sig(
+        numerator = 4,
+        denominator = 4,
+        clocks_per_click = 36,
+        notated_32nd_notes_per_beat = 8
+      ) %>%
+      add_program_change(program = 0,
+                         channel = 0) %>%
+      add_control_change(control = 0, value = 0) %>%
+      #use dplyr::add_row to add a bunch of notes
+      add_row(
+        i_track = rep(0, dim(compose_notes)[1]),
+        meta = rep(FALSE, dim(compose_notes)[1]),
+        note = compose_notes$note,
+        type = compose_notes$type,
+        time = compose_notes$time,
+        velocity = 120
+      ) %>%
+      add_meta_end_of_track()
+    
+    #write midi
+    #Initialize new pyramidi object
+    new_pyramidi_object <- pyramidi::MidiFramer$new()
+    # update ticks per beat
+    new_pyramidi_object$ticks_per_beat <- 96L
+    # update object with new midi df
+    new_pyramidi_object$mf$midi_frame_unnested$update_unnested_mf(new_midi_df)
+    # write to midi file
+    file_string <- glue::glue("midi/freq_vec_{t}_{n}.mid")
+    new_pyramidi_object$mf$write_file(file_string)
+    
+    new_df <- interval_bits[t, ] %>%
+      mutate(stimulus = file_string,
+             possible_notes = list(possible_notes),
+             frequency_vector = list(interval_bits$frequency_vector[[t]][permutation_matrix[n,]]))
+    
+    stimlist <- rbind(stimlist,new_df)
+  }
+}
+
+```
+
+## to js
+
+```{r}
+stimlist <- stimlist %>%
+  rowwise() %>%
+  mutate(stimulus = gsub("midi","mp3s", stimulus)) %>%
+  mutate(stimulus = gsub("mid","mp3",stimulus))
+
+json_stimlist <- jsonlite::toJSON(stimlist)
+#cat(json_stimlist)
+
+fileConn <-file("stimlist.js")
+writeLines(paste("stimlist = ",json_stimlist,";"), fileConn)
+close(fileConn)
+```
+
+## to mp3
+
+```{r}
+library(fluidsynth)
+
+# get midi file_names
+midi_files <- list.files("midi",include.dirs = T)
+
+#write to mp3
+for(i in midi_files){
+  print(i)
+  fluidsynth::midi_convert(paste0("midi/",i),
+                           output = paste0("mp3s/",gsub("mid","mp3",i)),
+                           verbose = F)
+}
+
+```
+
+## crop to 8 seconds
+
+```{r}
+library(av)
+
+# get midi file_names
+mp3_files <- list.files("mp3s",include.dirs = T)
+
+#crop to 8 seconds
+for(i in mp3_files){
+  print(i)
+  av::av_audio_convert(paste0("mp3s/",i),paste0("cropped_mp3s/",i),total_time = 8)
+}
+
+#delete mp3s folder to clean up
+unlink("mp3s",recursive = T)
+
+# rename folder
+file.rename("cropped_mp3s","mp3s")
+
+```
+
+```{r, eval=FALSE}
+save.image("stimgen-2-28-24.RData")
+```
+
+

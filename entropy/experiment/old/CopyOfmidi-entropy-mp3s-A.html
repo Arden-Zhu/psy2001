@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+
+    <!--
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-button-response@1.1.2"></script>
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="jatos.js"></script>
+    <script src="stimuli.js"></script>
+    -->
+
+    <script src="jatos.js"></script>
+    <script src="stimlist.js"></script>
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-html-button-response.js"></script>
+    <script src="jspsych/dist/plugin-audio-button-response.js"></script>
+    <script src="jspsych/dist/plugin-survey-multi-select.js"></script>
+    <script src="jspsych/dist/plugin-preload.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+<style>
+
+  .chord-stimulus {
+    font-size: 500%;
+  }
+
+</style>
+
+  </head>
+  <body></body>
+
+
+  <script type="text/javascript">
+    // jatos parameters
+    // check for sona
+
+    var run_simulation = false;
+    var run_jatos = true;
+    var participant_type = "NA";
+
+    if(run_jatos === true){
+      jatos.onLoad(function() {
+
+        /* check for SONA system participant */
+        if (window.jatos && jatos.urlQueryParameters.SONA_ID) {
+            console.log('Sona information is available');
+            sona_participant_id = jatos.urlQueryParameters.SONA_ID;
+            jsPsych.data.addProperties({ID: sona_participant_id});
+            participant_type = "SONA";
+        } else {
+            console.log('Sona information is not available (setting value to -1)');
+            sona_participant_id = -1;
+        }
+        console.log('sona_participant_id = ' + sona_participant_id);
+
+      });
+    }
+
+    // initialize JsPsych
+
+    const jsPsych = initJsPsych({
+      show_progress_bar: true,
+      on_finish: () => {
+
+        if (run_jatos === true){
+          var resultJson = jsPsych.data.get().json();
+          jatos.submitResultData(resultJson, jatos.startNextComponent);
+
+        } else {
+
+        jsPsych.data.displayData();
+        }
+      }
+    });
+</script>
+
+
+
+  <script>
+
+
+  var rand_subject_id = jsPsych.randomization.randomID(16);
+
+  jsPsych.data.addProperties({ID: rand_subject_id});
+
+  var timeline = [];
+
+   var welcome = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: "Welcome to the experiment.",
+    choices: ['Continue']
+  };
+
+  var instructions_1 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <h1> Instructions </h1>
+    <p> In this task you will listen to short audio sequences. </p>
+    <p> Your task is to make judgments about how often some notes occur relative to others</p>
+    <p> All of the sequences have 8 possible notes, and they range in how equally the notes are played in the sequence.</p>
+    <p> Press continue for examples </p>
+    `,
+    choices: ['Continue'],
+    post_trial_gap: 500
+  }
+
+  var instructions_2 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <h1>Example: Unequal note sequences </h1>
+    <p> This is an example of a very unequal sequence </p>
+    <p> One of the eight notes is played almost all of the time.</p>
+    <p> The other notes are played only once each.</p>
+    <p> Press continue to listen to the example </p>
+    `,
+    choices: ['Continue'],
+    post_trial_gap: 500
+  }
+
+  var instructions_3 = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: 'mp3s/freq_vec_1_1.mp3',
+    prompt: `
+    <h1>Example: Unequal note sequence </h1>
+    <p> As the sequence plays notice that note occurrence is very unequal. </p>
+    <p> One note occurs many times, and the others occur few times. </p>
+    <p> In the main task you will be asked to judge whether the sequence is: </p>
+    <p> "less equal" or "more equal" </p>
+    <p> The correct answer for this sequence is ?</p>
+    `,
+    choices: ['less equal','more equal'],
+    post_trial_gap: 500
+  }
+
+    var instructions_4 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <h1>Example: Equal note sequence  </h1>
+    <p> This is an example of a completely equal sequence </p>
+    <p> Each of the notes are played the same number of times.</p>
+    <p> Press continue to listen to the example </p>
+    `,
+    choices: ['Continue'],
+    post_trial_gap: 500
+  }
+
+  var instructions_5 = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: 'mp3s/freq_vec_12_8.mp3',
+    prompt: `
+    <h1>Example: Equal note sequence </h1>
+    <p> As the sequence plays notice that the different notes occur equally often, and many times.</p>
+    <p> In the main task you will be asked to judge whether the sequence is: </p>
+    <p> "less equal" or "more equal" </p>
+    <p> The correct answer for this sequence is ?</p>
+    `,
+    choices: ['less equal','more equal'],
+    post_trial_gap: 500
+  }
+
+  var instructions_6 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <h1> Instructions </h1>
+    <p> On each trial you will listen to an auditory sequence </p>
+    <p> Some of the sequences have "more equal" notes, and some have "less equal" notes </p>
+    <p> On each trial you will be asked to judge whether the sequence is "more equal", or "less equal".</p>
+    <p> This task takes about 10-15 minutes </p>
+    <p> Press continue to begin when ready.</p>
+    `,
+    choices: ['Continue'],
+    post_trial_gap: 500
+  }
+
+  var fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p> </p>
+    `,
+    choices: "NO_KEYS",
+    trial_duration: 500
+  }
+
+  var midi_trial = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: jsPsych.timelineVariable('stimulus') ,
+    prompt: `
+    <p> Listen to the sequence, then make your judgment</p>
+    `,
+    choices: ['Less Equal','More Equal'],
+    data: {
+      task: 'judgment',
+      stim_id: jsPsych.timelineVariable('id'),
+      bits: jsPsych.timelineVariable('bits'),
+      frequency: jsPsych.timelineVariable('frequency_vector'),
+      possible_notes: jsPsych.timelineVariable('possible_notes'),
+      BPM: 120,
+      note_length: "16th notes"
+    }
+  };
+
+  var feedback = {
+  type: jsPsychHtmlKeyboardResponse,
+  trial_duration: 1000,
+  stimulus: function(){
+    var last_trial_bits = jsPsych.data.get().last(1).values()[0].bits;
+    return(`<p>${last_trial_bits}</p>`)
+    }
+  }
+
+  var midi_procedure = {
+    timeline: [fixation,midi_trial],
+    timeline_variables: stimlist,
+    randomize_order: true
+  }
+
+
+  timeline.push(welcome);
+  timeline.push(instructions_1);
+  timeline.push(instructions_2);
+  timeline.push(instructions_3);
+  timeline.push(instructions_4);
+  timeline.push(instructions_5);
+  timeline.push(instructions_6);
+  timeline.push(midi_procedure);
+
+
+  //jsPsych.run(timeline);
+
+    /* start the experiment */
+    if(run_jatos === true){
+      jatos.onLoad(() => {
+      jatos.addAbortButton();
+
+      // add debrief after participant is defined
+      if( participant_type === "SONA"){
+       // timeline.push(debrief_sona);
+      }
+      if( participant_type === "mturk"){
+      //  timeline.push(debrief_mturk);
+      }
+
+      if( run_simulation === true){
+       jsPsych.simulate(timeline, "data-only");
+      }
+
+      if( run_simulation === false){
+       jsPsych.run(timeline);
+      }
+    })
+
+    } else {
+      jsPsych.run(timeline);
+    }
+
+
+  </script>
+</html>

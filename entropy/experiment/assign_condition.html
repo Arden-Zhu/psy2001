@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="jatos.js"></script>
+</head>
+
+<body>
+	<p>Loading</p>
+</body>
+
+<script>
+	jatos.onLoad(function () {
+		AssignRandCondition();
+		jatos.addAbortButton();
+	});
+
+
+	function AssignRandCondition() {
+
+	  var get_current_counter = jatos.batchSession.get("counter");
+
+	  var nextCondition = get_current_counter+1;
+	  if (nextCondition > 2){
+	    nextCondition = 1;
+	  }
+
+		var nextComponentPosition;
+		switch (nextCondition) {
+			case 1:
+				nextComponentPosition = 2;
+				break;
+			case 2:
+				nextComponentPosition = 3;
+				break;
+		}
+
+		jatos.batchSession.set("counter", nextCondition);
+
+		var resultData = nextCondition;
+		jatos.submitResultData(resultData, function () {
+			jatos.startComponentByPos(nextComponentPosition);
+		});
+	}
+
+</script>
+
+</html>

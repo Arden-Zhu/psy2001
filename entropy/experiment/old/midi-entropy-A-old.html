@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+
+    <!--
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-button-response@1.1.2"></script>
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="jatos.js"></script>
+    <script src="stimuli.js"></script>
+    -->
+
+    <script src="jatos.js"></script>
+    <script src="stimlist.js"></script>
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-html-button-response.js"></script>
+    <script src="jspsych/dist/plugin-survey-multi-select.js"></script>
+    <script src="jspsych/dist/plugin-preload.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+<style>
+
+  .chord-stimulus {
+    font-size: 500%;
+  }
+
+</style>
+
+  </head>
+  <body></body>
+
+
+  <script type="text/javascript">
+    // jatos parameters
+    // check for sona
+
+    var run_simulation = false;
+    var run_jatos = true;
+    var participant_type = "NA";
+
+    if(run_jatos === true){
+      jatos.onLoad(function() {
+
+        /* check for SONA system participant */
+        if (window.jatos && jatos.urlQueryParameters.SONA_ID) {
+            console.log('Sona information is available');
+            sona_participant_id = jatos.urlQueryParameters.SONA_ID;
+            jsPsych.data.addProperties({ID: sona_participant_id});
+            participant_type = "SONA";
+        } else {
+            console.log('Sona information is not available (setting value to -1)');
+            sona_participant_id = -1;
+        }
+        console.log('sona_participant_id = ' + sona_participant_id);
+
+      });
+    }
+
+    // initialize JsPsych
+
+    const jsPsych = initJsPsych({
+      show_progress_bar: true,
+      on_finish: () => {
+
+        if (run_jatos === true){
+          var resultJson = jsPsych.data.get().json();
+          jatos.submitResultData(resultJson, jatos.startNextComponent);
+
+        } else {
+
+        jsPsych.data.displayData();
+        }
+      }
+    });
+</script>
+
+
+
+  <script>
+
+
+  var rand_subject_id = jsPsych.randomization.randomID(16);
+
+  jsPsych.data.addProperties({ID: rand_subject_id});
+
+  var timeline = [];
+
+   var welcome = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: "Welcome to th experiment.",
+    choices: ['Continue']
+  };
+
+  var instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <h1> Instructions </h1>
+    <p> In this task you will listen to short audio sequences. </p>
+    <p> Your task is to make a judgment of randomness</p>
+    <p> Some of the sequences are more random, and some of the sequences are more predictable. </p>
+    <p> Listen to each sequence and then decide if you think it is more random or more predictable. </p>
+    `,
+    choices: ['Continue'],
+    post_trial_gap: 2000
+  }
+
+  var fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p> </p>
+    `,
+    choices: "NO_KEYS",
+    trial_duration: 500
+  }
+
+  var midi_trial = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function() {
+      console.log(jsPsych.timelineVariable('bits'));
+    return(`
+    <p> Press play when ready </p>
+    <midi-player src=" ${jsPsych.timelineVariable('stimulus')} " sound-font>
+    </midi-player>
+    `)
+    },
+    choices: ['Less Random','More Random'],
+    data: {
+      task: 'judgment',
+      stim_id: jsPsych.timelineVariable('id'),
+      bits: jsPsych.timelineVariable('bits'),
+      frequency: jsPsych.timelineVariable('frequency_vector'),
+      possible_notes: jsPsych.timelineVariable('possible_notes'),
+      BPM: 120,
+      note_length: "16th notes"
+    }
+  };
+
+  var feedback = {
+  type: jsPsychHtmlKeyboardResponse,
+  trial_duration: 1000,
+  stimulus: function(){
+    var last_trial_bits = jsPsych.data.get().last(1).values()[0].bits;
+    return(`<p>${last_trial_bits}</p>`)
+  }
+}
+
+  var midi_procedure = {
+    timeline: [fixation,midi_trial, feedback],
+    timeline_variables: stimlist,
+    randomize_order: true
+  }
+
+
+  timeline.push(welcome);
+  timeline.push(instructions);
+  timeline.push(midi_procedure);
+
+
+  //jsPsych.run(timeline);
+
+    /* start the experiment */
+    if(run_jatos === true){
+      jatos.onLoad(() => {
+      jatos.addAbortButton();
+
+      // add debrief after participant is defined
+      if( participant_type === "SONA"){
+       // timeline.push(debrief_sona);
+      }
+      if( participant_type === "mturk"){
+      //  timeline.push(debrief_mturk);
+      }
+
+      if( run_simulation === true){
+       jsPsych.simulate(timeline, "data-only");
+      }
+
+      if( run_simulation === false){
+       jsPsych.run(timeline);
+      }
+    })
+
+    } else {
+      jsPsych.run(timeline);
+    }
+
+
+  </script>
+</html>
