@@ -187,7 +187,6 @@
       autofocus: 'test-resp-box',
       on_finish: function() {
         var resultJson = jsPsych.data.get().json();
-        jatos.submitResultData(resultJson);
         jsPsych.setProgressBar(0.08);
       }
     };
@@ -402,7 +401,6 @@
       cont_btn: "continue",
       on_start:  function() {
         var resultJson = jsPsych.data.get().json();
-        jatos.submitResultData(resultJson);
      }
     };
 
